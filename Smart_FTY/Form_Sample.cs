@@ -17,12 +17,6 @@ namespace Smart_FTY
             lblTitle.Text = "Month";
         }
 
-        
-
-        
-
-
-
 
         
     }
