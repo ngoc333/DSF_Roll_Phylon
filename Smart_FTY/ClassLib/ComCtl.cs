@@ -108,7 +108,7 @@ namespace Smart_FTY.ClassLib
         }
     }
 
-	public class ComCtl : COM.ComCtl
+	public class ComCtl 
 	{
 		public ComCtl()
 		{

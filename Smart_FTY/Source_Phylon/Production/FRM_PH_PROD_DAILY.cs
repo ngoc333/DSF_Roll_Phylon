@@ -344,7 +344,7 @@ namespace Smart_FTY
                 Pen pen_vertical = new Pen(Color.Blue, 4F);
                 Pen line = new Pen(Color.White, 3F);
                 bool boBorder = false;
-                string[] ls = e.Band.Caption.Split('\n');
+               // string[] ls = e.Band.Caption.Split('\n');
 
                 if (e.Band.HasChildren)
                 {
@@ -379,7 +379,7 @@ namespace Smart_FTY
                     e.Graphics.DrawLine(pen_horizental, rect.X + 1, rect.Y, rect.X + 1, rect.Y + rect.Height);
 
 
-                    e.Graphics.DrawString(ls[0], e.Appearance.GetFont(), new SolidBrush(e.Appearance.GetForeColor()), rect, e.Appearance.GetStringFormat());
+                 //   e.Graphics.DrawString(ls[0], e.Appearance.GetFont(), new SolidBrush(e.Appearance.GetForeColor()), rect, e.Appearance.GetStringFormat());
                     e.Handled = true;
                 }
             }
