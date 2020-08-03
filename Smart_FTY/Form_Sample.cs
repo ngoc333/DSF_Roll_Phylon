@@ -16,13 +16,7 @@ namespace Smart_FTY
             InitializeComponent();
             lblTitle.Text = "Month";
         }
-
-        
-
-        
-
-
-
+        //tesst
 
         
     }
