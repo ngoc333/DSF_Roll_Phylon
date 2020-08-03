@@ -27,6 +27,10 @@ namespace Smart_FTY
                 lblEVA_Click(null, null);
         }
 
+
+
+
+
         public static string _sProcess = "CMP";
         public int iCount = 0;
         bool _bLoad = true;
