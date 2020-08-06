@@ -54,6 +54,7 @@ namespace Smart_FTY
         public static FRM_SMT_ROLL_TOPO_DAILY _frmTOPO = new FRM_SMT_ROLL_TOPO_DAILY();
 
         public static FRM_ROLL_LEADTIME _frmLeadTime = new FRM_ROLL_LEADTIME();
+        public static FRM_ROLL_COLOR_INFO _frmColorInfo = new FRM_ROLL_COLOR_INFO();
 
 
 
@@ -770,6 +771,11 @@ namespace Smart_FTY
         private void btnTOPO_Click(object sender, EventArgs e)
         {
             _frmTOPO.Show();
+        }
+
+        private void simpleButton46_Click(object sender, EventArgs e)
+        {
+            _frmColorInfo.Show();
         }
 
         

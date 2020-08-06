@@ -289,7 +289,7 @@
             // 
             this.lblDate.Location = new System.Drawing.Point(1655, 0);
             this.lblDate.Size = new System.Drawing.Size(259, 106);
-            this.lblDate.Text = "2019-08-12\n07:48:20";
+            this.lblDate.Text = "2020-07-30\n11:58:39";
             // 
             // cmdYear
             // 
@@ -366,8 +366,8 @@
             this.backstageViewControl1.Location = new System.Drawing.Point(3, 26);
             this.backstageViewControl1.Name = "backstageViewControl1";
             this.backstageViewControl1.Office2013StyleOptions.AllowShowHideAnimation = false;
-            this.backstageViewControl1.SelectedTab = this.bstLine1_HR;
-            this.backstageViewControl1.SelectedTabIndex = 4;
+            this.backstageViewControl1.SelectedTab = this.bstLine1_Qual;
+            this.backstageViewControl1.SelectedTabIndex = 0;
             this.backstageViewControl1.Size = new System.Drawing.Size(639, 404);
             this.backstageViewControl1.TabIndex = 10;
             this.backstageViewControl1.Text = "backstageViewControl1";
@@ -401,13 +401,13 @@
             this.simpleButton46.AppearanceHovered.Options.UseFont = true;
             this.simpleButton46.AppearanceHovered.Options.UseForeColor = true;
             this.simpleButton46.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.simpleButton46.Location = new System.Drawing.Point(25, 90);
+            this.simpleButton46.Location = new System.Drawing.Point(33, 97);
             this.simpleButton46.Name = "simpleButton46";
-            this.simpleButton46.Size = new System.Drawing.Size(256, 76);
+            this.simpleButton46.Size = new System.Drawing.Size(245, 76);
             this.simpleButton46.TabIndex = 8;
             this.simpleButton46.Tag = "2";
-            this.simpleButton46.Text = "NPI";
-            this.simpleButton46.Visible = false;
+            this.simpleButton46.Text = "COLOR INFO";
+            this.simpleButton46.Click += new System.EventHandler(this.simpleButton46_Click);
             // 
             // cmdQuality1
             // 
@@ -865,6 +865,7 @@
             this.bstLine1_Qual.ContentControl = this.backstageViewClientControl3;
             this.bstLine1_Qual.Glyph = ((System.Drawing.Image)(resources.GetObject("bstLine1_Qual.Glyph")));
             this.bstLine1_Qual.Name = "bstLine1_Qual";
+            this.bstLine1_Qual.Selected = true;
             // 
             // bstLine1_Prod
             // 
@@ -946,7 +947,6 @@
             this.bstLine1_HR.ContentControl = this.backstageViewClientControl21;
             this.bstLine1_HR.Glyph = global::Smart_FTY.Properties.Resources.user_icon;
             this.bstLine1_HR.Name = "bstLine1_HR";
-            this.bstLine1_HR.Selected = true;
             // 
             // bstLine1_Inv
             // 
@@ -1118,9 +1118,9 @@
             // 
             // pnMenu
             // 
-            this.pnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pnMenu.Controls.Add(this.panel6);
             this.pnMenu.Controls.Add(this.panel5);
             this.pnMenu.Controls.Add(this.panel4);

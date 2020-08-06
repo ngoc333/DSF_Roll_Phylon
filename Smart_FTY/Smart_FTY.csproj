@@ -634,6 +634,12 @@
     <Compile Include="Source_Roll\Production\FRM_ROLL_TALLY_SHEET.designer.cs">
       <DependentUpon>FRM_ROLL_TALLY_SHEET.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source_Roll\Quality\FRM_ROLL_COLOR_INFO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source_Roll\Quality\FRM_ROLL_COLOR_INFO.designer.cs">
+      <DependentUpon>FRM_ROLL_COLOR_INFO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source_Roll\Quality\FRM_ROLL_SLABTEST_MONTH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -906,6 +912,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source_Roll\Production\FRM_ROLL_TALLY_SHEET.resx">
       <DependentUpon>FRM_ROLL_TALLY_SHEET.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source_Roll\Quality\FRM_ROLL_COLOR_INFO.resx">
+      <DependentUpon>FRM_ROLL_COLOR_INFO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source_Roll\Quality\FRM_ROLL_SLABTEST_MONTH.resx">
       <DependentUpon>FRM_ROLL_SLABTEST_MONTH.cs</DependentUpon>
