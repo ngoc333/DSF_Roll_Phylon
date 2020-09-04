@@ -38,7 +38,7 @@ namespace Smart_FTY
             innitColorArray();
           
             BindingData(currentPage);
-            lblPage.Text = currentPage.ToString() + " / " + iMaxPage.ToString();
+            lblPage.Text = "Page "+ currentPage.ToString() + " / " + iMaxPage.ToString();
         }
 
         public DataSet SELECT_ROLL_COLOR_INFO(string _code)
@@ -85,6 +85,8 @@ namespace Smart_FTY
         private void BindingData(int _page)
         {
             DataSet ds = SELECT_ROLL_COLOR_INFO((currentCode).ToString().PadLeft(2,'0'));
+            if (ds == null)
+                return;
             DataTable dt = ds.Tables[0];
             DataTable dt1 = ds.Tables[1];
             if (dt != null)
@@ -129,7 +131,21 @@ namespace Smart_FTY
             {
                 array[index - (_page -1 )*iTotal].Text = _dt.Rows[index]["COLOR_NAME"].ToString();
                 array[index - (_page - 1) * iTotal].Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (array[index - (_page - 1) * iTotal].HasChildren)
+                int iColorRed = 255, iColorGreen = 255, iColorBlue = 255;
+                int.TryParse(_dt.Rows[index]["COLOR_RED"].ToString(), out iColorRed );
+                int.TryParse(_dt.Rows[index]["COLOR_GREEN"].ToString(), out iColorGreen);
+                int.TryParse(_dt.Rows[index]["COLOR_BLUE"].ToString(), out iColorBlue);
+
+                int iTextColorRed = 0, iTextColorGreen = 0, iTextColorBlue = 0;
+                int.TryParse(_dt.Rows[index]["TEXT_COLOR_RED"].ToString(), out iTextColorRed);
+                int.TryParse(_dt.Rows[index]["TEXT_COLOR_GREEN"].ToString(), out iTextColorGreen);
+                int.TryParse(_dt.Rows[index]["TEXT_COLOR_BLUE"].ToString(), out iTextColorBlue);
+
+                array[index - (_page - 1) * iTotal].TextBackColor = Color.FromArgb(iColorRed, iColorGreen, iColorBlue);
+                array[index - (_page - 1) * iTotal].ForeColor = Color.FromArgb(iTextColorRed, iTextColorGreen, iTextColorBlue);
+
+
+                if (array[index - (_page - 1) * iTotal].HasChildren )
                 {
                     System.Windows.Forms.DataGridView grdiview = (System.Windows.Forms.DataGridView)array[index - (_page - 1) * iTotal].Controls[0];
                     
@@ -144,10 +160,12 @@ namespace Smart_FTY
                     {
                         grdiview.Rows[i].Cells[0].Value=tmpDT[i]["CHEMICAL_NAME"].ToString();
                         grdiview.Rows[i].Cells[1].Value = tmpDT[i]["WEIGHT"].ToString();
-                        //grdiview.Rows.Add(tmpDT[i]["CHEMICAL_NAME"].ToString(), tmpDT[i]["WEIGHT"].ToString());
+                        grdiview.Rows[i].Cells[0].Style.ForeColor = Color.Black;
+                        grdiview.Rows[i].Cells[1].Style.ForeColor = Color.Black;
+                       
                         
                     }
-                   // grdiview.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                   
                     grdiview.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                     grdiview.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     grdiview.Columns[0].Width = 155;
@@ -155,6 +173,8 @@ namespace Smart_FTY
                     grdiview.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     grdiview.AllowUserToAddRows = false;
                     grdiview.ScrollBars = ScrollBars.Vertical;
+                    grdiview.ClearSelection();
+                    grdiview.CurrentCell = null;
                 }
                 
             }
@@ -261,7 +281,7 @@ namespace Smart_FTY
             {
                 currentPage--;                
                 BindingData(currentPage);
-                lblPage.Text = currentPage.ToString() + " / " + iMaxPage.ToString();
+                lblPage.Text = "Page " + currentPage.ToString() + " / " + iMaxPage.ToString();
             }
         }
 
@@ -271,7 +291,7 @@ namespace Smart_FTY
             {
                 currentPage ++;                
                 BindingData(currentPage);
-                lblPage.Text = currentPage.ToString() + " / " + iMaxPage.ToString();
+                lblPage.Text = "Page " + currentPage.ToString() + " / " + iMaxPage.ToString();
             }
         }
 
@@ -280,10 +300,10 @@ namespace Smart_FTY
             if (currentCode > 0)
             {
                 currentCode--;
-                lblCode.Text = "C " + currentCode.ToString();
+                lblCode.Text = "Code " + currentCode.ToString();
                 currentPage = 1;                
                 BindingData(currentPage);
-                lblPage.Text = currentPage.ToString() + " / " + iMaxPage.ToString();
+                lblPage.Text =  "Page "+ currentPage.ToString() + " / " + iMaxPage.ToString();
             }
         }
 
@@ -292,11 +312,11 @@ namespace Smart_FTY
             if (currentCode < 10)
             {
                 currentCode++;
-                lblCode.Text = "C " + currentCode.ToString();
+                lblCode.Text = "Code " + currentCode.ToString();
                 currentPage = 1;
                 
                 BindingData(currentPage);
-                lblPage.Text = currentPage.ToString() + " / " + iMaxPage.ToString();
+                lblPage.Text =  "Page " + currentPage.ToString() + " / " + iMaxPage.ToString();
             }
         }
                 

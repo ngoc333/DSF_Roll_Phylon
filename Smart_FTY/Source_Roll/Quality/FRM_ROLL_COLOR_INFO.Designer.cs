@@ -42,91 +42,91 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.groupBoxEx32 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView39 = new System.Windows.Forms.DataGridView();
+            this.dataGridView32 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn77 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx31 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView40 = new System.Windows.Forms.DataGridView();
+            this.dataGridView31 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn79 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn80 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx30 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView21 = new System.Windows.Forms.DataGridView();
+            this.dataGridView30 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx29 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView22 = new System.Windows.Forms.DataGridView();
+            this.dataGridView29 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx28 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView23 = new System.Windows.Forms.DataGridView();
+            this.dataGridView28 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx27 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView24 = new System.Windows.Forms.DataGridView();
+            this.dataGridView27 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx26 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView25 = new System.Windows.Forms.DataGridView();
+            this.dataGridView26 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx25 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView26 = new System.Windows.Forms.DataGridView();
+            this.dataGridView25 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx24 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView27 = new System.Windows.Forms.DataGridView();
+            this.dataGridView24 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx23 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView28 = new System.Windows.Forms.DataGridView();
+            this.dataGridView23 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx22 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView29 = new System.Windows.Forms.DataGridView();
+            this.dataGridView22 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx21 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView30 = new System.Windows.Forms.DataGridView();
+            this.dataGridView21 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx20 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.dataGridView20 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx19 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView12 = new System.Windows.Forms.DataGridView();
+            this.dataGridView19 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx18 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView13 = new System.Windows.Forms.DataGridView();
+            this.dataGridView18 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx17 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView14 = new System.Windows.Forms.DataGridView();
+            this.dataGridView17 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx16 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView15 = new System.Windows.Forms.DataGridView();
+            this.dataGridView16 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx15 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView16 = new System.Windows.Forms.DataGridView();
+            this.dataGridView15 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx14 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView17 = new System.Windows.Forms.DataGridView();
+            this.dataGridView14 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx13 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView18 = new System.Windows.Forms.DataGridView();
+            this.dataGridView13 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx12 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView19 = new System.Windows.Forms.DataGridView();
+            this.dataGridView12 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx11 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView20 = new System.Windows.Forms.DataGridView();
+            this.dataGridView11 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx9 = new Smart_FTY.ClassLib.GroupBoxEx();
@@ -158,11 +158,11 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx2 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEx1 = new Smart_FTY.ClassLib.GroupBoxEx();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -174,49 +174,49 @@
             this.groupBoxEx10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             this.groupBoxEx32.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView32)).BeginInit();
             this.groupBoxEx31.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView31)).BeginInit();
             this.groupBoxEx30.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView21)).BeginInit();
-            this.groupBoxEx29.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).BeginInit();
-            this.groupBoxEx28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView23)).BeginInit();
-            this.groupBoxEx27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView24)).BeginInit();
-            this.groupBoxEx26.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView25)).BeginInit();
-            this.groupBoxEx25.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView26)).BeginInit();
-            this.groupBoxEx24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView27)).BeginInit();
-            this.groupBoxEx23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView28)).BeginInit();
-            this.groupBoxEx22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView29)).BeginInit();
-            this.groupBoxEx21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView30)).BeginInit();
+            this.groupBoxEx29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView29)).BeginInit();
+            this.groupBoxEx28.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView28)).BeginInit();
+            this.groupBoxEx27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView27)).BeginInit();
+            this.groupBoxEx26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView26)).BeginInit();
+            this.groupBoxEx25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView25)).BeginInit();
+            this.groupBoxEx24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView24)).BeginInit();
+            this.groupBoxEx23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView23)).BeginInit();
+            this.groupBoxEx22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).BeginInit();
+            this.groupBoxEx21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView21)).BeginInit();
             this.groupBoxEx20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
-            this.groupBoxEx19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
-            this.groupBoxEx18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).BeginInit();
-            this.groupBoxEx17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView14)).BeginInit();
-            this.groupBoxEx16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView15)).BeginInit();
-            this.groupBoxEx15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).BeginInit();
-            this.groupBoxEx14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).BeginInit();
-            this.groupBoxEx13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).BeginInit();
-            this.groupBoxEx12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView19)).BeginInit();
-            this.groupBoxEx11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView20)).BeginInit();
+            this.groupBoxEx19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView19)).BeginInit();
+            this.groupBoxEx18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).BeginInit();
+            this.groupBoxEx17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).BeginInit();
+            this.groupBoxEx16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).BeginInit();
+            this.groupBoxEx15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView15)).BeginInit();
+            this.groupBoxEx14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView14)).BeginInit();
+            this.groupBoxEx13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).BeginInit();
+            this.groupBoxEx12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
+            this.groupBoxEx11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
             this.groupBoxEx9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
             this.groupBoxEx8.SuspendLayout();
@@ -232,15 +232,15 @@
             this.groupBoxEx3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBoxEx2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBoxEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBoxEx1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDate
             // 
             this.lblDate.Size = new System.Drawing.Size(273, 106);
-            this.lblDate.Text = "2020-08-04\n15:55:41";
+            this.lblDate.Text = "2020-08-10\n10:57:02";
             // 
             // cmdYear
             // 
@@ -293,7 +293,7 @@
             // lblShift
             // 
             this.lblShift.Size = new System.Drawing.Size(413, 53);
-            this.lblShift.Text = "Shift 2 (14:00 ~ 22:00)";
+            this.lblShift.Text = "Shift 1 (06:00 ~ 14:00)";
             // 
             // splitmain
             // 
@@ -348,44 +348,46 @@
             // 
             // lblCode
             // 
+            this.lblCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.lblCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCode.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCode.Location = new System.Drawing.Point(111, 113);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(73, 39);
+            this.lblCode.Size = new System.Drawing.Size(97, 39);
             this.lblCode.TabIndex = 46;
-            this.lblCode.Text = "C 0";
+            this.lblCode.Text = "Code 0";
             this.lblCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnPrevCode
             // 
             this.btnPrevCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrevCode.Location = new System.Drawing.Point(25, 113);
+            this.btnPrevCode.Location = new System.Drawing.Point(60, 113);
             this.btnPrevCode.Name = "btnPrevCode";
-            this.btnPrevCode.Size = new System.Drawing.Size(85, 39);
+            this.btnPrevCode.Size = new System.Drawing.Size(50, 39);
             this.btnPrevCode.TabIndex = 45;
-            this.btnPrevCode.Text = "Prev Code";
+            this.btnPrevCode.Text = "<<";
             this.btnPrevCode.UseVisualStyleBackColor = true;
             this.btnPrevCode.Click += new System.EventHandler(this.btnPrevCode_Click);
             // 
             // btnNextCode
             // 
             this.btnNextCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNextCode.Location = new System.Drawing.Point(186, 113);
+            this.btnNextCode.Location = new System.Drawing.Point(208, 113);
             this.btnNextCode.Name = "btnNextCode";
-            this.btnNextCode.Size = new System.Drawing.Size(87, 39);
+            this.btnNextCode.Size = new System.Drawing.Size(50, 39);
             this.btnNextCode.TabIndex = 44;
-            this.btnNextCode.Text = "Next Code";
+            this.btnNextCode.Text = ">>";
             this.btnNextCode.UseVisualStyleBackColor = true;
             this.btnNextCode.Click += new System.EventHandler(this.btnNextCode_Click);
             // 
             // lblPage
             // 
+            this.lblPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPage.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPage.Location = new System.Drawing.Point(429, 112);
+            this.lblPage.Location = new System.Drawing.Point(389, 112);
             this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(73, 39);
+            this.lblPage.Size = new System.Drawing.Size(97, 39);
             this.lblPage.TabIndex = 43;
             this.lblPage.Text = "1";
             this.lblPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -442,27 +444,27 @@
             this.btnBack.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(337, 112);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(91, 39);
+            this.btnBack.Size = new System.Drawing.Size(50, 39);
             this.btnBack.TabIndex = 42;
-            this.btnBack.Text = "Prev Page";
+            this.btnBack.Text = "<<";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnNext
             // 
             this.btnNext.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(504, 112);
+            this.btnNext.Location = new System.Drawing.Point(488, 112);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(87, 39);
+            this.btnNext.Size = new System.Drawing.Size(50, 39);
             this.btnNext.TabIndex = 41;
-            this.btnNext.Text = "Next Page";
+            this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // groupBoxEx32
             // 
             this.groupBoxEx32.BackgroundPanelImage = null;
-            this.groupBoxEx32.Controls.Add(this.dataGridView39);
+            this.groupBoxEx32.Controls.Add(this.dataGridView32);
             this.groupBoxEx32.DrawGroupBorder = true;
             this.groupBoxEx32.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx32.GroupBorderColor = System.Drawing.Color.Black;
@@ -479,19 +481,19 @@
             this.groupBoxEx32.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx32.TextBorderWith = 1F;
             // 
-            // dataGridView39
+            // dataGridView32
             // 
-            this.dataGridView39.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView39.ColumnHeadersVisible = false;
-            this.dataGridView39.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView32.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView32.ColumnHeadersVisible = false;
+            this.dataGridView32.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn77,
             this.dataGridViewTextBoxColumn78});
-            this.dataGridView39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView39.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView39.Name = "dataGridView39";
-            this.dataGridView39.RowHeadersVisible = false;
-            this.dataGridView39.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView39.TabIndex = 0;
+            this.dataGridView32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView32.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView32.Name = "dataGridView32";
+            this.dataGridView32.RowHeadersVisible = false;
+            this.dataGridView32.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView32.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn77
             // 
@@ -509,7 +511,7 @@
             // groupBoxEx31
             // 
             this.groupBoxEx31.BackgroundPanelImage = null;
-            this.groupBoxEx31.Controls.Add(this.dataGridView40);
+            this.groupBoxEx31.Controls.Add(this.dataGridView31);
             this.groupBoxEx31.DrawGroupBorder = true;
             this.groupBoxEx31.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx31.GroupBorderColor = System.Drawing.Color.Black;
@@ -526,19 +528,19 @@
             this.groupBoxEx31.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx31.TextBorderWith = 1F;
             // 
-            // dataGridView40
+            // dataGridView31
             // 
-            this.dataGridView40.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView40.ColumnHeadersVisible = false;
-            this.dataGridView40.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView31.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView31.ColumnHeadersVisible = false;
+            this.dataGridView31.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn79,
             this.dataGridViewTextBoxColumn80});
-            this.dataGridView40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView40.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView40.Name = "dataGridView40";
-            this.dataGridView40.RowHeadersVisible = false;
-            this.dataGridView40.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView40.TabIndex = 0;
+            this.dataGridView31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView31.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView31.Name = "dataGridView31";
+            this.dataGridView31.RowHeadersVisible = false;
+            this.dataGridView31.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView31.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn79
             // 
@@ -556,7 +558,7 @@
             // groupBoxEx30
             // 
             this.groupBoxEx30.BackgroundPanelImage = null;
-            this.groupBoxEx30.Controls.Add(this.dataGridView21);
+            this.groupBoxEx30.Controls.Add(this.dataGridView30);
             this.groupBoxEx30.DrawGroupBorder = true;
             this.groupBoxEx30.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx30.GroupBorderColor = System.Drawing.Color.Black;
@@ -573,19 +575,19 @@
             this.groupBoxEx30.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx30.TextBorderWith = 1F;
             // 
-            // dataGridView21
+            // dataGridView30
             // 
-            this.dataGridView21.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView21.ColumnHeadersVisible = false;
-            this.dataGridView21.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView30.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView30.ColumnHeadersVisible = false;
+            this.dataGridView30.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn41,
             this.dataGridViewTextBoxColumn42});
-            this.dataGridView21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView21.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView21.Name = "dataGridView21";
-            this.dataGridView21.RowHeadersVisible = false;
-            this.dataGridView21.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView21.TabIndex = 0;
+            this.dataGridView30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView30.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView30.Name = "dataGridView30";
+            this.dataGridView30.RowHeadersVisible = false;
+            this.dataGridView30.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView30.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn41
             // 
@@ -603,7 +605,7 @@
             // groupBoxEx29
             // 
             this.groupBoxEx29.BackgroundPanelImage = null;
-            this.groupBoxEx29.Controls.Add(this.dataGridView22);
+            this.groupBoxEx29.Controls.Add(this.dataGridView29);
             this.groupBoxEx29.DrawGroupBorder = true;
             this.groupBoxEx29.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx29.GroupBorderColor = System.Drawing.Color.Black;
@@ -620,19 +622,19 @@
             this.groupBoxEx29.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx29.TextBorderWith = 1F;
             // 
-            // dataGridView22
+            // dataGridView29
             // 
-            this.dataGridView22.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView22.ColumnHeadersVisible = false;
-            this.dataGridView22.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView29.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView29.ColumnHeadersVisible = false;
+            this.dataGridView29.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn43,
             this.dataGridViewTextBoxColumn44});
-            this.dataGridView22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView22.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView22.Name = "dataGridView22";
-            this.dataGridView22.RowHeadersVisible = false;
-            this.dataGridView22.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView22.TabIndex = 0;
+            this.dataGridView29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView29.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView29.Name = "dataGridView29";
+            this.dataGridView29.RowHeadersVisible = false;
+            this.dataGridView29.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView29.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn43
             // 
@@ -650,7 +652,7 @@
             // groupBoxEx28
             // 
             this.groupBoxEx28.BackgroundPanelImage = null;
-            this.groupBoxEx28.Controls.Add(this.dataGridView23);
+            this.groupBoxEx28.Controls.Add(this.dataGridView28);
             this.groupBoxEx28.DrawGroupBorder = true;
             this.groupBoxEx28.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx28.GroupBorderColor = System.Drawing.Color.Black;
@@ -667,19 +669,19 @@
             this.groupBoxEx28.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx28.TextBorderWith = 1F;
             // 
-            // dataGridView23
+            // dataGridView28
             // 
-            this.dataGridView23.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView23.ColumnHeadersVisible = false;
-            this.dataGridView23.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView28.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView28.ColumnHeadersVisible = false;
+            this.dataGridView28.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn45,
             this.dataGridViewTextBoxColumn46});
-            this.dataGridView23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView23.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView23.Name = "dataGridView23";
-            this.dataGridView23.RowHeadersVisible = false;
-            this.dataGridView23.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView23.TabIndex = 0;
+            this.dataGridView28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView28.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView28.Name = "dataGridView28";
+            this.dataGridView28.RowHeadersVisible = false;
+            this.dataGridView28.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView28.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn45
             // 
@@ -697,7 +699,7 @@
             // groupBoxEx27
             // 
             this.groupBoxEx27.BackgroundPanelImage = null;
-            this.groupBoxEx27.Controls.Add(this.dataGridView24);
+            this.groupBoxEx27.Controls.Add(this.dataGridView27);
             this.groupBoxEx27.DrawGroupBorder = true;
             this.groupBoxEx27.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx27.GroupBorderColor = System.Drawing.Color.Black;
@@ -714,19 +716,19 @@
             this.groupBoxEx27.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx27.TextBorderWith = 1F;
             // 
-            // dataGridView24
+            // dataGridView27
             // 
-            this.dataGridView24.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView24.ColumnHeadersVisible = false;
-            this.dataGridView24.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView27.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView27.ColumnHeadersVisible = false;
+            this.dataGridView27.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn47,
             this.dataGridViewTextBoxColumn48});
-            this.dataGridView24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView24.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView24.Name = "dataGridView24";
-            this.dataGridView24.RowHeadersVisible = false;
-            this.dataGridView24.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView24.TabIndex = 0;
+            this.dataGridView27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView27.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView27.Name = "dataGridView27";
+            this.dataGridView27.RowHeadersVisible = false;
+            this.dataGridView27.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView27.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn47
             // 
@@ -744,7 +746,7 @@
             // groupBoxEx26
             // 
             this.groupBoxEx26.BackgroundPanelImage = null;
-            this.groupBoxEx26.Controls.Add(this.dataGridView25);
+            this.groupBoxEx26.Controls.Add(this.dataGridView26);
             this.groupBoxEx26.DrawGroupBorder = true;
             this.groupBoxEx26.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx26.GroupBorderColor = System.Drawing.Color.Black;
@@ -761,19 +763,19 @@
             this.groupBoxEx26.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx26.TextBorderWith = 1F;
             // 
-            // dataGridView25
+            // dataGridView26
             // 
-            this.dataGridView25.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView25.ColumnHeadersVisible = false;
-            this.dataGridView25.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView26.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView26.ColumnHeadersVisible = false;
+            this.dataGridView26.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn49,
             this.dataGridViewTextBoxColumn50});
-            this.dataGridView25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView25.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView25.Name = "dataGridView25";
-            this.dataGridView25.RowHeadersVisible = false;
-            this.dataGridView25.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView25.TabIndex = 0;
+            this.dataGridView26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView26.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView26.Name = "dataGridView26";
+            this.dataGridView26.RowHeadersVisible = false;
+            this.dataGridView26.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView26.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn49
             // 
@@ -791,7 +793,7 @@
             // groupBoxEx25
             // 
             this.groupBoxEx25.BackgroundPanelImage = null;
-            this.groupBoxEx25.Controls.Add(this.dataGridView26);
+            this.groupBoxEx25.Controls.Add(this.dataGridView25);
             this.groupBoxEx25.DrawGroupBorder = true;
             this.groupBoxEx25.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx25.GroupBorderColor = System.Drawing.Color.Black;
@@ -808,19 +810,19 @@
             this.groupBoxEx25.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx25.TextBorderWith = 1F;
             // 
-            // dataGridView26
+            // dataGridView25
             // 
-            this.dataGridView26.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView26.ColumnHeadersVisible = false;
-            this.dataGridView26.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView25.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView25.ColumnHeadersVisible = false;
+            this.dataGridView25.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn51,
             this.dataGridViewTextBoxColumn52});
-            this.dataGridView26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView26.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView26.Name = "dataGridView26";
-            this.dataGridView26.RowHeadersVisible = false;
-            this.dataGridView26.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView26.TabIndex = 0;
+            this.dataGridView25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView25.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView25.Name = "dataGridView25";
+            this.dataGridView25.RowHeadersVisible = false;
+            this.dataGridView25.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView25.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn51
             // 
@@ -838,7 +840,7 @@
             // groupBoxEx24
             // 
             this.groupBoxEx24.BackgroundPanelImage = null;
-            this.groupBoxEx24.Controls.Add(this.dataGridView27);
+            this.groupBoxEx24.Controls.Add(this.dataGridView24);
             this.groupBoxEx24.DrawGroupBorder = true;
             this.groupBoxEx24.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx24.GroupBorderColor = System.Drawing.Color.Black;
@@ -855,19 +857,19 @@
             this.groupBoxEx24.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx24.TextBorderWith = 1F;
             // 
-            // dataGridView27
+            // dataGridView24
             // 
-            this.dataGridView27.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView27.ColumnHeadersVisible = false;
-            this.dataGridView27.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView24.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView24.ColumnHeadersVisible = false;
+            this.dataGridView24.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn53,
             this.dataGridViewTextBoxColumn54});
-            this.dataGridView27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView27.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView27.Name = "dataGridView27";
-            this.dataGridView27.RowHeadersVisible = false;
-            this.dataGridView27.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView27.TabIndex = 0;
+            this.dataGridView24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView24.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView24.Name = "dataGridView24";
+            this.dataGridView24.RowHeadersVisible = false;
+            this.dataGridView24.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView24.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn53
             // 
@@ -885,7 +887,7 @@
             // groupBoxEx23
             // 
             this.groupBoxEx23.BackgroundPanelImage = null;
-            this.groupBoxEx23.Controls.Add(this.dataGridView28);
+            this.groupBoxEx23.Controls.Add(this.dataGridView23);
             this.groupBoxEx23.DrawGroupBorder = true;
             this.groupBoxEx23.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx23.GroupBorderColor = System.Drawing.Color.Black;
@@ -902,19 +904,19 @@
             this.groupBoxEx23.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx23.TextBorderWith = 1F;
             // 
-            // dataGridView28
+            // dataGridView23
             // 
-            this.dataGridView28.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView28.ColumnHeadersVisible = false;
-            this.dataGridView28.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView23.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView23.ColumnHeadersVisible = false;
+            this.dataGridView23.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn55,
             this.dataGridViewTextBoxColumn56});
-            this.dataGridView28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView28.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView28.Name = "dataGridView28";
-            this.dataGridView28.RowHeadersVisible = false;
-            this.dataGridView28.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView28.TabIndex = 0;
+            this.dataGridView23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView23.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView23.Name = "dataGridView23";
+            this.dataGridView23.RowHeadersVisible = false;
+            this.dataGridView23.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView23.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn55
             // 
@@ -932,7 +934,7 @@
             // groupBoxEx22
             // 
             this.groupBoxEx22.BackgroundPanelImage = null;
-            this.groupBoxEx22.Controls.Add(this.dataGridView29);
+            this.groupBoxEx22.Controls.Add(this.dataGridView22);
             this.groupBoxEx22.DrawGroupBorder = true;
             this.groupBoxEx22.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx22.GroupBorderColor = System.Drawing.Color.Black;
@@ -949,19 +951,19 @@
             this.groupBoxEx22.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx22.TextBorderWith = 1F;
             // 
-            // dataGridView29
+            // dataGridView22
             // 
-            this.dataGridView29.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView29.ColumnHeadersVisible = false;
-            this.dataGridView29.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView22.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView22.ColumnHeadersVisible = false;
+            this.dataGridView22.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn57,
             this.dataGridViewTextBoxColumn58});
-            this.dataGridView29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView29.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView29.Name = "dataGridView29";
-            this.dataGridView29.RowHeadersVisible = false;
-            this.dataGridView29.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView29.TabIndex = 0;
+            this.dataGridView22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView22.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView22.Name = "dataGridView22";
+            this.dataGridView22.RowHeadersVisible = false;
+            this.dataGridView22.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView22.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn57
             // 
@@ -979,7 +981,7 @@
             // groupBoxEx21
             // 
             this.groupBoxEx21.BackgroundPanelImage = null;
-            this.groupBoxEx21.Controls.Add(this.dataGridView30);
+            this.groupBoxEx21.Controls.Add(this.dataGridView21);
             this.groupBoxEx21.DrawGroupBorder = true;
             this.groupBoxEx21.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx21.GroupBorderColor = System.Drawing.Color.Black;
@@ -996,19 +998,19 @@
             this.groupBoxEx21.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx21.TextBorderWith = 1F;
             // 
-            // dataGridView30
+            // dataGridView21
             // 
-            this.dataGridView30.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView30.ColumnHeadersVisible = false;
-            this.dataGridView30.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView21.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView21.ColumnHeadersVisible = false;
+            this.dataGridView21.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn59,
             this.dataGridViewTextBoxColumn60});
-            this.dataGridView30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView30.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView30.Name = "dataGridView30";
-            this.dataGridView30.RowHeadersVisible = false;
-            this.dataGridView30.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView30.TabIndex = 0;
+            this.dataGridView21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView21.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView21.Name = "dataGridView21";
+            this.dataGridView21.RowHeadersVisible = false;
+            this.dataGridView21.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView21.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn59
             // 
@@ -1026,7 +1028,7 @@
             // groupBoxEx20
             // 
             this.groupBoxEx20.BackgroundPanelImage = null;
-            this.groupBoxEx20.Controls.Add(this.dataGridView11);
+            this.groupBoxEx20.Controls.Add(this.dataGridView20);
             this.groupBoxEx20.DrawGroupBorder = true;
             this.groupBoxEx20.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx20.GroupBorderColor = System.Drawing.Color.Black;
@@ -1043,19 +1045,19 @@
             this.groupBoxEx20.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx20.TextBorderWith = 1F;
             // 
-            // dataGridView11
+            // dataGridView20
             // 
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.ColumnHeadersVisible = false;
-            this.dataGridView11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView20.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView20.ColumnHeadersVisible = false;
+            this.dataGridView20.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn21,
             this.dataGridViewTextBoxColumn22});
-            this.dataGridView11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView11.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.RowHeadersVisible = false;
-            this.dataGridView11.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView11.TabIndex = 0;
+            this.dataGridView20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView20.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView20.Name = "dataGridView20";
+            this.dataGridView20.RowHeadersVisible = false;
+            this.dataGridView20.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView20.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -1073,7 +1075,7 @@
             // groupBoxEx19
             // 
             this.groupBoxEx19.BackgroundPanelImage = null;
-            this.groupBoxEx19.Controls.Add(this.dataGridView12);
+            this.groupBoxEx19.Controls.Add(this.dataGridView19);
             this.groupBoxEx19.DrawGroupBorder = true;
             this.groupBoxEx19.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx19.GroupBorderColor = System.Drawing.Color.Black;
@@ -1090,19 +1092,19 @@
             this.groupBoxEx19.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx19.TextBorderWith = 1F;
             // 
-            // dataGridView12
+            // dataGridView19
             // 
-            this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView12.ColumnHeadersVisible = false;
-            this.dataGridView12.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView19.ColumnHeadersVisible = false;
+            this.dataGridView19.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn23,
             this.dataGridViewTextBoxColumn24});
-            this.dataGridView12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView12.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView12.Name = "dataGridView12";
-            this.dataGridView12.RowHeadersVisible = false;
-            this.dataGridView12.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView12.TabIndex = 0;
+            this.dataGridView19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView19.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView19.Name = "dataGridView19";
+            this.dataGridView19.RowHeadersVisible = false;
+            this.dataGridView19.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView19.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn23
             // 
@@ -1120,7 +1122,7 @@
             // groupBoxEx18
             // 
             this.groupBoxEx18.BackgroundPanelImage = null;
-            this.groupBoxEx18.Controls.Add(this.dataGridView13);
+            this.groupBoxEx18.Controls.Add(this.dataGridView18);
             this.groupBoxEx18.DrawGroupBorder = true;
             this.groupBoxEx18.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx18.GroupBorderColor = System.Drawing.Color.Black;
@@ -1137,19 +1139,19 @@
             this.groupBoxEx18.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx18.TextBorderWith = 1F;
             // 
-            // dataGridView13
+            // dataGridView18
             // 
-            this.dataGridView13.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView13.ColumnHeadersVisible = false;
-            this.dataGridView13.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView18.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView18.ColumnHeadersVisible = false;
+            this.dataGridView18.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn26});
-            this.dataGridView13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView13.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView13.Name = "dataGridView13";
-            this.dataGridView13.RowHeadersVisible = false;
-            this.dataGridView13.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView13.TabIndex = 0;
+            this.dataGridView18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView18.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView18.Name = "dataGridView18";
+            this.dataGridView18.RowHeadersVisible = false;
+            this.dataGridView18.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView18.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn25
             // 
@@ -1167,7 +1169,7 @@
             // groupBoxEx17
             // 
             this.groupBoxEx17.BackgroundPanelImage = null;
-            this.groupBoxEx17.Controls.Add(this.dataGridView14);
+            this.groupBoxEx17.Controls.Add(this.dataGridView17);
             this.groupBoxEx17.DrawGroupBorder = true;
             this.groupBoxEx17.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx17.GroupBorderColor = System.Drawing.Color.Black;
@@ -1184,19 +1186,19 @@
             this.groupBoxEx17.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx17.TextBorderWith = 1F;
             // 
-            // dataGridView14
+            // dataGridView17
             // 
-            this.dataGridView14.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView14.ColumnHeadersVisible = false;
-            this.dataGridView14.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView17.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView17.ColumnHeadersVisible = false;
+            this.dataGridView17.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn27,
             this.dataGridViewTextBoxColumn28});
-            this.dataGridView14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView14.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView14.Name = "dataGridView14";
-            this.dataGridView14.RowHeadersVisible = false;
-            this.dataGridView14.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView14.TabIndex = 0;
+            this.dataGridView17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView17.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView17.Name = "dataGridView17";
+            this.dataGridView17.RowHeadersVisible = false;
+            this.dataGridView17.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView17.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn27
             // 
@@ -1214,7 +1216,7 @@
             // groupBoxEx16
             // 
             this.groupBoxEx16.BackgroundPanelImage = null;
-            this.groupBoxEx16.Controls.Add(this.dataGridView15);
+            this.groupBoxEx16.Controls.Add(this.dataGridView16);
             this.groupBoxEx16.DrawGroupBorder = true;
             this.groupBoxEx16.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx16.GroupBorderColor = System.Drawing.Color.Black;
@@ -1231,19 +1233,19 @@
             this.groupBoxEx16.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx16.TextBorderWith = 1F;
             // 
-            // dataGridView15
+            // dataGridView16
             // 
-            this.dataGridView15.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView15.ColumnHeadersVisible = false;
-            this.dataGridView15.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView16.ColumnHeadersVisible = false;
+            this.dataGridView16.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn29,
             this.dataGridViewTextBoxColumn30});
-            this.dataGridView15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView15.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView15.Name = "dataGridView15";
-            this.dataGridView15.RowHeadersVisible = false;
-            this.dataGridView15.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView15.TabIndex = 0;
+            this.dataGridView16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView16.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView16.Name = "dataGridView16";
+            this.dataGridView16.RowHeadersVisible = false;
+            this.dataGridView16.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView16.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn29
             // 
@@ -1261,7 +1263,7 @@
             // groupBoxEx15
             // 
             this.groupBoxEx15.BackgroundPanelImage = null;
-            this.groupBoxEx15.Controls.Add(this.dataGridView16);
+            this.groupBoxEx15.Controls.Add(this.dataGridView15);
             this.groupBoxEx15.DrawGroupBorder = true;
             this.groupBoxEx15.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx15.GroupBorderColor = System.Drawing.Color.Black;
@@ -1278,19 +1280,19 @@
             this.groupBoxEx15.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx15.TextBorderWith = 1F;
             // 
-            // dataGridView16
+            // dataGridView15
             // 
-            this.dataGridView16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView16.ColumnHeadersVisible = false;
-            this.dataGridView16.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView15.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView15.ColumnHeadersVisible = false;
+            this.dataGridView15.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn31,
             this.dataGridViewTextBoxColumn32});
-            this.dataGridView16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView16.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView16.Name = "dataGridView16";
-            this.dataGridView16.RowHeadersVisible = false;
-            this.dataGridView16.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView16.TabIndex = 0;
+            this.dataGridView15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView15.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView15.Name = "dataGridView15";
+            this.dataGridView15.RowHeadersVisible = false;
+            this.dataGridView15.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView15.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn31
             // 
@@ -1308,7 +1310,7 @@
             // groupBoxEx14
             // 
             this.groupBoxEx14.BackgroundPanelImage = null;
-            this.groupBoxEx14.Controls.Add(this.dataGridView17);
+            this.groupBoxEx14.Controls.Add(this.dataGridView14);
             this.groupBoxEx14.DrawGroupBorder = true;
             this.groupBoxEx14.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx14.GroupBorderColor = System.Drawing.Color.Black;
@@ -1325,19 +1327,19 @@
             this.groupBoxEx14.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx14.TextBorderWith = 1F;
             // 
-            // dataGridView17
+            // dataGridView14
             // 
-            this.dataGridView17.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView17.ColumnHeadersVisible = false;
-            this.dataGridView17.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView14.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView14.ColumnHeadersVisible = false;
+            this.dataGridView14.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn33,
             this.dataGridViewTextBoxColumn34});
-            this.dataGridView17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView17.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView17.Name = "dataGridView17";
-            this.dataGridView17.RowHeadersVisible = false;
-            this.dataGridView17.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView17.TabIndex = 0;
+            this.dataGridView14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView14.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView14.Name = "dataGridView14";
+            this.dataGridView14.RowHeadersVisible = false;
+            this.dataGridView14.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView14.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn33
             // 
@@ -1355,7 +1357,7 @@
             // groupBoxEx13
             // 
             this.groupBoxEx13.BackgroundPanelImage = null;
-            this.groupBoxEx13.Controls.Add(this.dataGridView18);
+            this.groupBoxEx13.Controls.Add(this.dataGridView13);
             this.groupBoxEx13.DrawGroupBorder = true;
             this.groupBoxEx13.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx13.GroupBorderColor = System.Drawing.Color.Black;
@@ -1372,19 +1374,19 @@
             this.groupBoxEx13.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx13.TextBorderWith = 1F;
             // 
-            // dataGridView18
+            // dataGridView13
             // 
-            this.dataGridView18.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView18.ColumnHeadersVisible = false;
-            this.dataGridView18.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView13.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView13.ColumnHeadersVisible = false;
+            this.dataGridView13.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn35,
             this.dataGridViewTextBoxColumn36});
-            this.dataGridView18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView18.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView18.Name = "dataGridView18";
-            this.dataGridView18.RowHeadersVisible = false;
-            this.dataGridView18.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView18.TabIndex = 0;
+            this.dataGridView13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView13.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView13.Name = "dataGridView13";
+            this.dataGridView13.RowHeadersVisible = false;
+            this.dataGridView13.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView13.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn35
             // 
@@ -1402,7 +1404,7 @@
             // groupBoxEx12
             // 
             this.groupBoxEx12.BackgroundPanelImage = null;
-            this.groupBoxEx12.Controls.Add(this.dataGridView19);
+            this.groupBoxEx12.Controls.Add(this.dataGridView12);
             this.groupBoxEx12.DrawGroupBorder = true;
             this.groupBoxEx12.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx12.GroupBorderColor = System.Drawing.Color.Black;
@@ -1419,19 +1421,19 @@
             this.groupBoxEx12.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx12.TextBorderWith = 1F;
             // 
-            // dataGridView19
+            // dataGridView12
             // 
-            this.dataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView19.ColumnHeadersVisible = false;
-            this.dataGridView19.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView12.ColumnHeadersVisible = false;
+            this.dataGridView12.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn37,
             this.dataGridViewTextBoxColumn38});
-            this.dataGridView19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView19.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView19.Name = "dataGridView19";
-            this.dataGridView19.RowHeadersVisible = false;
-            this.dataGridView19.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView19.TabIndex = 0;
+            this.dataGridView12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView12.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView12.Name = "dataGridView12";
+            this.dataGridView12.RowHeadersVisible = false;
+            this.dataGridView12.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView12.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn37
             // 
@@ -1449,7 +1451,7 @@
             // groupBoxEx11
             // 
             this.groupBoxEx11.BackgroundPanelImage = null;
-            this.groupBoxEx11.Controls.Add(this.dataGridView20);
+            this.groupBoxEx11.Controls.Add(this.dataGridView11);
             this.groupBoxEx11.DrawGroupBorder = true;
             this.groupBoxEx11.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx11.GroupBorderColor = System.Drawing.Color.Black;
@@ -1466,19 +1468,19 @@
             this.groupBoxEx11.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx11.TextBorderWith = 1F;
             // 
-            // dataGridView20
+            // dataGridView11
             // 
-            this.dataGridView20.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView20.ColumnHeadersVisible = false;
-            this.dataGridView20.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView11.ColumnHeadersVisible = false;
+            this.dataGridView11.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn39,
             this.dataGridViewTextBoxColumn40});
-            this.dataGridView20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView20.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView20.Name = "dataGridView20";
-            this.dataGridView20.RowHeadersVisible = false;
-            this.dataGridView20.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView20.TabIndex = 0;
+            this.dataGridView11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView11.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView11.Name = "dataGridView11";
+            this.dataGridView11.RowHeadersVisible = false;
+            this.dataGridView11.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView11.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn39
             // 
@@ -1825,9 +1827,10 @@
             // groupBoxEx2
             // 
             this.groupBoxEx2.BackgroundPanelImage = null;
-            this.groupBoxEx2.Controls.Add(this.dataGridView1);
+            this.groupBoxEx2.Controls.Add(this.dataGridView2);
             this.groupBoxEx2.DrawGroupBorder = true;
             this.groupBoxEx2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxEx2.ForeColor = System.Drawing.Color.Black;
             this.groupBoxEx2.GroupBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx2.GroupPanelColor = System.Drawing.SystemColors.Control;
             this.groupBoxEx2.GroupPanelShape = Smart_FTY.ClassLib.GroupBoxEx.PanelType.Rounded;
@@ -1842,19 +1845,19 @@
             this.groupBoxEx2.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx2.TextBorderWith = 1F;
             // 
-            // dataGridView1
+            // dataGridView2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.ColumnHeadersVisible = false;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView2.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1872,7 +1875,7 @@
             // groupBoxEx1
             // 
             this.groupBoxEx1.BackgroundPanelImage = null;
-            this.groupBoxEx1.Controls.Add(this.dataGridView2);
+            this.groupBoxEx1.Controls.Add(this.dataGridView1);
             this.groupBoxEx1.DrawGroupBorder = true;
             this.groupBoxEx1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEx1.GroupBorderColor = System.Drawing.Color.Black;
@@ -1889,19 +1892,20 @@
             this.groupBoxEx1.TextBorderColor = System.Drawing.Color.Black;
             this.groupBoxEx1.TextBorderWith = 1F;
             // 
-            // dataGridView2
+            // dataGridView1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.ColumnHeadersVisible = false;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 36);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(219, 153);
-            this.dataGridView2.TabIndex = 0;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(219, 153);
+            this.dataGridView1.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1945,49 +1949,49 @@
             this.groupBoxEx10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             this.groupBoxEx32.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView32)).EndInit();
             this.groupBoxEx31.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView31)).EndInit();
             this.groupBoxEx30.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView21)).EndInit();
-            this.groupBoxEx29.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).EndInit();
-            this.groupBoxEx28.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView23)).EndInit();
-            this.groupBoxEx27.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView24)).EndInit();
-            this.groupBoxEx26.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView25)).EndInit();
-            this.groupBoxEx25.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView26)).EndInit();
-            this.groupBoxEx24.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView27)).EndInit();
-            this.groupBoxEx23.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView28)).EndInit();
-            this.groupBoxEx22.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView29)).EndInit();
-            this.groupBoxEx21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView30)).EndInit();
+            this.groupBoxEx29.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView29)).EndInit();
+            this.groupBoxEx28.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView28)).EndInit();
+            this.groupBoxEx27.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView27)).EndInit();
+            this.groupBoxEx26.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView26)).EndInit();
+            this.groupBoxEx25.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView25)).EndInit();
+            this.groupBoxEx24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView24)).EndInit();
+            this.groupBoxEx23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView23)).EndInit();
+            this.groupBoxEx22.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).EndInit();
+            this.groupBoxEx21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView21)).EndInit();
             this.groupBoxEx20.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
-            this.groupBoxEx19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).EndInit();
-            this.groupBoxEx18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).EndInit();
-            this.groupBoxEx17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView14)).EndInit();
-            this.groupBoxEx16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView15)).EndInit();
-            this.groupBoxEx15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).EndInit();
-            this.groupBoxEx14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).EndInit();
-            this.groupBoxEx13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).EndInit();
-            this.groupBoxEx12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView19)).EndInit();
-            this.groupBoxEx11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView20)).EndInit();
+            this.groupBoxEx19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView19)).EndInit();
+            this.groupBoxEx18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView18)).EndInit();
+            this.groupBoxEx17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView17)).EndInit();
+            this.groupBoxEx16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView16)).EndInit();
+            this.groupBoxEx15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView15)).EndInit();
+            this.groupBoxEx14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView14)).EndInit();
+            this.groupBoxEx13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).EndInit();
+            this.groupBoxEx12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).EndInit();
+            this.groupBoxEx11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
             this.groupBoxEx9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
             this.groupBoxEx8.ResumeLayout(false);
@@ -2003,9 +2007,9 @@
             this.groupBoxEx3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBoxEx2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBoxEx1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBoxEx1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2015,83 +2019,83 @@
         private System.Windows.Forms.SplitContainer splitmain;
         private System.Windows.Forms.Timer timer1;
         private ClassLib.GroupBoxEx groupBoxEx30;
-        private System.Windows.Forms.DataGridView dataGridView21;
+        private System.Windows.Forms.DataGridView dataGridView30;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
         private ClassLib.GroupBoxEx groupBoxEx29;
-        private System.Windows.Forms.DataGridView dataGridView22;
+        private System.Windows.Forms.DataGridView dataGridView29;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
         private ClassLib.GroupBoxEx groupBoxEx28;
-        private System.Windows.Forms.DataGridView dataGridView23;
+        private System.Windows.Forms.DataGridView dataGridView28;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
         private ClassLib.GroupBoxEx groupBoxEx27;
-        private System.Windows.Forms.DataGridView dataGridView24;
+        private System.Windows.Forms.DataGridView dataGridView27;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
         private ClassLib.GroupBoxEx groupBoxEx26;
-        private System.Windows.Forms.DataGridView dataGridView25;
+        private System.Windows.Forms.DataGridView dataGridView26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
         private ClassLib.GroupBoxEx groupBoxEx25;
-        private System.Windows.Forms.DataGridView dataGridView26;
+        private System.Windows.Forms.DataGridView dataGridView25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
         private ClassLib.GroupBoxEx groupBoxEx24;
-        private System.Windows.Forms.DataGridView dataGridView27;
+        private System.Windows.Forms.DataGridView dataGridView24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
         private ClassLib.GroupBoxEx groupBoxEx23;
-        private System.Windows.Forms.DataGridView dataGridView28;
+        private System.Windows.Forms.DataGridView dataGridView23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn56;
         private ClassLib.GroupBoxEx groupBoxEx22;
-        private System.Windows.Forms.DataGridView dataGridView29;
+        private System.Windows.Forms.DataGridView dataGridView22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
         private ClassLib.GroupBoxEx groupBoxEx21;
-        private System.Windows.Forms.DataGridView dataGridView30;
+        private System.Windows.Forms.DataGridView dataGridView21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn59;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
         private ClassLib.GroupBoxEx groupBoxEx20;
-        private System.Windows.Forms.DataGridView dataGridView11;
+        private System.Windows.Forms.DataGridView dataGridView20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private ClassLib.GroupBoxEx groupBoxEx19;
-        private System.Windows.Forms.DataGridView dataGridView12;
+        private System.Windows.Forms.DataGridView dataGridView19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private ClassLib.GroupBoxEx groupBoxEx18;
-        private System.Windows.Forms.DataGridView dataGridView13;
+        private System.Windows.Forms.DataGridView dataGridView18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private ClassLib.GroupBoxEx groupBoxEx17;
-        private System.Windows.Forms.DataGridView dataGridView14;
+        private System.Windows.Forms.DataGridView dataGridView17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
         private ClassLib.GroupBoxEx groupBoxEx16;
-        private System.Windows.Forms.DataGridView dataGridView15;
+        private System.Windows.Forms.DataGridView dataGridView16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private ClassLib.GroupBoxEx groupBoxEx15;
-        private System.Windows.Forms.DataGridView dataGridView16;
+        private System.Windows.Forms.DataGridView dataGridView15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
         private ClassLib.GroupBoxEx groupBoxEx14;
-        private System.Windows.Forms.DataGridView dataGridView17;
+        private System.Windows.Forms.DataGridView dataGridView14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
         private ClassLib.GroupBoxEx groupBoxEx13;
-        private System.Windows.Forms.DataGridView dataGridView18;
+        private System.Windows.Forms.DataGridView dataGridView13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
         private ClassLib.GroupBoxEx groupBoxEx12;
-        private System.Windows.Forms.DataGridView dataGridView19;
+        private System.Windows.Forms.DataGridView dataGridView12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private ClassLib.GroupBoxEx groupBoxEx11;
-        private System.Windows.Forms.DataGridView dataGridView20;
+        private System.Windows.Forms.DataGridView dataGridView11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
         private ClassLib.GroupBoxEx groupBoxEx10;
@@ -2127,19 +2131,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private ClassLib.GroupBoxEx groupBoxEx2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private ClassLib.GroupBoxEx groupBoxEx1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private ClassLib.GroupBoxEx groupBoxEx32;
-        private System.Windows.Forms.DataGridView dataGridView39;
+        private System.Windows.Forms.DataGridView dataGridView32;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn77;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn78;
         private ClassLib.GroupBoxEx groupBoxEx31;
-        private System.Windows.Forms.DataGridView dataGridView40;
+        private System.Windows.Forms.DataGridView dataGridView31;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
         private System.Windows.Forms.Button btnBack;
