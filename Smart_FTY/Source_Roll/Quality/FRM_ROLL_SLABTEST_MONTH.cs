@@ -2,32 +2,43 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-//using JPlatform.Client.Controls;
-
+using System.Data.OracleClient;
+using DevExpress.XtraCharts;
+using System.Globalization;
 
 namespace Smart_FTY
 {
-    public partial class FRM_ROLL_SLABTEST_MONTH : SampleFrm1
+    public partial class FRM_ROLL_SLABTEST_MONTH : Form
     {
         public FRM_ROLL_SLABTEST_MONTH()
         {
             InitializeComponent();
+            lblTitle.Text = "Rubber Slab Test Tracking By Month";
+           
         }
 
-        int cnt = 0;
-        string str_op = "";
+        public static string _sProcess = "PH";
+        public int iCount = 0;
 
-        private void FRM_ROLL_SLABTEST_MON_Load(object sender, EventArgs e)
-        {            
-            timer1.Enabled = true;
-            timer1.Start();
-            timer1.Interval = 1000;
-            cmdDay.Visible = false;
+        private void FORM_SMT_PH_PROD_MONTH_Load(object sender, EventArgs e)
+        {
+            //lblRubber_Click(null, null);
+            //Search_Data();
+            tmr_Load.Interval = 1000;
+            //tmr_Load.Start();
+            GoFullscreen();
+        }
+
+        private void GoFullscreen()
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
         }
 
         public DataTable SEL_DATA_SLABTEST(string Qtype, string arg_ymd, string arg_op)
@@ -122,7 +133,7 @@ namespace Smart_FTY
             grdView.DataSource = dtsource;
             if (dtsource != null && dtsource.Rows.Count > 0)
             {
-                
+
                 for (int i = 0; i < gvwView.Columns.Count; i++)
                 {
                     gvwView.Columns[i].OptionsColumn.ReadOnly = true;
@@ -131,9 +142,10 @@ namespace Smart_FTY
                     gvwView.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
                     gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     gvwView.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-                    
+
                 }
             }
+            bindingdatachart(arg_op);
         }
 
         private void bindingdatachart(string arg_op)
@@ -156,39 +168,56 @@ namespace Smart_FTY
             }
             else
             {
-                
+
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void tmr_Load_Tick(object sender, EventArgs e)
         {
-            if (cnt < 40)
+            iCount++;
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            if (iCount >= 40)
             {
-                cnt++;                
+                iCount = 0;
+                BindingData(_sProcess);
+                //bindingdatachart(_sProcess);
+            }
+
+          
+        }
+
+       
+
+        private void FORM_SMT_PH_PROD_MONTH_VisibleChanged(object sender, EventArgs e)
+        {
+
+            if (this.Visible)
+            {
+                iCount = 39;
+               
+                if (Form_Home_Roll.FrmEvaRub == "2")
+                    lbl_EVA_Click(sender, e);
+                else
+                    lbl_Rubber_Click(sender, e);
+                tmr_Load.Start();
+                //cnt = 0;
+                // tmrTime.Start();
             }
             else
             {
-                cnt = 0;
-                BindingData(str_op);
-                bindingdatachart(str_op);
+                tmr_Load.Stop();
+             //   tmrTime.Stop();
             }
         }
 
-        private void FRM_ROLL_SLABTEST_MON_VisibleChanged(object sender, EventArgs e)
+        private void chartSlabtest_CustomDrawAxisLabel(object sender, CustomDrawAxisLabelEventArgs e)
         {
             try
             {
-                if (this.Visible)
+                if (e.Item.Axis is AxisX)
                 {
-                    if (Form_Home_Roll.FrmEvaRub == "2")
-                        lblEVA_Click(sender, e);
-                    else
-                        lblRubber_Click(sender, e);
-                    timer1.Start();
-                    cnt = 0;
+                    e.Item.Text = e.Item.Text.Replace("_", "\n");
                 }
-                else
-                    timer1.Stop();
             }
             catch
             {
@@ -196,44 +225,146 @@ namespace Smart_FTY
             }
         }
 
-        private void lblRubber_Click(object sender, EventArgs e)
+        //private void gvwView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        //{
+        //    //if (e.Column.ColumnHandle == 1)
+        //    //{
+        //    //    e.Appearance.BackColor = Color.LightGray;//Color.FromArgb(80, 209, 244);
+        //    //    e.Appearance.ForeColor = Color.Black;
+        //    //    e.Appearance.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Bold);
+        //    //}
+        //    //else
+        //    //{
+
+        //    //}
+        //}
+
+        private void uc_month_ValueChangeEvent(object sender, EventArgs e)
         {
-            ComVar.Form_Type = "1";
-            lblTitle.Text = "Rubber Slab Test Tracking by Month";
-            BindingData("OS");
-            bindingdatachart("OS");
-            str_op = "OS";
-            pnRubber.GradientEndColor = Color.White;//Color.FromArgb(255, 128, 128);
-            pnEVA.GradientEndColor = Color.Gray;
-            pnRubber.Enabled = false;
-            pnEVA.Enabled = true;
-            Form_Home_Roll.FrmEvaRub = "1";
+            try
+            {
+                BindingData(_sProcess);
+                iCount = 0;
+            }
+            catch
+            { 
+            }
         }
 
-        private void lblEVA_Click(object sender, EventArgs e)
+        private void cmdBack_Click(object sender, EventArgs e)
         {
-            ComVar.Form_Type = "2";
-            lblTitle.Text = "EVA Slab Test Tracking by Month";
-            BindingData("PH");
-            bindingdatachart("PH");
-            str_op = "PH";
-            pnEVA.GradientEndColor = Color.White; //Color.FromArgb(255, 128, 128);
-            pnRubber.GradientEndColor = Color.Gray;
-            pnRubber.Enabled = true;
-            pnEVA.Enabled = false;
+            this.Hide();
+        }
+
+        private void cmdDay_Click(object sender, EventArgs e)
+        {
+            //Form fc = Application.OpenForms["FRM_ROLL_SLABTEST_MONTH"];
+            //if (fc != null)
+            //{
+            //    fc.Show();
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    FRM_ROLL_SLABTEST_MONTH f = new FRM_ROLL_SLABTEST_MONTH();
+            //    f.Show();
+            //    this.Hide();
+            //}
+        }
+
+        private void cmdWeek_Click(object sender, EventArgs e)
+        {
+            //Form fc = Application.OpenForms["FORM_SMT_ROLL_LEADTIME_WEEK"];
+            //if (fc != null)
+            //{
+
+            //    fc.Show();
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    FORM_SMT_ROLL_LEADTIME_WEEK f = new FORM_SMT_ROLL_LEADTIME_WEEK();
+            //    f.Show();
+            //    this.Hide();
+            //}
+        }
+
+        private void cmdMonth_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["FRM_ROLL_SLABTEST_MONTH"];
+            if (fc != null)
+            {
+
+                fc.Show();
+                this.Hide();
+            }
+            else
+            {
+                FRM_ROLL_SLABTEST_MONTH f = new FRM_ROLL_SLABTEST_MONTH();
+                f.Show();
+                this.Hide();
+            }
         }
 
         private void cmdYear_Click(object sender, EventArgs e)
         {
+            Form fc = Application.OpenForms["FRM_ROLL_SLABTEST_YEAR"];
+            if (fc != null)
+            {
 
+                fc.Show();
+                this.Hide();
+            }
+            else
+            {
+                FRM_ROLL_SLABTEST_YEAR f = new FRM_ROLL_SLABTEST_YEAR();
+                f.Show();
+                this.Hide();
+            }
         }
 
-        private void uc_month_ValueChangeEvent(object sender, EventArgs e)
+        private void lbl_Rubber_Click(object sender, EventArgs e)
         {
-            if (Form_Home_Roll.FrmEvaRub == "2")
-                lblEVA_Click(sender, e);
-            else
-                lblRubber_Click(sender, e);
+            lblTitle.Text = "Rubber Slab Test Tracking by Month";
+            pn1.GradientEndColor = Color.White;
+            pn2.GradientEndColor = Color.Gray;
+            pn1.Enabled = false;
+            pn2.Enabled = true;
+            _sProcess = "OS";
+            BindingData(_sProcess);
+
+
+            ComVar.Form_Type = "1";
+          
+           // BindingData("OS");
+           // bindingdatachart("OS");
+         //   str_op = "OS";
+          //  pnRubber.GradientEndColor = Color.White;//Color.FromArgb(255, 128, 128);
+         //   pnEVA.GradientEndColor = Color.Gray;
+          //  pnRubber.Enabled = false;
+          //  pnEVA.Enabled = true;
+            Form_Home_Roll.FrmEvaRub = "1";
+        }
+
+        private void lbl_EVA_Click(object sender, EventArgs e)
+        {
+            ComVar.Form_Type = "2";
+            lblTitle.Text = "EVA Slab Test Tracking by Month";
+            pn1.GradientEndColor = Color.Gray;
+            pn2.GradientEndColor = Color.White;
+            pn1.Enabled = true;
+            pn2.Enabled = false;
+            _sProcess = "PH";
+            BindingData(_sProcess);
+
+          
+           // BindingData("PH");
+          //  bindingdatachart("PH");
+           // str_op = "PH";
+          //  pnEVA.GradientEndColor = Color.White; //Color.FromArgb(255, 128, 128);
+           // pnRubber.GradientEndColor = Color.Gray;
+          //  pnRubber.Enabled = true;
+          //  pnEVA.Enabled = false;
         }
     }
 }

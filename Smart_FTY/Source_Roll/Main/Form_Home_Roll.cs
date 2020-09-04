@@ -695,14 +695,14 @@ namespace Smart_FTY
             //Form_Main.Next_Form = "FRM_ROLL_SLABTEST_MONTH";
             //Form_Main.This_Form_Type = "M";
             _frmQuality_SlabtestMonth.Show();
-            _frmQuality_SlabtestMonth.cmdMonth.Enabled = false;
+          //  _frmQuality_SlabtestMonth.cmdMonth.Enabled = false;
             //this.Hide();
         }
 
         private void cmdProduction1_Click(object sender, EventArgs e)
         {
             _frmProduction_StatusDay.Show();
-            _frmProduction_StatusDay.cmdDay.Enabled = false;
+         //   _frmProduction_StatusDay.cmdDay.Enabled = false;
            // this.Hide();
         }
 
