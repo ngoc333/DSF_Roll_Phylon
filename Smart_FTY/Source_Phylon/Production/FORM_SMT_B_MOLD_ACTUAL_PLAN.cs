@@ -777,10 +777,10 @@ namespace Smart_FTY
                 }
 
                 double iPlan, iDiff;
-                double.TryParse(arg_dt.Compute("Sum(QTY_TAR)", "").ToString(), out iPlan);
-                double.TryParse(arg_dt.Compute("Sum(ABS)", "").ToString(), out iDiff);
+                double.TryParse(arg_dt.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
+                double.TryParse(arg_dt.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
                 lbl_Plan.Text = "Total Plan: " + iPlan.ToString("###,###");
-                lbl_Actual.Text = "Total Actual: " + Convert.ToInt32(arg_dt.Compute("Sum(QTY_ACT)", "")).ToString("###,###");
+                lbl_Actual.Text = "Total Actual: " + Convert.ToInt32(arg_dt.Compute("Sum(QTY_ACT)", "MOLD_CD <> 'TOTAL'")).ToString("###,###");
                 lblDiffPlan.Text = "Difference Plan : " + Math.Round(iDiff / iPlan * 100) + "%";
 
                 if (_status == "PH3")
@@ -793,7 +793,7 @@ namespace Smart_FTY
                 //////////////////////////////////////////////
                
             }
-            catch
+            catch (Exception ex)
             {
             }
         }
@@ -1256,7 +1256,8 @@ namespace Smart_FTY
                     //{
 
                     _time = 0;
-                    lblCMP_Click(lblPH1, null);
+
+                    lblPH1_Click(lblPH1, null);
                     timer1.Start();
                     tmrTime.Start();
                     
@@ -1326,7 +1327,7 @@ namespace Smart_FTY
             lblPH1.BackColor = Color.White;
             lblPH3.BackColor = Color.LightGray;
             lblPH2.BackColor = Color.LightGray;
-            
+            Form_Home_Phylon._type = "PH";
             _status = "PH1";
             loaddata(true);
             lblTitle.Text = "Phylon APS Plan && Actual ";
@@ -1338,7 +1339,7 @@ namespace Smart_FTY
             lblPH1.Visible = false;
             lblPH3.Visible = false;
             lblPH2.Visible = false;
-            
+            Form_Home_Phylon._type = "CMP";
             _status = "CMP";
             loaddata(true);
             lblTitle.Text = "CMP APS Plan && Actual ";

@@ -296,6 +296,12 @@
     <Compile Include="Source_Phylon\Invetory\FORM_SMT_PH_LEADTIME_YEAR.designer.cs">
       <DependentUpon>FORM_SMT_PH_LEADTIME_YEAR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source_Phylon\Invetory\FRM_BOTTOM_INV_SET_ANALYSIS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source_Phylon\Invetory\FRM_BOTTOM_INV_SET_ANALYSIS.Designer.cs">
+      <DependentUpon>FRM_BOTTOM_INV_SET_ANALYSIS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source_Phylon\Machinery\FRM_PH_TEMP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -701,6 +707,12 @@
     <Compile Include="Source_Roll\UC\UC_YEAR_SELECTION.Designer.cs">
       <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form_Sample2.resx">
       <DependentUpon>Form_Sample2.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -750,6 +762,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source_Phylon\Invetory\FORM_SMT_PH_LEADTIME_YEAR.resx">
       <DependentUpon>FORM_SMT_PH_LEADTIME_YEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source_Phylon\Invetory\FRM_BOTTOM_INV_SET_ANALYSIS.resx">
+      <DependentUpon>FRM_BOTTOM_INV_SET_ANALYSIS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source_Phylon\Machinery\FRM_PH_TEMP.resx">
       <DependentUpon>FRM_PH_TEMP.cs</DependentUpon>
@@ -948,6 +963,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source_Roll\UC\UC_YEAR_SELECTION.resx">
       <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

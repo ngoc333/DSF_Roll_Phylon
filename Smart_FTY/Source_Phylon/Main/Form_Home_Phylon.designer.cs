@@ -369,7 +369,7 @@
             this.lblDate.BackColor = System.Drawing.Color.Turquoise;
             this.lblDate.Location = new System.Drawing.Point(1655, 0);
             this.lblDate.Size = new System.Drawing.Size(260, 106);
-            this.lblDate.Text = "2019-10-24\n13:39:20";
+            this.lblDate.Text = "2020-09-01\n16:07:46";
             this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
             // 
             // cmdYear
@@ -431,7 +431,7 @@
             // 
             this.lblShift.Location = new System.Drawing.Point(703, 23);
             this.lblShift.Size = new System.Drawing.Size(413, 53);
-            this.lblShift.Text = "Shift 1 (06:00 ~ 14:00)";
+            this.lblShift.Text = "Shift 2 (14:00 ~ 22:00)";
             // 
             // backstageViewControl1
             // 
@@ -450,8 +450,8 @@
             this.backstageViewControl1.Location = new System.Drawing.Point(3, 26);
             this.backstageViewControl1.Name = "backstageViewControl1";
             this.backstageViewControl1.Office2013StyleOptions.AllowShowHideAnimation = false;
-            this.backstageViewControl1.SelectedTab = this.bstLine1_Qual;
-            this.backstageViewControl1.SelectedTabIndex = 0;
+            this.backstageViewControl1.SelectedTab = this.bstLine1_Inventory;
+            this.backstageViewControl1.SelectedTabIndex = 3;
             this.backstageViewControl1.Size = new System.Drawing.Size(639, 404);
             this.backstageViewControl1.TabIndex = 10;
             this.backstageViewControl1.Text = "backstageViewControl1";
@@ -800,7 +800,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(245, 95);
             this.simpleButton1.TabIndex = 9;
             this.simpleButton1.Tag = "2";
-            this.simpleButton1.Text = "Phylon - Stockfit \r\nInventory Tracking\r\n";
+            this.simpleButton1.Text = "Bottom Inventory \r\nSet Analysis\r\n";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // cmdInventory1
@@ -927,7 +927,6 @@
             this.bstLine1_Qual.ContentControl = this.backstageViewClientControl3;
             this.bstLine1_Qual.Glyph = ((System.Drawing.Image)(resources.GetObject("bstLine1_Qual.Glyph")));
             this.bstLine1_Qual.Name = "bstLine1_Qual";
-            this.bstLine1_Qual.Selected = true;
             // 
             // bstLine1_Prod
             // 
@@ -993,6 +992,7 @@
             this.bstLine1_Inventory.ContentControl = this.backstageViewClientControl5;
             this.bstLine1_Inventory.Glyph = ((System.Drawing.Image)(resources.GetObject("bstLine1_Inventory.Glyph")));
             this.bstLine1_Inventory.Name = "bstLine1_Inventory";
+            this.bstLine1_Inventory.Selected = true;
             // 
             // bstLine1_HR
             // 
@@ -1296,7 +1296,7 @@
             // 
             // lblInvRubDay
             // 
-            this.lblInvRubDay.AppearanceText.Font = new System.Drawing.Font("Digital-7", 50.99999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvRubDay.AppearanceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.99999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInvRubDay.AppearanceText.TextBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:DarkOrange");
             this.lblInvRubDay.Name = "circularGauge1_Label1";
             this.lblInvRubDay.Position = new DevExpress.XtraGauges.Core.Base.PointF2D(126.3F, 104.4F);
@@ -1418,7 +1418,7 @@
             // 
             // lblInvEvaDay
             // 
-            this.lblInvEvaDay.AppearanceText.Font = new System.Drawing.Font("Digital-7", 50.99999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvEvaDay.AppearanceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.99999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInvEvaDay.AppearanceText.TextBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:DarkOrange");
             this.lblInvEvaDay.Name = "circularGauge1_Label1";
             this.lblInvEvaDay.Position = new DevExpress.XtraGauges.Core.Base.PointF2D(126.3F, 104.4F);
@@ -1666,7 +1666,7 @@
             // 
             // lblProdEva
             // 
-            this.lblProdEva.AppearanceText.Font = new System.Drawing.Font("Digital-7", 60.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProdEva.AppearanceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 60.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProdEva.AppearanceText.TextBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:DarkOrange");
             this.lblProdEva.Name = "circularGauge1_Label1";
             this.lblProdEva.Position = new DevExpress.XtraGauges.Core.Base.PointF2D(125.5F, 125F);
@@ -1823,7 +1823,7 @@
             // 
             // lblProdRub
             // 
-            this.lblProdRub.AppearanceText.Font = new System.Drawing.Font("Digital-7", 60.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProdRub.AppearanceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 60.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProdRub.AppearanceText.TextBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:DarkOrange");
             this.lblProdRub.Name = "circularGauge1_Label1";
             this.lblProdRub.Position = new DevExpress.XtraGauges.Core.Base.PointF2D(125F, 124.1F);

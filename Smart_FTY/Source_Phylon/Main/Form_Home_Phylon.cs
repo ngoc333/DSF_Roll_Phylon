@@ -13,6 +13,7 @@ using DevExpress.Utils;
 using System.Runtime.InteropServices;
 using System.Threading;
 using DevExpress.XtraGauges.Core.Model;
+using Smart_FTY.Source_Phylon;
 
 
 namespace Smart_FTY
@@ -31,7 +32,7 @@ namespace Smart_FTY
         {
             InitializeComponent();
             this.Text = "RunPH";
-            cmdBack.Visible = false;
+            //cmdBack.Visible = false;
         }
         
         //public static string This_Form = "Form_Home";
@@ -83,7 +84,8 @@ namespace Smart_FTY
         public static FRM_SMT_PH_TOPO_DAILY _frmTOPO = new FRM_SMT_PH_TOPO_DAILY();
 
         public static FORM_SMT_B_PHP_INV _frmInv = new FORM_SMT_B_PHP_INV();
-        public static FORM_SMT_B_PHP_INV_TRACKING _frmInv_Tracking = new FORM_SMT_B_PHP_INV_TRACKING();
+        //public static FORM_SMT_B_PHP_INV_TRACKING _frmInv_Tracking = new FORM_SMT_B_PHP_INV_TRACKING();
+        public static FRM_BOTTOM_INV_SET_ANALYSIS _frmInv_Tracking = new FRM_BOTTOM_INV_SET_ANALYSIS();
         public static FORM_SMT_PH_LEADTIME _frmLeadTime = new FORM_SMT_PH_LEADTIME();
 
         FORM_PH_KPI_PERFOMANCE _frmKPI = new FORM_PH_KPI_PERFOMANCE();

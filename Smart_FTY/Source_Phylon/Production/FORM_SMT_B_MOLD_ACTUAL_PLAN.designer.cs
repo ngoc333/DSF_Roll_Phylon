@@ -54,7 +54,7 @@
             // 
             // lblDate
             // 
-            this.lblDate.Text = "2019-01-07\n07:17:01";
+            this.lblDate.Text = "2020-10-06\n11:16:27";
             // 
             // cmdYear
             // 
@@ -76,25 +76,10 @@
             this.cmdMonth.Appearance.Options.UseFont = true;
             this.cmdMonth.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdMonth.ImageOptions.Image")));
             // 
-            // cmdDay
-            // 
-            this.cmdDay.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cmdDay.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cmdDay.Appearance.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
-            this.cmdDay.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.cmdDay.Appearance.Options.UseBackColor = true;
-            this.cmdDay.Appearance.Options.UseFont = true;
-            this.cmdDay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdDay.ImageOptions.Image")));
-            // 
             // cmdBack
             // 
             this.cmdBack.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.cmdBack.FlatAppearance.BorderSize = 0;
-            // 
-            // lblShift
-            // 
-            this.lblShift.Size = new System.Drawing.Size(413, 53);
-            this.lblShift.Text = "Shift 1 (06:00 ~ 14:00)";
             // 
             // lblPhylon
             // 
@@ -105,6 +90,16 @@
             // 
             this.lblCMP.ForeColor = System.Drawing.Color.Black;
             this.lblCMP.Click += new System.EventHandler(this.lblCMP_Click);
+            // 
+            // cmdDay
+            // 
+            this.cmdDay.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cmdDay.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cmdDay.Appearance.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
+            this.cmdDay.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.cmdDay.Appearance.Options.UseBackColor = true;
+            this.cmdDay.Appearance.Options.UseFont = true;
+            this.cmdDay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdDay.ImageOptions.Image")));
             // 
             // timer1
             // 
@@ -251,13 +246,13 @@
             // 
             // axGrid
             // 
-            this.axGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.axGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.axGrid.DataSource = null;
             this.axGrid.Location = new System.Drawing.Point(5, 216);
             this.axGrid.Name = "axGrid";
             this.axGrid.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axGrid.OcxState")));
-            this.axGrid.Size = new System.Drawing.Size(1910, 853);
+            this.axGrid.Size = new System.Drawing.Size(1910, 851);
             this.axGrid.TabIndex = 660;
             this.axGrid.BeforeEditMode += new AxFPSpreadADO._DSpreadEvents_BeforeEditModeEventHandler(this.axGrid_BeforeEditMode);
             // 
@@ -266,7 +261,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1920, 1064);
+            this.ClientSize = new System.Drawing.Size(1920, 1062);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCMP2);
