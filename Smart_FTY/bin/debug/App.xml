@@ -3,7 +3,7 @@
 	<form>
 		
 		<cmdBack>false</cmdBack>	
-	        <monitor>A</monitor>
+	        <monitor></monitor>
 		<WH_CD>PH</WH_CD>	
 	</form>
 </computer>

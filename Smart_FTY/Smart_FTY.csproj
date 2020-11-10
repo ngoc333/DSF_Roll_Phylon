@@ -646,6 +646,12 @@
     <Compile Include="Source_Roll\Quality\FRM_ROLL_COLOR_INFO.designer.cs">
       <DependentUpon>FRM_ROLL_COLOR_INFO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source_Roll\Quality\FRM_ROLL_COLOR_INFO_V02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source_Roll\Quality\FRM_ROLL_COLOR_INFO_V02.designer.cs">
+      <DependentUpon>FRM_ROLL_COLOR_INFO_V02.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source_Roll\Quality\FRM_ROLL_SLABTEST_MONTH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -930,6 +936,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source_Roll\Quality\FRM_ROLL_COLOR_INFO.resx">
       <DependentUpon>FRM_ROLL_COLOR_INFO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source_Roll\Quality\FRM_ROLL_COLOR_INFO_V02.resx">
+      <DependentUpon>FRM_ROLL_COLOR_INFO_V02.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source_Roll\Quality\FRM_ROLL_SLABTEST_MONTH.resx">
       <DependentUpon>FRM_ROLL_SLABTEST_MONTH.cs</DependentUpon>
