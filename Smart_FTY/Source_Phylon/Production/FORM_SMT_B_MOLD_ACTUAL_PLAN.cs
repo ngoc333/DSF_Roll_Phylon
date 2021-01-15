@@ -12,6 +12,7 @@ using System.Data.OracleClient;
 using System.Data.SqlClient;
 //using ChartDirector;
 using System.Threading;
+using System.Diagnostics;
 //using WarehouseMaterialSystem.ClassLib;
 
 
@@ -41,6 +42,8 @@ namespace Smart_FTY
         DataTable _dt_layout_PH2 = null;
         DataTable _dt_layout_PH3 = null;
         int iQtyDiff = 0;
+
+        bool _loadDif = false;
 
         //  string[] str_yellow;
         int _iColor = 0;
@@ -211,7 +214,7 @@ namespace Smart_FTY
                 // WarehouseMaterialSystem.ClassLib.WinAPI.AnimateWindow(arg_grid.Handle, 200, WarehouseMaterialSystem.ClassLib.WinAPI.getSlidType("2"));
                 //   arg_grid.Visible = true;
             }
-            set_qty_actual(SEL_TOTAL_PLAN_ACTUAL());
+            set_qty_actual(arg_dt);
         }
 
         public DataTable SEL_TOTAL_PLAN_ACTUAL()
@@ -368,11 +371,81 @@ namespace Smart_FTY
 
         public void set_qty_actual(DataTable arg_dt)
         {
-            lbl_Plan.Text = "Total Plan: " + arg_dt.Rows[0]["PLAN"].ToString();
-            lbl_Actual.Text = "Total Actual: " + arg_dt.Rows[0]["ACTUAL"].ToString();
-            lblDiffPlan.Text = "Difference Plan: " + Math.Round(iQtyDiff / Convert.ToDouble(arg_dt.Rows[0]["PLAN"]) * 100).ToString() + "%";
+
+            int iPlan = (int)arg_dt.Compute("count(MOLD_SIZE_CD)", "");
+            int iActual = (int)arg_dt.Compute("count(ACTUAL)", "");
+            int iYellow = (int)arg_dt.Compute("count(STATUS)", "STATUS = '1'");
+            
+
+            lbl_Plan.Text = "Total Plan: " + iPlan;
+            lbl_Actual.Text = "Total Actual: " + iActual;
+          //  lblDiffPlan.Text = "Difference Plan: " + Math.Round(iQtyDiff / Convert.ToDouble(arg_dt.Rows[0]["PLAN"]) * 100,1).ToString() + "%";
+
+            if (_shift == "1")
+            {
+                lbl_dif1.Text = (iYellow / (double)iPlan * 100).ToString("###,##0.#") + "%";
+            }
+            else if (_shift == "2")
+            {
+                lbl_dif2.Text = (iYellow / (double)iPlan * 100).ToString("###,##0.#") + "%";
+            }
+            else
+            {
+                lbl_dif3.Text = (iYellow / (double)iPlan * 100).ToString("###,##0.#") + "%";
+            }
+
+            if (!_loadDif) return;
 
 
+            if (_shift == "1")
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("40", "2");
+                SetTextDif(dtShif2, lbl_dif2);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("40", "3");
+                SetTextDif(dtShif3, lbl_dif3);
+            }
+            else if (_shift == "2")
+            {
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("40", "1");
+                SetTextDif(dtShif1, lbl_dif1);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("40", "3");
+                SetTextDif(dtShif3, lbl_dif3);
+            }
+            else
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("40", "2");
+                SetTextDif(dtShif2, lbl_dif2);
+
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("40", "3");
+                SetTextDif(dtShif1, lbl_dif1);
+            }
+        }
+
+        private void SetTextDif(DataTable dtShift, Label lbl_dif)
+        {
+            try
+            {
+                if (dtShift == null || dtShift.Rows.Count == 0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                int iPlan = (int)dtShift.Compute("count(MOLD_SIZE_CD)", "");
+                if (iPlan ==0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                int iYellow = (int)dtShift.Compute("count(STATUS)", "STATUS = '1'");
+                
+                lbl_dif.Text = ((double)iYellow / iPlan * 100.0).ToString("###,##0.#") + "%";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
 
         private void MachineCenterText(int arg_col, int arg_row, int arg_idt, DataTable arg_dt, AxFPSpreadADO.AxfpSpread arg_grid)
@@ -782,12 +855,7 @@ namespace Smart_FTY
                     MachineLineTotal2(icol, irow5, irow, arg_grid);
                 }
 
-                double iPlan, iDiff;
-                double.TryParse(arg_dt.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
-                double.TryParse(arg_dt.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
-                lbl_Plan.Text = "Total Plan: " + iPlan.ToString("###,###");
-                lbl_Actual.Text = "Total Actual: " + Convert.ToInt32(arg_dt.Compute("Sum(QTY_ACT)", "MOLD_CD <> 'TOTAL'")).ToString("###,###");
-                lblDiffPlan.Text = "Difference Plan : " + Math.Round(iDiff / iPlan * 100) + "%";
+                SetTextPH(arg_dt);
 
                 if (_status == "PH3")
                 {
@@ -809,6 +877,75 @@ namespace Smart_FTY
         }
 
 
+        private void SetTextPH(DataTable arg_dt)
+        {
+            double iPlan, iDiff;
+            double.TryParse(arg_dt.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
+            double.TryParse(arg_dt.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
+            lbl_Plan.Text = "Total Plan: " + iPlan.ToString("###,###");
+            lbl_Actual.Text = "Total Actual: " + Convert.ToInt32(arg_dt.Compute("Sum(QTY_ACT)", "MOLD_CD <> 'TOTAL'")).ToString("###,###");
+
+            if (_shift == "1")
+            {
+                lbl_dif1.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+            else if (_shift == "2")
+            {
+                lbl_dif2.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+            else
+            {
+                lbl_dif3.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+
+            if (!_loadDif) return;
+
+
+            if (_shift == "1")
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "2");
+                SetTextDifPH(dtShif2, lbl_dif2);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "3");
+                SetTextDifPH(dtShif3, lbl_dif3);
+            }
+            else if (_shift == "2")
+            {
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "1");
+                SetTextDifPH(dtShif1, lbl_dif1);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "3");
+                SetTextDifPH(dtShif3, lbl_dif3);
+            }
+            else
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2,1), "2");
+                SetTextDifPH(dtShif2, lbl_dif2);
+
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "1");
+                SetTextDifPH(dtShif1, lbl_dif1);
+            } 
+        }
+
+        private void SetTextDifPH(DataTable dtShift, Label lbl_dif)
+        {
+            try
+            {
+                if (dtShift == null || dtShift.Rows.Count == 0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                double iPlan, iDiff;
+                double.TryParse(dtShift.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
+                double.TryParse(dtShift.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
+                lbl_dif.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
 
         private void MachineHeadPH1(int arg_icol, int arg_irow, int arg_idt, DataTable arg_dt, AxFPSpreadADO.AxfpSpread arg_grid)
         {
@@ -1021,6 +1158,7 @@ namespace Smart_FTY
             try
             {
 
+                this.Cursor = Cursors.WaitCursor;
                 // if (arg_status)
                 this.axGrid.Hide();
                 DataTable dt = null;
@@ -1032,7 +1170,7 @@ namespace Smart_FTY
 
                 if (_status == "PH1")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_1");
+                    dt = SEL_APS_PLAN_ACTUAL("70_1", _shift);
                     //_dt_row = SEL_APS_PLAN_ACTUAL_ROW("70_1");
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH1 = dt;
@@ -1045,7 +1183,7 @@ namespace Smart_FTY
                 }
                 else if (_status == "PH2")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_2");
+                    dt = SEL_APS_PLAN_ACTUAL("70_2",_shift);
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH2 = dt;
 
@@ -1053,7 +1191,7 @@ namespace Smart_FTY
                 }
                 else if (_status == "PH3")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_3");
+                    dt = SEL_APS_PLAN_ACTUAL("70_3", _shift);
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH3 = dt;
 
@@ -1061,7 +1199,7 @@ namespace Smart_FTY
                 }
                 else if (_status == "CMP")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("40");
+                    dt = SEL_APS_PLAN_ACTUAL("40", _shift);
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout = dt;
 
@@ -1078,42 +1216,22 @@ namespace Smart_FTY
 
                 //}
             }
-            catch
-            { }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             finally
             {
+                this.Cursor = Cursors.Default;
                 this.axGrid.Show();
             }
-        }
-
-        private DataSet SEL_APS_PLAN_ACTUAL_ROW()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void autoClick(List<string> arg_list)
-        {
-            try
-            {
-                if (arg_list.Count > 0)
-                {
-                    string str = arg_list.ElementAt(_iCount);
-                    string[] st = str.Split(' ');
-                    AxFPSpreadADO._DSpreadEvents_ClickEvent ev = new AxFPSpreadADO._DSpreadEvents_ClickEvent(Convert.ToInt32(st[0]), Convert.ToInt32(st[1]));
-                    //axGrid_ClickEvent(axGrid, ev);
-                    if (_iCount == arg_list.Count - 1) _iCount = 0;
-                    else _iCount++;
-                }
-            }
-            catch
-            { }
         }
 
 
         #endregion Fuction
 
         #region DB
-        public DataTable SEL_APS_PLAN_ACTUAL(string arg_wh)
+        public DataTable SEL_APS_PLAN_ACTUAL(string arg_wh, string argShift)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
             System.Data.DataSet ds_ret;
@@ -1137,7 +1255,7 @@ namespace Smart_FTY
 
                 MyOraDB.Parameter_Values[0] = arg_wh;
                 MyOraDB.Parameter_Values[1] = dtpDate.DateTime.ToString("yyyyMMdd");
-                MyOraDB.Parameter_Values[2] = _shift;
+                MyOraDB.Parameter_Values[2] = argShift;
                 MyOraDB.Parameter_Values[3] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
@@ -1228,6 +1346,7 @@ namespace Smart_FTY
 
                 if (_time >= 60)
                 {
+                    _loadDif = false;
                     loaddata(true);
 
                     _time = 0;
@@ -1271,6 +1390,11 @@ namespace Smart_FTY
                     //_time_auto = 10;
                     //if (_load_form)
                     //{
+
+                    lbl_dif1.Text = "";
+                    lbl_dif2.Text = "";
+                    lbl_dif3.Text = "";
+
                     _isLoad = true;
                     dtpDate.EditValue = DateTime.Now;
 
@@ -1366,6 +1490,7 @@ namespace Smart_FTY
             lblPH2.BackColor = Color.LightGray;
             Form_Home_Phylon._type = "PH";
             _status = "PH1";
+            _loadDif = true;
             loaddata(true);
             lblTitle.Text = "Phylon APS Plan && Actual ";
 
@@ -1378,6 +1503,7 @@ namespace Smart_FTY
             lblPH2.Visible = false;
             Form_Home_Phylon._type = "CMP";
             _status = "CMP";
+            _loadDif = true;
             loaddata(true);
             lblTitle.Text = "CMP APS Plan && Actual ";
             // Form_Main.headText = "CMP APS Plan && Actual ";
@@ -1397,12 +1523,18 @@ namespace Smart_FTY
             Control cmd = (Control)sender;
             foreach (Control ctr in pnShift.Controls)
             {
+                if (!ctr.Name.Contains("lbl_Shift")) continue;
                 if (ctr.Name == cmd.Name)
                 {
                     cmd.BackColor = Color.DodgerBlue;
                     cmd.ForeColor = Color.White;
                     _shift = cmd.Tag.ToString();
-                    if(!_isLoad) loaddata(true);
+                    if (!_isLoad)
+                    {
+                        _loadDif = false;
+                        loaddata(true);
+                    }
+                        
                     _time = 0;
                 }
                 else
@@ -1420,6 +1552,7 @@ namespace Smart_FTY
         private void dtpDate_EditValueChanged(object sender, EventArgs e)
         {
             if (_isLoad) return;
+            _loadDif = true;
             loaddata(true);
             _time = 0;
         }
