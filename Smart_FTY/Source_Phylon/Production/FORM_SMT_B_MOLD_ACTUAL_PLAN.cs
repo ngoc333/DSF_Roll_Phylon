@@ -553,97 +553,7 @@ namespace Smart_FTY
 
         }
 
-        private void DisplayGridDMC(DataTable arg_dt, AxFPSpreadADO.AxfpSpread arg_grid)
-        {
-            try
-            {
-                if (arg_dt == null || arg_dt.Rows.Count == 0) return;
-                axGrid.ClearRange(0, 0, 50, 50, true);
-                create_default();
-                _Loc_change_DMC.Clear();
-                int row_s2 = 15;
-                int row_s1 = 7;
-                int row_s3 = 23;
-                int col_s3 = 6;
-                int irow = row_s2;
-                int icol = 2;
-
-                MachineBodyDMC(icol, irow, 0, arg_dt, arg_grid);
-                MachineCenterText(icol, irow, 0, arg_dt, arg_grid);
-                //MachineCenterBG(icol, irow, 0, arg_dt, arg_grid);
-                lbl_Plan.Text = arg_dt.Rows[0]["TOT_PLAN"].ToString();
-                lbl_Actual.Text = arg_dt.Rows[0]["TOT_ACT"].ToString();
-                for (int i = 1; i < arg_dt.Rows.Count; i++)
-                {
-
-                    if (arg_dt.Rows[i]["machine_cd"].ToString() == arg_dt.Rows[i - 1]["machine_cd"].ToString())
-                    {
-                        if (arg_dt.Rows[i]["direction"].ToString() == arg_dt.Rows[i - 1]["direction"].ToString())
-                        {
-                            if (arg_dt.Rows[i]["direction"].ToString() == "1")
-                            {
-                                irow--;
-                                //   MachineCenterBG(icol, irow, i, arg_dt, arg_grid); 
-                            }
-                            else if (arg_dt.Rows[i]["direction"].ToString() == "2") icol++;
-                            else if (arg_dt.Rows[i]["direction"].ToString() == "3") irow++;
-                            else icol--;
-                            MachineBodyDMC(icol, irow, i, arg_dt, arg_grid);
-
-                        }
-                        else
-                        {
-                            if (arg_dt.Rows[i]["direction"].ToString() == "2")
-                            {
-                                irow--;
-                                icol++;
-                                MachineHeadDMC(icol, irow - 1, i, arg_dt, arg_grid);
-                            }
-                            else if (arg_dt.Rows[i]["direction"].ToString() == "3")
-                            {
-                                icol++;
-                                irow++;
-                            }
-                            else if (arg_dt.Rows[i]["direction"].ToString() == "4")
-                            {
-                                irow++;
-                                icol--;
-                            }
-                            MachineBodyDMC(icol, irow, i, arg_dt, arg_grid);
-                        }
-                    }
-                    else
-                    {
-                        if (arg_dt.Rows[i]["line_id"].ToString() == "2")
-                        {
-                            irow = row_s2;
-                            icol = icol + 6;
-                            //  axGrid.SetText(icol, irow, "2");
-                        }
-                        else if (arg_dt.Rows[i]["line_id"].ToString() == "1")
-                        {
-                            irow = row_s1;
-                            icol--;
-                            //   axGrid.SetText(icol, irow,"1");
-                        }
-                        else
-                        {
-                            irow = row_s3;
-                            col_s3 += 8;
-                            icol = col_s3;
-                        }
-                        MachineBodyDMC(icol, irow, i, arg_dt, arg_grid);
-                        MachineCenterText(icol, irow, i, arg_dt, arg_grid);
-                        //  MachineCenterBG(icol, irow, i, arg_dt, arg_grid); 
-                    }
-                }
-
-                // if (_Loc_change.Count > 0) tmr_blind.Start();
-                // else tmr_blind.Stop();
-            }
-            catch
-            { }
-        }
+      
 
 
         #endregion DMC
@@ -674,18 +584,22 @@ namespace Smart_FTY
                 int irow3 = 3 + Convert.ToInt32(arg_dt2.Rows[2]["MOLD_CD"].ToString());
                 int irow4 = 3 + Convert.ToInt32(arg_dt2.Rows[3]["MOLD_CD"].ToString());
                 int irow5 = 3 + irow4 + Convert.ToInt32(arg_dt2.Rows[4]["MOLD_CD"].ToString());
+                int irow6 = 3 + irow5 + Convert.ToInt32(arg_dt2.Rows[5]["MOLD_CD"].ToString());
 
-                arg_grid.MaxRows = irow5 + 3;
+                if (_status == "PH3")
+                    arg_grid.MaxRows = irow6 + 3;
+                else
+                    arg_grid.MaxRows = irow5 + 3;
                 MachineHeadPH1(icol, irow, 0, arg_dt, arg_grid);
                 irow += 2;
                 MachineBodyPH1(icol, irow, irow1, 0, arg_dt, arg_grid);
                 irow++;
-
+                string zone = "";
                 for (int i = 1; i < arg_dt.Rows.Count; i++)
                 {
                     //iCount++;
                     //if (i==3) break;
-
+                    zone = arg_dt.Rows[i]["ZONE_CD"].ToString();
                     if (arg_dt.Rows[i]["ZONE_CD"].ToString() == arg_dt.Rows[i - 1]["ZONE_CD"].ToString())
                     {
                         if (arg_dt.Rows[i]["ZONE_CD"].ToString() == "001")
@@ -741,13 +655,21 @@ namespace Smart_FTY
                         else if (arg_dt.Rows[i]["ZONE_CD"].ToString() == "003")
                         {
                             //if (i > 81) return;
-                            if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == "CTM 26" && arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
-                            { }
+                            
                             if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == arg_dt.Rows[i - 1]["MACHINE_NAME"].ToString())
                             {
+                                if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == "CTM 26" && arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
+                                {}
+
                                 MachineBodyPH1(icol, irow, irow3, i, arg_dt, arg_grid);
                                 // if (irow > row_max) row_max = irow;
                                 irow++;
+                                //if (arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
+                                //{
+                                //    MachineLineTotal2(icol, irow3, irow, arg_grid);
+                                //    //  return;
+                                //}
+
                             }
                             else
                             {
@@ -795,9 +717,15 @@ namespace Smart_FTY
                         {
                             if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == arg_dt.Rows[i - 1]["MACHINE_NAME"].ToString())
                             {
+                                
                                 MachineBodyPH1(icol, irow, irow5, i, arg_dt, arg_grid);
                                 // if (irow > row_max) row_max = irow;
                                 irow++;
+                                //if (arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
+                                //{
+                                //    MachineLineTotal2(icol, irow5, irow, arg_grid);
+                                //    //  return;
+                                //}
                             }
                             else
                             {
@@ -816,6 +744,37 @@ namespace Smart_FTY
 
                             }
                         }
+                        else if (arg_dt.Rows[i]["ZONE_CD"].ToString() == "006")
+                        {
+                            if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == arg_dt.Rows[i - 1]["MACHINE_NAME"].ToString())
+                            {
+
+                                MachineBodyPH1(icol, irow, irow6, i, arg_dt, arg_grid);
+                                // if (irow > row_max) row_max = irow;
+                                irow++;
+                                //if (arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
+                                //{
+                                //    MachineLineTotal2(icol, irow6, irow, arg_grid);
+                                //      return;
+                                //}
+                            }
+                            else
+                            {
+                                row_max = irow6;
+                                ///Line Total
+                                MachineLineTotal2(icol, irow6, irow, arg_grid);
+                                ///new machine
+                                arg_grid.set_ColWidth(icol + 5, 1.0);
+                                //col_s += 5;
+                                icol += 6;
+                                irow = row_s;
+                                MachineHeadPH1(icol, irow, i, arg_dt, arg_grid);
+                                irow += 2;
+                                MachineBodyPH1(icol, irow, irow6, i, arg_dt, arg_grid);
+                                irow++;
+
+                            }
+                        }
                     }
                     else
                     {
@@ -828,6 +787,18 @@ namespace Smart_FTY
                         {
                             MachineLineTotal2(icol, irow4, irow, arg_grid);
                         }
+                        if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "003")
+                        {
+                            MachineLineTotal2(icol, irow3, irow, arg_grid);
+                        }
+                        if (zone == "006")
+                        {
+                            MachineLineTotal2(icol, irow5, irow, arg_grid);
+                        }
+                        //if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "006")
+                        //{
+                        //    MachineLineTotal2(icol, irow6, irow, arg_grid);
+                        //}
 
                         row_s = row_max + 2;
                         icol = col_s;
@@ -842,17 +813,25 @@ namespace Smart_FTY
                     if (icol > iColMax) iColMax = icol;
                 }
                 ///Line Total
-                if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "001")
+                if (zone == "002")
                 {
                     MachineLineTotal2(icol, irow2, irow, arg_grid);
                 }
-                if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "003")
-                {
-                    MachineLineTotal2(icol, irow3, irow, arg_grid);
-                }
-                if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "004")
+                //if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "003")
+                //{
+                //    MachineLineTotal2(icol, irow3, irow, arg_grid);
+                //}
+                //if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "004")
+                //{
+                //    MachineLineTotal2(icol, irow5, irow, arg_grid);
+                //}
+                if (zone == "005")
                 {
                     MachineLineTotal2(icol, irow5, irow, arg_grid);
+                }
+                if (zone == "006")
+                {
+                    MachineLineTotal2(icol, irow6, irow, arg_grid);
                 }
 
                 SetTextPH(arg_dt);
