@@ -227,12 +227,14 @@ namespace Smart_FTY
             //}
             if (e.Column.FieldName.Contains("RATE"))
             {
+                if (e.CellValue == null) return;
                 if (e.CellValue.ToString().Replace("%", "") != "")
                 {
                     if (Convert.ToDouble(e.CellValue.ToString().Replace("%", "").Trim()) > i_max)
                     {
                         e.Appearance.BackColor = Color.Green;
                         e.Appearance.ForeColor = Color.White;
+                        
                     }
                     else if (Convert.ToDouble(e.CellValue.ToString().Replace("%", "").Trim()) >= i_min && Convert.ToDouble(e.CellValue.ToString().Replace("%", "").Trim()) <= i_max)
                     {
@@ -352,6 +354,7 @@ namespace Smart_FTY
             try
             {
                 //return;
+                if (e.Band == null) return;
                 Rectangle rect = e.Bounds;
                 rect.Inflate(new Size(1, 1));
 
@@ -361,7 +364,9 @@ namespace Smart_FTY
                 Pen pen_vertical = new Pen(Color.Blue, 4F);
                 Pen line = new Pen(Color.White, 3F);
                 bool boBorder = false;
-               // string[] ls = e.Band.Caption.Split('\n');
+                 string[] ls = e.Band.Caption.Split('\n'); 
+
+                
 
                 if (e.Band.HasChildren)
                 {
@@ -396,7 +401,7 @@ namespace Smart_FTY
                     e.Graphics.DrawLine(pen_horizental, rect.X + 1, rect.Y, rect.X + 1, rect.Y + rect.Height);
 
 
-                 //   e.Graphics.DrawString(ls[0], e.Appearance.GetFont(), new SolidBrush(e.Appearance.GetForeColor()), rect, e.Appearance.GetStringFormat());
+                    e.Graphics.DrawString(ls[0], e.Appearance.GetFont(), new SolidBrush(e.Appearance.GetForeColor()), rect, e.Appearance.GetStringFormat());
                     e.Handled = true;
                 }
             }
