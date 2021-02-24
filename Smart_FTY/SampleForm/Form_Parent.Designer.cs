@@ -184,7 +184,6 @@
             // 
             // tmrTime
             // 
-            this.tmrTime.Enabled = true;
             this.tmrTime.Interval = 1000;
             this.tmrTime.Tick += new System.EventHandler(this.timer1_Tick);
             // 

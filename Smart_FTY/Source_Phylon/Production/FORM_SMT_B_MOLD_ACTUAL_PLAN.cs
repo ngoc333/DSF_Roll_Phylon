@@ -12,6 +12,7 @@ using System.Data.OracleClient;
 using System.Data.SqlClient;
 //using ChartDirector;
 using System.Threading;
+using System.Diagnostics;
 //using WarehouseMaterialSystem.ClassLib;
 
 
@@ -31,9 +32,9 @@ namespace Smart_FTY
 
         #region Init
         DataTable _dt_layout = null;
-        string _status ;
+        string _status;
         public int _Izone = 1;
-       // string _lbl1, _lbl2, _lbl3;
+        // string _lbl1, _lbl2, _lbl3;
         public int _time = 0;
         int _time_auto = 0;
         DataTable _dt_row = null;
@@ -41,19 +42,21 @@ namespace Smart_FTY
         DataTable _dt_layout_PH2 = null;
         DataTable _dt_layout_PH3 = null;
         int iQtyDiff = 0;
-        
-      //  string[] str_yellow;
+
+        bool _loadDif = false;
+
+        //  string[] str_yellow;
         int _iColor = 0;
         //bool _load_form = true;
         int _iCount = 0;
         //int _bf_clickRow=0, _bf_clickCol=0;
-    
+        string _shift;
 
-        
+
         //FORM_MOLD_PRODUCTION_POP _pop_change = new FORM_MOLD_PRODUCTION_POP();
         //FORM_MOLD_PRODUCTION_POP_PRE _pop_change_pre = new FORM_MOLD_PRODUCTION_POP_PRE();
-      //  Thread th;
-         
+        //  Thread th;
+
         List<string> _Loc_change_DMC = new List<string>();
         List<string> _Loc_plan_DMC = new List<string>();
         List<string> _Loc_change_DMP = new List<string>();
@@ -65,16 +68,16 @@ namespace Smart_FTY
 
         #region Function
 
-        
-        
+
+
         private void GoFullscreen()
         {
-           
+
             //if (fullscreen)
             //{
-                this.WindowState = FormWindowState.Normal;
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                this.Bounds = Screen.PrimaryScreen.Bounds;
+            this.WindowState = FormWindowState.Normal;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Bounds = Screen.PrimaryScreen.Bounds;
             //}
             //else
             //{
@@ -105,9 +108,9 @@ namespace Smart_FTY
 
                 //if (_status == "PH1")
                 //{
-                    iRowHeight = 20;
-                    
-                    iFontSize = 11;
+                iRowHeight = 20;
+
+                iFontSize = 11;
                 //}
                 //else
                 //{
@@ -125,12 +128,12 @@ namespace Smart_FTY
                 axGrid.Font = new System.Drawing.Font("Calibri", iFontSize);
                 axGrid.BorderStyle = FPSpreadADO.BorderStyleConstants.BorderStyleNone;
                 axGrid.GrayAreaBackColor = Color.White;
-               // axGrid.ScrollBarExtMode = true;
+                // axGrid.ScrollBarExtMode = true;
                 // axGrid.BorderStyle = FPSpreadADO.BorderStyleConstants.BorderStyleNone;
                 axGrid.set_RowHeight(1, 0.5);
-               //axGrid.set_RowHeight(20, 9);
-               //axGrid.set_ColWidth((int)WarehouseMaterialSystem.Cost.Form_Cost_Material_Unit_Price.G.S1_Blank, 5.37);
-              axGrid.set_ColWidth(1, 0.5);
+                //axGrid.set_RowHeight(20, 9);
+                //axGrid.set_ColWidth((int)WarehouseMaterialSystem.Cost.Form_Cost_Material_Unit_Price.G.S1_Blank, 5.37);
+                axGrid.set_ColWidth(1, 0.5);
                 //axGrid.set_ColWidth((int)G.S3_Blank, 5.37);
                 //axGrid.set_ColWidth((int)G.Blank1, 13.62);
                 //axGrid.set_ColWidth((int)G.Blank2, 13.62);
@@ -150,7 +153,7 @@ namespace Smart_FTY
                     axGrid.set_ColWidth(icol, iColWidth);
             }
             catch (Exception)
-            {}            
+            { }
         }
 
         #region CMP
@@ -161,8 +164,8 @@ namespace Smart_FTY
             create_default();
             _Loc_plan_DMP.Clear();
             axGrid.ScrollBars = FPSpreadADO.ScrollBarsConstants.ScrollBarsNone;
-            
-            
+
+
 
             try
             {
@@ -211,9 +214,9 @@ namespace Smart_FTY
                 // WarehouseMaterialSystem.ClassLib.WinAPI.AnimateWindow(arg_grid.Handle, 200, WarehouseMaterialSystem.ClassLib.WinAPI.getSlidType("2"));
                 //   arg_grid.Visible = true;
             }
-            set_qty_actual(SEL_TOTAL_PLAN_ACTUAL());
+            set_qty_actual(arg_dt);
         }
-       
+
         public DataTable SEL_TOTAL_PLAN_ACTUAL()
         {
             COM.OraDB MyOraDB = new COM.OraDB();
@@ -335,7 +338,7 @@ namespace Smart_FTY
                 ///Plan
                 arg_grid.Col = arg_icol + 1;
                 arg_grid.Text = arg_dt.Rows[arg_idt]["MOLD_SIZE_CD"].ToString();
-                 arg_grid.FontSize = 15;
+                arg_grid.FontSize = 15;
                 if (arg_dt.Rows[arg_idt]["STATUS"].ToString() == "1")
                 {
                     arg_grid.BackColor = Color.Yellow;
@@ -365,14 +368,84 @@ namespace Smart_FTY
             { }
 
         }
-       
+
         public void set_qty_actual(DataTable arg_dt)
         {
-            lbl_Plan.Text = "Total Plan: " + arg_dt.Rows[0]["PLAN"].ToString();
-            lbl_Actual.Text = "Total Actual: " + arg_dt.Rows[0]["ACTUAL"].ToString();
-            lblDiffPlan.Text = "Difference Plan: " + Math.Round(iQtyDiff / Convert.ToDouble(arg_dt.Rows[0]["PLAN"]) * 100).ToString() + "%";
+
+            int iPlan = (int)arg_dt.Compute("count(MOLD_SIZE_CD)", "");
+            int iActual = (int)arg_dt.Compute("count(ACTUAL)", "");
+            int iYellow = (int)arg_dt.Compute("count(STATUS)", "STATUS = '1'");
+            
+
+            lbl_Plan.Text = "Total Plan: " + iPlan;
+            lbl_Actual.Text = "Total Actual: " + iActual;
+          //  lblDiffPlan.Text = "Difference Plan: " + Math.Round(iQtyDiff / Convert.ToDouble(arg_dt.Rows[0]["PLAN"]) * 100,1).ToString() + "%";
+
+            if (_shift == "1")
+            {
+                lbl_dif1.Text = (iYellow / (double)iPlan * 100).ToString("###,##0.#") + "%";
+            }
+            else if (_shift == "2")
+            {
+                lbl_dif2.Text = (iYellow / (double)iPlan * 100).ToString("###,##0.#") + "%";
+            }
+            else
+            {
+                lbl_dif3.Text = (iYellow / (double)iPlan * 100).ToString("###,##0.#") + "%";
+            }
+
+            if (!_loadDif) return;
 
 
+            if (_shift == "1")
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("40", "2");
+                SetTextDif(dtShif2, lbl_dif2);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("40", "3");
+                SetTextDif(dtShif3, lbl_dif3);
+            }
+            else if (_shift == "2")
+            {
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("40", "1");
+                SetTextDif(dtShif1, lbl_dif1);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("40", "3");
+                SetTextDif(dtShif3, lbl_dif3);
+            }
+            else
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("40", "2");
+                SetTextDif(dtShif2, lbl_dif2);
+
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("40", "3");
+                SetTextDif(dtShif1, lbl_dif1);
+            }
+        }
+
+        private void SetTextDif(DataTable dtShift, Label lbl_dif)
+        {
+            try
+            {
+                if (dtShift == null || dtShift.Rows.Count == 0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                int iPlan = (int)dtShift.Compute("count(MOLD_SIZE_CD)", "");
+                if (iPlan ==0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                int iYellow = (int)dtShift.Compute("count(STATUS)", "STATUS = '1'");
+                
+                lbl_dif.Text = ((double)iYellow / iPlan * 100.0).ToString("###,##0.#") + "%";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
 
         private void MachineCenterText(int arg_col, int arg_row, int arg_idt, DataTable arg_dt, AxFPSpreadADO.AxfpSpread arg_grid)
@@ -380,17 +453,17 @@ namespace Smart_FTY
             int iColPlus = Convert.ToInt32(arg_dt.Rows[arg_idt]["col_cen"]);
             int iRowPlus = Convert.ToInt32(arg_dt.Rows[arg_idt]["row_cen"]);
             //arg_grid.AddCellSpan(arg_col + (iColPlus - 1), arg_row + (iRowPlus - 1), iColPlus, iRowPlus);
-            arg_grid.AddCellSpan(arg_col + 1, arg_row - (iRowPlus -1), iColPlus, iRowPlus);
+            arg_grid.AddCellSpan(arg_col + 1, arg_row - (iRowPlus - 1), iColPlus, iRowPlus);
             arg_grid.Col = arg_col + 1;
             arg_grid.Row = arg_row - (iRowPlus - 1);
             arg_grid.TypeEditMultiLine = true;
             arg_grid.FontBold = true;
             arg_grid.FontSize = 18f;
             arg_grid.BackColor = Color.FromArgb(242, 226, 213);
-            
-            if (arg_dt.Rows[arg_idt]["text_cen"] != null && arg_dt.Rows[arg_idt]["text_cen"].ToString() != "")          
-                arg_grid.SetText(arg_col + 1, arg_row - (iRowPlus -1),
-                                 arg_dt.Rows[arg_idt]["text_cen"].ToString().Replace("-","\n"));
+
+            if (arg_dt.Rows[arg_idt]["text_cen"] != null && arg_dt.Rows[arg_idt]["text_cen"].ToString() != "")
+                arg_grid.SetText(arg_col + 1, arg_row - (iRowPlus - 1),
+                                 arg_dt.Rows[arg_idt]["text_cen"].ToString().Replace("-", "\n"));
 
 
             //int c = Convert.ToInt32(arg_dt.Rows[arg_idt]["line"].ToString());
@@ -402,14 +475,14 @@ namespace Smart_FTY
             //    arg_grid.Col = arg_col + i;
             //    arg_grid.BackColor = Color.FromArgb(244, 140, 65);
             //}
-                
+
             //arg_grid.SetCellBorder(arg_col + 1, arg_row, arg_col + c, arg_row
             //                          , FPSpreadADO.CellBorderIndexConstants.CellBorderIndexLeft, 0x418cf4
             //                          , FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
             //arg_grid.SetCellBorder(arg_col + 1, arg_row, arg_col + c, arg_row
             //                      , FPSpreadADO.CellBorderIndexConstants.CellBorderIndexBottom, 0x418cf4
             //                      , FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
-           
+
         }
 
         //private void MachineCenterBG(int arg_col, int arg_row, int arg_idt, DataTable arg_dt, AxFPSpreadADO.AxfpSpread arg_grid)
@@ -464,10 +537,10 @@ namespace Smart_FTY
             try
             {
 
-              //  arg_grid.SetCellBorder(arg_col, arg_row, arg_col, arg_row, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexLeft, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
-             //  arg_grid.SetCellBorder(arg_col + 1, arg_row, arg_col + 1, arg_row, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexLeft, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
-              //  arg_grid.SetCellBorder(arg_col, arg_row, arg_col, arg_row, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexBottom, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
-              //  arg_grid.SetCellBorder(arg_col, arg_row, arg_col, arg_row, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexTop, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
+                //  arg_grid.SetCellBorder(arg_col, arg_row, arg_col, arg_row, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexLeft, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
+                //  arg_grid.SetCellBorder(arg_col + 1, arg_row, arg_col + 1, arg_row, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexLeft, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
+                //  arg_grid.SetCellBorder(arg_col, arg_row, arg_col, arg_row, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexBottom, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
+                //  arg_grid.SetCellBorder(arg_col, arg_row, arg_col, arg_row, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexTop, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
 
                 arg_grid.Row = arg_row;
                 arg_grid.Col = arg_col;
@@ -476,101 +549,11 @@ namespace Smart_FTY
                 arg_grid.ForeColor = Color.FromName(arg_dt.Rows[arg_idt]["color_F_value"].ToString());
             }
             catch (Exception)
-            {}
-            
+            { }
+
         }
 
-        private void DisplayGridDMC(DataTable arg_dt, AxFPSpreadADO.AxfpSpread arg_grid)
-        {
-           try
-            {
-                if (arg_dt == null || arg_dt.Rows.Count == 0) return;
-                axGrid.ClearRange(0, 0, 50, 50, true);
-                create_default();
-                _Loc_change_DMC.Clear();
-                int row_s2 = 15;
-                int row_s1 = 7;
-                int row_s3 = 23;
-                int col_s3 = 6;
-                int irow = row_s2;
-                int icol = 2;
-
-                MachineBodyDMC(icol, irow, 0, arg_dt, arg_grid);
-                MachineCenterText(icol, irow, 0, arg_dt, arg_grid);
-                //MachineCenterBG(icol, irow, 0, arg_dt, arg_grid);
-                lbl_Plan.Text = arg_dt.Rows[0]["TOT_PLAN"].ToString();
-                lbl_Actual.Text = arg_dt.Rows[0]["TOT_ACT"].ToString();
-                for (int i = 1; i < arg_dt.Rows.Count; i++)
-                {
-
-                    if (arg_dt.Rows[i]["machine_cd"].ToString() == arg_dt.Rows[i - 1]["machine_cd"].ToString())
-                    {
-                        if (arg_dt.Rows[i]["direction"].ToString() == arg_dt.Rows[i - 1]["direction"].ToString())
-                        {
-                            if (arg_dt.Rows[i]["direction"].ToString() == "1")
-                            {
-                                irow--;
-                             //   MachineCenterBG(icol, irow, i, arg_dt, arg_grid); 
-                            }
-                            else if (arg_dt.Rows[i]["direction"].ToString() == "2") icol++;
-                            else if (arg_dt.Rows[i]["direction"].ToString() == "3") irow++;
-                            else icol--;
-                            MachineBodyDMC(icol, irow, i, arg_dt, arg_grid);
-                                                     
-                        }
-                        else
-                        {
-                            if (arg_dt.Rows[i]["direction"].ToString() == "2")
-                            {
-                                irow--;
-                                icol++;
-                                MachineHeadDMC(icol, irow - 1, i, arg_dt, arg_grid);
-                            }
-                            else if (arg_dt.Rows[i]["direction"].ToString() == "3")
-                            {
-                                icol++;
-                                irow++;
-                            }
-                            else if (arg_dt.Rows[i]["direction"].ToString() == "4")
-                            {
-                                irow++;
-                                icol--;
-                            }
-                            MachineBodyDMC(icol, irow, i, arg_dt, arg_grid);
-                        }
-                    }
-                    else
-                    {
-                        if (arg_dt.Rows[i]["line_id"].ToString() == "2")
-                        {
-                            irow = row_s2;
-                            icol = icol + 6;
-                          //  axGrid.SetText(icol, irow, "2");
-                        }
-                        else if (arg_dt.Rows[i]["line_id"].ToString() == "1")
-                        {
-                            irow = row_s1;
-                            icol--;
-                            //   axGrid.SetText(icol, irow,"1");
-                        }
-                        else 
-                        {
-                            irow = row_s3;
-                            col_s3 += 8;
-                            icol= col_s3 ;
-                        }
-                        MachineBodyDMC(icol, irow, i, arg_dt, arg_grid);
-                        MachineCenterText(icol, irow, i, arg_dt, arg_grid);
-                      //  MachineCenterBG(icol, irow, i, arg_dt, arg_grid); 
-                    }
-                }
-
-               // if (_Loc_change.Count > 0) tmr_blind.Start();
-               // else tmr_blind.Stop();
-            }
-           catch
-           {}
-        }
+      
 
 
         #endregion DMC
@@ -579,14 +562,14 @@ namespace Smart_FTY
         #region PH1
         private void DisplayGridPH1(DataTable arg_dt, DataTable arg_dt2, AxFPSpreadADO.AxfpSpread arg_grid)
         {
-           // dt2 = SEL_APS_PLAN_ACTUAL_ROW("70_1");
-           
-            
+            // dt2 = SEL_APS_PLAN_ACTUAL_ROW("70_1");
+
+
             try
             {
                 if (arg_dt == null || arg_dt.Rows.Count == 0) return;
                 // axGrid.ClearRange(0, 0, 50, 50, true);
-               
+
                 create_default();
                 _Loc_plan_DMP.Clear();
                 //_row1 = Convert.ToInt32(arg_dt.Rows[0]["Row1"]);
@@ -595,23 +578,28 @@ namespace Smart_FTY
                 int row_s = 3, col_s = 2, row_max = 2;
                 int irow = row_s;
                 int icol = col_s;
+                int iColMax = icol;
                 int irow1 = 3 + Convert.ToInt32(arg_dt2.Rows[0]["MOLD_CD"].ToString());
-                int irow2 = 3 + irow1 + Convert.ToInt32(arg_dt2.Rows[1]["MOLD_CD"].ToString()) ;
+                int irow2 = 3 + irow1 + Convert.ToInt32(arg_dt2.Rows[1]["MOLD_CD"].ToString());
                 int irow3 = 3 + Convert.ToInt32(arg_dt2.Rows[2]["MOLD_CD"].ToString());
                 int irow4 = 3 + Convert.ToInt32(arg_dt2.Rows[3]["MOLD_CD"].ToString());
                 int irow5 = 3 + irow4 + Convert.ToInt32(arg_dt2.Rows[4]["MOLD_CD"].ToString());
+                int irow6 = 3 + irow5 + Convert.ToInt32(arg_dt2.Rows[5]["MOLD_CD"].ToString());
 
-                arg_grid.MaxRows = irow5 + 3;
+                if (_status == "PH3")
+                    arg_grid.MaxRows = irow6 + 3;
+                else
+                    arg_grid.MaxRows = irow5 + 3;
                 MachineHeadPH1(icol, irow, 0, arg_dt, arg_grid);
                 irow += 2;
                 MachineBodyPH1(icol, irow, irow1, 0, arg_dt, arg_grid);
                 irow++;
-                
+                string zone = "";
                 for (int i = 1; i < arg_dt.Rows.Count; i++)
                 {
                     //iCount++;
                     //if (i==3) break;
-
+                    zone = arg_dt.Rows[i]["ZONE_CD"].ToString();
                     if (arg_dt.Rows[i]["ZONE_CD"].ToString() == arg_dt.Rows[i - 1]["ZONE_CD"].ToString())
                     {
                         if (arg_dt.Rows[i]["ZONE_CD"].ToString() == "001")
@@ -644,7 +632,7 @@ namespace Smart_FTY
                             if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == arg_dt.Rows[i - 1]["MACHINE_NAME"].ToString())
                             {
                                 MachineBodyPH1(icol, irow, irow2, i, arg_dt, arg_grid);
-                              //  if (irow > row_max) row_max = irow;
+                                //  if (irow > row_max) row_max = irow;
                                 irow++;
                             }
                             else
@@ -666,11 +654,22 @@ namespace Smart_FTY
                         }
                         else if (arg_dt.Rows[i]["ZONE_CD"].ToString() == "003")
                         {
+                            //if (i > 81) return;
+                            
                             if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == arg_dt.Rows[i - 1]["MACHINE_NAME"].ToString())
                             {
+                                if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == "CTM 26" && arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
+                                {}
+
                                 MachineBodyPH1(icol, irow, irow3, i, arg_dt, arg_grid);
-                               // if (irow > row_max) row_max = irow;
+                                // if (irow > row_max) row_max = irow;
                                 irow++;
+                                //if (arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
+                                //{
+                                //    MachineLineTotal2(icol, irow3, irow, arg_grid);
+                                //    //  return;
+                                //}
+
                             }
                             else
                             {
@@ -694,7 +693,7 @@ namespace Smart_FTY
                             if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == arg_dt.Rows[i - 1]["MACHINE_NAME"].ToString())
                             {
                                 MachineBodyPH1(icol, irow, irow4, i, arg_dt, arg_grid);
-                               // if (irow > row_max) row_max = irow;
+                                // if (irow > row_max) row_max = irow;
                                 irow++;
                             }
                             else
@@ -718,9 +717,15 @@ namespace Smart_FTY
                         {
                             if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == arg_dt.Rows[i - 1]["MACHINE_NAME"].ToString())
                             {
+                                
                                 MachineBodyPH1(icol, irow, irow5, i, arg_dt, arg_grid);
-                               // if (irow > row_max) row_max = irow;
+                                // if (irow > row_max) row_max = irow;
                                 irow++;
+                                //if (arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
+                                //{
+                                //    MachineLineTotal2(icol, irow5, irow, arg_grid);
+                                //    //  return;
+                                //}
                             }
                             else
                             {
@@ -739,6 +744,37 @@ namespace Smart_FTY
 
                             }
                         }
+                        else if (arg_dt.Rows[i]["ZONE_CD"].ToString() == "006")
+                        {
+                            if (arg_dt.Rows[i]["MACHINE_NAME"].ToString() == arg_dt.Rows[i - 1]["MACHINE_NAME"].ToString())
+                            {
+
+                                MachineBodyPH1(icol, irow, irow6, i, arg_dt, arg_grid);
+                                // if (irow > row_max) row_max = irow;
+                                irow++;
+                                //if (arg_dt.Rows[i]["MOLD_CD"].ToString() == "TOTAL")
+                                //{
+                                //    MachineLineTotal2(icol, irow6, irow, arg_grid);
+                                //      return;
+                                //}
+                            }
+                            else
+                            {
+                                row_max = irow6;
+                                ///Line Total
+                                MachineLineTotal2(icol, irow6, irow, arg_grid);
+                                ///new machine
+                                arg_grid.set_ColWidth(icol + 5, 1.0);
+                                //col_s += 5;
+                                icol += 6;
+                                irow = row_s;
+                                MachineHeadPH1(icol, irow, i, arg_dt, arg_grid);
+                                irow += 2;
+                                MachineBodyPH1(icol, irow, irow6, i, arg_dt, arg_grid);
+                                irow++;
+
+                            }
+                        }
                     }
                     else
                     {
@@ -751,6 +787,18 @@ namespace Smart_FTY
                         {
                             MachineLineTotal2(icol, irow4, irow, arg_grid);
                         }
+                        if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "003")
+                        {
+                            MachineLineTotal2(icol, irow3, irow, arg_grid);
+                        }
+                        if (zone == "006")
+                        {
+                            MachineLineTotal2(icol, irow5, irow, arg_grid);
+                        }
+                        //if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "006")
+                        //{
+                        //    MachineLineTotal2(icol, irow6, irow, arg_grid);
+                        //}
 
                         row_s = row_max + 2;
                         icol = col_s;
@@ -761,37 +809,46 @@ namespace Smart_FTY
                         irow++;
 
                     }
+
+                    if (icol > iColMax) iColMax = icol;
                 }
                 ///Line Total
-                if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "001")
+                if (zone == "002")
                 {
                     MachineLineTotal2(icol, irow2, irow, arg_grid);
                 }
-                if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "003")
-                {
-                    MachineLineTotal2(icol, irow3, irow, arg_grid);
-                }
-                if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "004")
+                //if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "003")
+                //{
+                //    MachineLineTotal2(icol, irow3, irow, arg_grid);
+                //}
+                //if (arg_dt.Rows[0]["ZONE_CD"].ToString() == "004")
+                //{
+                //    MachineLineTotal2(icol, irow5, irow, arg_grid);
+                //}
+                if (zone == "005")
                 {
                     MachineLineTotal2(icol, irow5, irow, arg_grid);
                 }
+                if (zone == "006")
+                {
+                    MachineLineTotal2(icol, irow6, irow, arg_grid);
+                }
 
-                double iPlan, iDiff;
-                double.TryParse(arg_dt.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
-                double.TryParse(arg_dt.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
-                lbl_Plan.Text = "Total Plan: " + iPlan.ToString("###,###");
-                lbl_Actual.Text = "Total Actual: " + Convert.ToInt32(arg_dt.Compute("Sum(QTY_ACT)", "MOLD_CD <> 'TOTAL'")).ToString("###,###");
-                lblDiffPlan.Text = "Difference Plan : " + Math.Round(iDiff / iPlan * 100) + "%";
+                SetTextPH(arg_dt);
 
                 if (_status == "PH3")
                 {
-                    arg_grid.MaxCols = icol + 5;
+                    arg_grid.MaxCols = iColMax + 5;
                     arg_grid.ScrollBars = FPSpreadADO.ScrollBarsConstants.ScrollBarsBoth;
+                }
+                else
+                {
+                    arg_grid.ScrollBars = FPSpreadADO.ScrollBarsConstants.ScrollBarsVertical;
                 }
                 // if (_Loc_yellow.Count > 0) tmr_blind.Start();
                 // else tmr_blind.Stop();
                 //////////////////////////////////////////////
-               
+
             }
             catch (Exception ex)
             {
@@ -799,6 +856,75 @@ namespace Smart_FTY
         }
 
 
+        private void SetTextPH(DataTable arg_dt)
+        {
+            double iPlan, iDiff;
+            double.TryParse(arg_dt.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
+            double.TryParse(arg_dt.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
+            lbl_Plan.Text = "Total Plan: " + iPlan.ToString("###,###");
+            lbl_Actual.Text = "Total Actual: " + Convert.ToInt32(arg_dt.Compute("Sum(QTY_ACT)", "MOLD_CD <> 'TOTAL'")).ToString("###,###");
+
+            if (_shift == "1")
+            {
+                lbl_dif1.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+            else if (_shift == "2")
+            {
+                lbl_dif2.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+            else
+            {
+                lbl_dif3.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+
+            if (!_loadDif) return;
+
+
+            if (_shift == "1")
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "2");
+                SetTextDifPH(dtShif2, lbl_dif2);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "3");
+                SetTextDifPH(dtShif3, lbl_dif3);
+            }
+            else if (_shift == "2")
+            {
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "1");
+                SetTextDifPH(dtShif1, lbl_dif1);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "3");
+                SetTextDifPH(dtShif3, lbl_dif3);
+            }
+            else
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2,1), "2");
+                SetTextDifPH(dtShif2, lbl_dif2);
+
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "1");
+                SetTextDifPH(dtShif1, lbl_dif1);
+            } 
+        }
+
+        private void SetTextDifPH(DataTable dtShift, Label lbl_dif)
+        {
+            try
+            {
+                if (dtShift == null || dtShift.Rows.Count == 0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                double iPlan, iDiff;
+                double.TryParse(dtShift.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
+                double.TryParse(dtShift.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
+                lbl_dif.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
 
         private void MachineHeadPH1(int arg_icol, int arg_irow, int arg_idt, DataTable arg_dt, AxFPSpreadADO.AxfpSpread arg_grid)
         {
@@ -838,7 +964,7 @@ namespace Smart_FTY
                 arg_grid.Col = arg_icol + 2;
                 arg_grid.Text = "Plan";
                 arg_grid.BackColor = Color.Green;
-                  arg_grid.ForeColor = Color.White;
+                arg_grid.ForeColor = Color.White;
                 arg_grid.FontSize = 9;
                 arg_grid.FontBold = true;
 
@@ -867,7 +993,7 @@ namespace Smart_FTY
             try
             {
                 arg_grid.SetCellBorder(arg_icol + 3, arg_irow, arg_icol + 5, arg_irow1, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexLeft, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
-               arg_grid.SetCellBorder(arg_icol, arg_irow, arg_icol + 4, arg_irow1, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexLeft, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
+                arg_grid.SetCellBorder(arg_icol, arg_irow, arg_icol + 4, arg_irow1, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexLeft, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
                 arg_grid.SetCellBorder(arg_icol, arg_irow, arg_icol + 4, arg_irow1, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexBottom, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleSolid);
 
                 arg_grid.set_RowHeight(arg_irow, 20);
@@ -922,8 +1048,8 @@ namespace Smart_FTY
             arg_grid.Row = arg_irow;
             for (int i = 0; i < 5; i++)
             {
-                
-                arg_grid.Col = arg_icol + i;               
+
+                arg_grid.Col = arg_icol + i;
                 arg_grid.BackColor = Color.PaleGreen;
                 arg_grid.ForeColor = Color.Black;
                 arg_grid.FontBold = true;
@@ -937,7 +1063,7 @@ namespace Smart_FTY
             arg_grid.Row = arg_irow;
             for (int i = 0; i < 5; i++)
             {
-                
+
                 arg_grid.Col = arg_icol + i;
                 arg_grid.BackColor = Color.PaleGreen;
                 arg_grid.ForeColor = Color.Black;
@@ -952,20 +1078,20 @@ namespace Smart_FTY
                 {
                     return;
                 }
-                arg_grid.SetText(arg_icol + i, arg_irow2 -1, "");
+                arg_grid.SetText(arg_icol + i, arg_irow2 - 1, "");
                 arg_grid.Col = arg_icol + i;
                 arg_grid.BackColor = Color.White;
                 arg_grid.ForeColor = Color.Black;
                 arg_grid.FontBold = true;
-                
-                
-               
+
+
+
             }
-           // blind();
+            // blind();
 
         }
 
-        
+
         #endregion PH1
 
         private void blind(List<string> arg_list)
@@ -1003,26 +1129,27 @@ namespace Smart_FTY
                 else _iColor++;
             }
             catch (Exception)
-            {}          
+            { }
         }
 
-        public void loaddata( bool arg_status)
+        public void loaddata(bool arg_status)
         {
             try
             {
 
+                this.Cursor = Cursors.WaitCursor;
                 // if (arg_status)
                 this.axGrid.Hide();
                 DataTable dt = null;
                 DataTable dt2 = null;
-               // System.Data.DataSet ds = SEL_APS_PLAN_ACTUAL_ROW();
-              //  DataTable _dt_row = ds.Tables[0];
-               dt2 = SEL_APS_PLAN_ACTUAL_ROW("70_1");
-                
-               
+                // System.Data.DataSet ds = SEL_APS_PLAN_ACTUAL_ROW();
+                //  DataTable _dt_row = ds.Tables[0];
+                dt2 = SEL_APS_PLAN_ACTUAL_ROW("70_1");
+
+
                 if (_status == "PH1")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_1");
+                    dt = SEL_APS_PLAN_ACTUAL("70_1", _shift);
                     //_dt_row = SEL_APS_PLAN_ACTUAL_ROW("70_1");
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH1 = dt;
@@ -1035,7 +1162,7 @@ namespace Smart_FTY
                 }
                 else if (_status == "PH2")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_2");
+                    dt = SEL_APS_PLAN_ACTUAL("70_2",_shift);
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH2 = dt;
 
@@ -1043,7 +1170,7 @@ namespace Smart_FTY
                 }
                 else if (_status == "PH3")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_3");
+                    dt = SEL_APS_PLAN_ACTUAL("70_3", _shift);
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH3 = dt;
 
@@ -1051,79 +1178,64 @@ namespace Smart_FTY
                 }
                 else if (_status == "CMP")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("40");
+                    dt = SEL_APS_PLAN_ACTUAL("40", _shift);
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout = dt;
 
                     DisplayGrid(_dt_layout, axGrid);
                 }
-             //   DisplayGridPH1(_dt_row, axGrid);
-                
+                //   DisplayGridPH1(_dt_row, axGrid);
+
 
 
                 //autoClick();
                 // if (arg_status)
                 // {
                 // WarehouseMaterialSystem.ClassLib.WinAPI.AnimateWindow(this.axGrid.Handle, 400, WarehouseMaterialSystem.ClassLib.WinAPI.getSlidType("2"));
-                
+
                 //}
             }
-            catch 
-            { }
-            finally
-            { 
-                this.axGrid.Show(); 
-            }
-        }
-
-        private DataSet SEL_APS_PLAN_ACTUAL_ROW()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void autoClick(List<string> arg_list)
-        {
-            try
+            catch(Exception ex)
             {
-                if (arg_list.Count > 0)
-                {
-                    string str = arg_list.ElementAt(_iCount);
-                    string[] st = str.Split(' ');
-                    AxFPSpreadADO._DSpreadEvents_ClickEvent ev = new AxFPSpreadADO._DSpreadEvents_ClickEvent(Convert.ToInt32(st[0]), Convert.ToInt32(st[1]));
-                    //axGrid_ClickEvent(axGrid, ev);
-                    if (_iCount == arg_list.Count - 1) _iCount = 0;
-                    else _iCount++;
-                }
+                Debug.WriteLine(ex);
             }
-            catch 
-            {}
+            finally
+            {
+                this.Cursor = Cursors.Default;
+                this.axGrid.Show();
+            }
         }
-                
+
 
         #endregion Fuction
 
         #region DB
-        public DataTable SEL_APS_PLAN_ACTUAL(string arg_wh)
+        public DataTable SEL_APS_PLAN_ACTUAL(string arg_wh, string argShift)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
             System.Data.DataSet ds_ret;
 
             try
             {
-                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_APS_ACTUAL";
+                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_APS_ACTUAL_V2";
 
-                MyOraDB.ReDim_Parameter(2);
+                MyOraDB.ReDim_Parameter(4);
                 MyOraDB.Process_Name = process_name;
 
- 
                 MyOraDB.Parameter_Name[0] = "ARG_WH_CD";
-                MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[1] = "ARG_DATE";
+                MyOraDB.Parameter_Name[2] = "ARG_SHIFT";
+                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[1] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
 
                 MyOraDB.Parameter_Values[0] = arg_wh;
-                MyOraDB.Parameter_Values[1] = "";
+                MyOraDB.Parameter_Values[1] = dtpDate.DateTime.ToString("yyyyMMdd");
+                MyOraDB.Parameter_Values[2] = argShift;
+                MyOraDB.Parameter_Values[3] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
 
@@ -1151,13 +1263,13 @@ namespace Smart_FTY
                 MyOraDB.Process_Name = process_name;
 
 
-              
+
                 MyOraDB.Parameter_Name[0] = "OUT_CURSOR";
 
-               
+
                 MyOraDB.Parameter_Type[0] = (int)OracleType.Cursor;
 
-           
+
                 MyOraDB.Parameter_Values[0] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
@@ -1173,16 +1285,18 @@ namespace Smart_FTY
             }
         }
 
-    
+
 
 
         #endregion DB
 
         #region Event
 
+        bool _isLoad = true;
         public void Frm_Mold_WS_Change_By_Shift_Load(object sender, EventArgs e)
         {
-           // GoFullscreen();
+            _isLoad = true;
+            // GoFullscreen();
             //timer2.Start();
             //lblDmc_Click(lblDmc, null);
 
@@ -1196,7 +1310,7 @@ namespace Smart_FTY
                 //blind();
                 _time++;
                 _time_auto++;
-               // if (_time_auto == 10) _pop_change.Hide();
+                // if (_time_auto == 10) _pop_change.Hide();
                 //if (_time_auto >= 40)
                 //{
                 //    if (_status == "DMC") autoClick(_Loc_change_DMC);
@@ -1204,15 +1318,16 @@ namespace Smart_FTY
                 //    _time_auto = 0;
                 //}
 
-                if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 14) lbl_Shift.Text = "Shift 1";
-                else if (DateTime.Now.Hour >= 14 && DateTime.Now.Hour < 22) lbl_Shift.Text = "Shift 2";
-                else lbl_Shift.Text = "Shift 3";
-                
+                //if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 14) lbl_Shift1.Text = "Shift 1";
+                //else if (DateTime.Now.Hour >= 14 && DateTime.Now.Hour < 22) lbl_Shift1.Text = "Shift 2";
+                //else lbl_Shift1.Text = "Shift 3";
+
 
                 if (_time >= 60)
                 {
+                    _loadDif = false;
                     loaddata(true);
-                    
+
                     _time = 0;
                 }
 
@@ -1231,7 +1346,7 @@ namespace Smart_FTY
 
         private void tmr_blind_Tick(object sender, EventArgs e)
         {
-            if (_status=="DMC") blind(_Loc_change_DMC);
+            if (_status == "DMC") blind(_Loc_change_DMC);
             else blind(_Loc_change_DMP);
         }
 
@@ -1255,13 +1370,34 @@ namespace Smart_FTY
                     //if (_load_form)
                     //{
 
+                    lbl_dif1.Text = "";
+                    lbl_dif2.Text = "";
+                    lbl_dif3.Text = "";
+
+                    _isLoad = true;
+                    dtpDate.EditValue = DateTime.Now;
+
                     _time = 0;
+
+                    if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
+                    {
+                        lbl_Shift_Click(lbl_Shift2, null);
+                    }
+                    else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
+                    {
+                        lbl_Shift_Click(lbl_Shift1, null);
+                    }
+                    else
+                    {
+                        lbl_Shift_Click(lbl_Shift3, null);
+                    }
+
 
                     lblPH1_Click(lblPH1, null);
                     timer1.Start();
                     tmrTime.Start();
                     
-                        //lblDmp_Click(lblDmc, null);
+                    //lblDmp_Click(lblDmc, null);
                     //_load_form = false;
                     //}                 
                 }
@@ -1271,10 +1407,14 @@ namespace Smart_FTY
                     timer1.Stop();
                     tmrTime.Stop();
                 }
-                
+
             }
             catch (Exception)
-            {}
+            { }
+            finally
+            {
+                _isLoad = false;
+            }
         }
 
         private void axGrid_BeforeEditMode(object sender, AxFPSpreadADO._DSpreadEvents_BeforeEditModeEvent e)
@@ -1329,9 +1469,10 @@ namespace Smart_FTY
             lblPH2.BackColor = Color.LightGray;
             Form_Home_Phylon._type = "PH";
             _status = "PH1";
+            _loadDif = true;
             loaddata(true);
             lblTitle.Text = "Phylon APS Plan && Actual ";
-            
+
         }
 
         private void lblCMP_Click(object sender, EventArgs e)
@@ -1341,9 +1482,10 @@ namespace Smart_FTY
             lblPH2.Visible = false;
             Form_Home_Phylon._type = "CMP";
             _status = "CMP";
+            _loadDif = true;
             loaddata(true);
             lblTitle.Text = "CMP APS Plan && Actual ";
-           // Form_Main.headText = "CMP APS Plan && Actual ";
+            // Form_Main.headText = "CMP APS Plan && Actual ";
         }
 
         //private void lbl_plan_Click(object sender, EventArgs e)
@@ -1355,10 +1497,48 @@ namespace Smart_FTY
         //{
         //    lblPH3_Click(lblPH2, null);
         //}
-        
+        private void lbl_Shift_Click(object sender, EventArgs e)
+        {
+            Control cmd = (Control)sender;
+            foreach (Control ctr in pnShift.Controls)
+            {
+                if (!ctr.Name.Contains("lbl_Shift")) continue;
+                if (ctr.Name == cmd.Name)
+                {
+                    cmd.BackColor = Color.DodgerBlue;
+                    cmd.ForeColor = Color.White;
+                    _shift = cmd.Tag.ToString();
+                    if (!_isLoad)
+                    {
+                        _loadDif = false;
+                        loaddata(true);
+                    }
+                        
+                    _time = 0;
+                }
+                else
+                {
+                    ctr.BackColor = Color.Gray;
+                    ctr.ForeColor = Color.White;
+                }
+            }
+
+
+
+
+        }
+
+        private void dtpDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (_isLoad) return;
+            _loadDif = true;
+            loaddata(true);
+            _time = 0;
+        }
+
         #endregion Event
 
-        
+
 
     }
 }
