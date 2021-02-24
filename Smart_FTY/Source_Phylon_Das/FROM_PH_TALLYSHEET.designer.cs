@@ -135,21 +135,24 @@
             this.SHIFT_3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.btnMold = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbl_Rate = new System.Windows.Forms.Label();
-            this.lbl_Plan = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpYMD = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lbl_Rplan = new System.Windows.Forms.Label();
-            this.lbl_Act = new System.Windows.Forms.Label();
             this.pn1 = new Smart_FTY.A1Panel();
             this.lbl1 = new System.Windows.Forms.Label();
             this.btnModel = new System.Windows.Forms.Button();
             this.pn2 = new Smart_FTY.A1Panel();
             this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl_Act = new System.Windows.Forms.Label();
+            this.lbl_Rplan = new System.Windows.Forms.Label();
+            this.lbl_Plan = new System.Windows.Forms.Label();
+            this.lblDRate = new System.Windows.Forms.Label();
+            this.lbl_Rate = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpYMDT = new System.Windows.Forms.DateTimePicker();
+            this.dtpYMDF = new System.Windows.Forms.DateTimePicker();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwBase)).BeginInit();
             this.pn1.SuspendLayout();
@@ -160,19 +163,19 @@
             // 
             this.lbl_header.BackColor = System.Drawing.Color.RoyalBlue;
             this.lbl_header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_header.Font = new System.Drawing.Font("Calibri", 60F, System.Drawing.FontStyle.Bold);
+            this.lbl_header.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Bold);
             this.lbl_header.ForeColor = System.Drawing.Color.White;
             this.lbl_header.Location = new System.Drawing.Point(0, 0);
             this.lbl_header.Name = "lbl_header";
             this.lbl_header.Size = new System.Drawing.Size(1914, 100);
             this.lbl_header.TabIndex = 648;
-            this.lbl_header.Text = "Phylon Tallysheet By Machine";
+            this.lbl_header.Text = "Phylon TallySheet - Line";
             this.lbl_header.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDate
             // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDate.BackColor = System.Drawing.Color.RoyalBlue;
             this.lblDate.Font = new System.Drawing.Font("Calibri", 30F, System.Drawing.FontStyle.Bold);
             this.lblDate.ForeColor = System.Drawing.Color.White;
@@ -216,18 +219,18 @@
             // 
             this.grdBase.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdBase.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdBase.Location = new System.Drawing.Point(0, 201);
-            this.grdBase.LookAndFeel.SkinName = "Office 2016 Black";
+            this.grdBase.Location = new System.Drawing.Point(0, 183);
+            this.grdBase.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grdBase.MainView = this.gvwBase;
             this.grdBase.Name = "grdBase";
-            this.grdBase.Size = new System.Drawing.Size(1914, 879);
+            this.grdBase.Size = new System.Drawing.Size(1914, 897);
             this.grdBase.TabIndex = 662;
             this.grdBase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwBase});
             // 
             // gvwBase
             // 
-            this.gvwBase.Appearance.BandPanel.Font = new System.Drawing.Font("Calibri", 14F);
+            this.gvwBase.Appearance.BandPanel.Font = new System.Drawing.Font("Calibri", 11F);
             this.gvwBase.Appearance.BandPanel.Options.UseBackColor = true;
             this.gvwBase.Appearance.BandPanel.Options.UseFont = true;
             this.gvwBase.Appearance.BandPanel.Options.UseTextOptions = true;
@@ -314,7 +317,6 @@
             this.gvwBase.OptionsView.ShowColumnHeaders = false;
             this.gvwBase.OptionsView.ShowGroupPanel = false;
             this.gvwBase.OptionsView.ShowIndicator = false;
-            this.gvwBase.PaintStyleName = "Flat";
             this.gvwBase.RowHeight = 33;
             this.gvwBase.CustomDrawBandHeader += new DevExpress.XtraGrid.Views.BandedGrid.BandHeaderCustomDrawEventHandler(this.gvwBase_CustomDrawBandHeader);
             this.gvwBase.CustomDrawColumnHeader += new DevExpress.XtraGrid.Views.Grid.ColumnHeaderCustomDrawEventHandler(this.gvwBase_CustomDrawColumnHeader);
@@ -1537,7 +1539,7 @@
             this.btnMold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMold.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMold.ForeColor = System.Drawing.Color.DarkGray;
-            this.btnMold.Location = new System.Drawing.Point(1061, 153);
+            this.btnMold.Location = new System.Drawing.Point(1061, 144);
             this.btnMold.Name = "btnMold";
             this.btnMold.Size = new System.Drawing.Size(100, 31);
             this.btnMold.TabIndex = 663;
@@ -1555,137 +1557,6 @@
             this.panel1.Size = new System.Drawing.Size(441, 88);
             this.panel1.TabIndex = 664;
             // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.SlateGray;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("Calibri", 20F);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(584, 109);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 37);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "PreDay";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_Rate
-            // 
-            this.lbl_Rate.BackColor = System.Drawing.Color.White;
-            this.lbl_Rate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_Rate.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl_Rate.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbl_Rate.Location = new System.Drawing.Point(723, 153);
-            this.lbl_Rate.Name = "lbl_Rate";
-            this.lbl_Rate.Size = new System.Drawing.Size(218, 40);
-            this.lbl_Rate.TabIndex = 23;
-            this.lbl_Rate.Text = "Rate: 0";
-            this.lbl_Rate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Plan
-            // 
-            this.lbl_Plan.BackColor = System.Drawing.Color.White;
-            this.lbl_Plan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_Plan.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl_Plan.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbl_Plan.Location = new System.Drawing.Point(11, 153);
-            this.lbl_Plan.Name = "lbl_Plan";
-            this.lbl_Plan.Size = new System.Drawing.Size(237, 40);
-            this.lbl_Plan.TabIndex = 24;
-            this.lbl_Plan.Text = "S.Plan : 0";
-            this.lbl_Plan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.Yellow;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Font = new System.Drawing.Font("Calibri", 20F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(702, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 37);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Ongoing";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Red;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Font = new System.Drawing.Font("Calibri", 20F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(820, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 37);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Shotage";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.Green;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Font = new System.Drawing.Font("Calibri", 20F);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(466, 109);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 37);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Today";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dtpYMD
-            // 
-            this.dtpYMD.CalendarFont = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpYMD.Font = new System.Drawing.Font("Calibri", 20F);
-            this.dtpYMD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpYMD.Location = new System.Drawing.Point(100, 107);
-            this.dtpYMD.Name = "dtpYMD";
-            this.dtpYMD.Size = new System.Drawing.Size(159, 40);
-            this.dtpYMD.TabIndex = 665;
-            this.dtpYMD.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 20F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(11, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 40);
-            this.button1.TabIndex = 663;
-            this.button1.Text = "Date";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnModel_Click);
-            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModel_MouseClick);
-            // 
-            // lbl_Rplan
-            // 
-            this.lbl_Rplan.BackColor = System.Drawing.Color.White;
-            this.lbl_Rplan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_Rplan.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl_Rplan.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbl_Rplan.Location = new System.Drawing.Point(261, 153);
-            this.lbl_Rplan.Name = "lbl_Rplan";
-            this.lbl_Rplan.Size = new System.Drawing.Size(218, 40);
-            this.lbl_Rplan.TabIndex = 24;
-            this.lbl_Rplan.Text = "R.Plan : 0";
-            this.lbl_Rplan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Act
-            // 
-            this.lbl_Act.BackColor = System.Drawing.Color.White;
-            this.lbl_Act.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_Act.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lbl_Act.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbl_Act.Location = new System.Drawing.Point(492, 153);
-            this.lbl_Act.Name = "lbl_Act";
-            this.lbl_Act.Size = new System.Drawing.Size(218, 40);
-            this.lbl_Act.TabIndex = 24;
-            this.lbl_Act.Text = "Actual : 0";
-            this.lbl_Act.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // pn1
             // 
             this.pn1.AccessibleDescription = "";
@@ -1697,21 +1568,21 @@
             this.pn1.GradientStartColor = System.Drawing.Color.White;
             this.pn1.Image = null;
             this.pn1.ImageLocation = new System.Drawing.Point(4, 4);
-            this.pn1.Location = new System.Drawing.Point(265, 108);
+            this.pn1.Location = new System.Drawing.Point(361, 108);
             this.pn1.Name = "pn1";
             this.pn1.RoundCornerRadius = 20;
             this.pn1.ShadowOffSet = 3;
-            this.pn1.Size = new System.Drawing.Size(100, 39);
+            this.pn1.Size = new System.Drawing.Size(100, 33);
             this.pn1.TabIndex = 666;
             // 
             // lbl1
             // 
             this.lbl1.BackColor = System.Drawing.Color.Transparent;
             this.lbl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.lbl1.Location = new System.Drawing.Point(0, 0);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(100, 39);
+            this.lbl1.Size = new System.Drawing.Size(100, 33);
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Model";
             this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1724,7 +1595,7 @@
             this.btnModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModel.ForeColor = System.Drawing.Color.Black;
-            this.btnModel.Location = new System.Drawing.Point(959, 153);
+            this.btnModel.Location = new System.Drawing.Point(959, 142);
             this.btnModel.Name = "btnModel";
             this.btnModel.Size = new System.Drawing.Size(100, 31);
             this.btnModel.TabIndex = 663;
@@ -1745,50 +1616,215 @@
             this.pn2.GradientStartColor = System.Drawing.Color.White;
             this.pn2.Image = null;
             this.pn2.ImageLocation = new System.Drawing.Point(4, 4);
-            this.pn2.Location = new System.Drawing.Point(368, 108);
+            this.pn2.Location = new System.Drawing.Point(464, 108);
             this.pn2.Name = "pn2";
             this.pn2.RoundCornerRadius = 20;
             this.pn2.ShadowOffSet = 3;
-            this.pn2.Size = new System.Drawing.Size(100, 39);
+            this.pn2.Size = new System.Drawing.Size(100, 33);
             this.pn2.TabIndex = 666;
             // 
             // lbl2
             // 
             this.lbl2.BackColor = System.Drawing.Color.Transparent;
             this.lbl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl2.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.lbl2.Location = new System.Drawing.Point(0, 0);
             this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(100, 39);
+            this.lbl2.Size = new System.Drawing.Size(100, 33);
             this.lbl2.TabIndex = 0;
             this.lbl2.Text = "Mold";
             this.lbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl2.Click += new System.EventHandler(this.lbl2_Click);
+            // 
+            // lbl_Act
+            // 
+            this.lbl_Act.BackColor = System.Drawing.Color.DarkOrange;
+            this.lbl_Act.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Act.ForeColor = System.Drawing.Color.White;
+            this.lbl_Act.Location = new System.Drawing.Point(507, 145);
+            this.lbl_Act.Name = "lbl_Act";
+            this.lbl_Act.Size = new System.Drawing.Size(244, 31);
+            this.lbl_Act.TabIndex = 669;
+            this.lbl_Act.Text = "A. Actual : 0";
+            this.lbl_Act.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Rplan
+            // 
+            this.lbl_Rplan.BackColor = System.Drawing.Color.DarkOrange;
+            this.lbl_Rplan.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Rplan.ForeColor = System.Drawing.Color.White;
+            this.lbl_Rplan.Location = new System.Drawing.Point(259, 145);
+            this.lbl_Rplan.Name = "lbl_Rplan";
+            this.lbl_Rplan.Size = new System.Drawing.Size(244, 31);
+            this.lbl_Rplan.TabIndex = 670;
+            this.lbl_Rplan.Text = "A. R.Plan : 0";
+            this.lbl_Rplan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Plan
+            // 
+            this.lbl_Plan.BackColor = System.Drawing.Color.DarkOrange;
+            this.lbl_Plan.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Plan.ForeColor = System.Drawing.Color.White;
+            this.lbl_Plan.Location = new System.Drawing.Point(11, 145);
+            this.lbl_Plan.Name = "lbl_Plan";
+            this.lbl_Plan.Size = new System.Drawing.Size(244, 31);
+            this.lbl_Plan.TabIndex = 671;
+            this.lbl_Plan.Text = "A. Shift Plan : 0";
+            this.lbl_Plan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblDRate
+            // 
+            this.lblDRate.BackColor = System.Drawing.Color.DarkOrange;
+            this.lblDRate.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDRate.ForeColor = System.Drawing.Color.White;
+            this.lblDRate.Location = new System.Drawing.Point(947, 145);
+            this.lblDRate.Name = "lblDRate";
+            this.lblDRate.Size = new System.Drawing.Size(188, 31);
+            this.lblDRate.TabIndex = 667;
+            this.lblDRate.Text = "A. Rate: 0";
+            this.lblDRate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Rate
+            // 
+            this.lbl_Rate.BackColor = System.Drawing.Color.DarkOrange;
+            this.lbl_Rate.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Rate.ForeColor = System.Drawing.Color.White;
+            this.lbl_Rate.Location = new System.Drawing.Point(755, 145);
+            this.lbl_Rate.Name = "lbl_Rate";
+            this.lbl_Rate.Size = new System.Drawing.Size(188, 31);
+            this.lbl_Rate.TabIndex = 668;
+            this.lbl_Rate.Text = "A. Rate: 0";
+            this.lbl_Rate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.SlateGray;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(569, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 31);
+            this.label6.TabIndex = 675;
+            this.label6.Text = "PreDay";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Yellow;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(853, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 31);
+            this.label3.TabIndex = 672;
+            this.label3.Text = "Lack of 2 or 3 pair";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Red;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(995, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 31);
+            this.label4.TabIndex = 673;
+            this.label4.Text = "Lack of over 3 pair";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Green;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(711, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 31);
+            this.label5.TabIndex = 674;
+            this.label5.Text = "Lack of 1 pair";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpYMDT
+            // 
+            this.dtpYMDT.CalendarFont = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMDT.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMDT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpYMDT.Location = new System.Drawing.Point(227, 107);
+            this.dtpYMDT.Name = "dtpYMDT";
+            this.dtpYMDT.Size = new System.Drawing.Size(128, 31);
+            this.dtpYMDT.TabIndex = 678;
+            this.dtpYMDT.ValueChanged += new System.EventHandler(this.dtpYMDT_ValueChanged);
+            // 
+            // dtpYMDF
+            // 
+            this.dtpYMDF.CalendarFont = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMDF.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMDF.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpYMDF.Location = new System.Drawing.Point(77, 107);
+            this.dtpYMDF.Name = "dtpYMDF";
+            this.dtpYMDF.Size = new System.Drawing.Size(128, 31);
+            this.dtpYMDF.TabIndex = 679;
+            this.dtpYMDF.ValueChanged += new System.EventHandler(this.dtpYMDF_ValueChanged);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Calibri", 16F);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(206, 107);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(20, 31);
+            this.button3.TabIndex = 676;
+            this.button3.Text = "~";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(12, 107);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 31);
+            this.button1.TabIndex = 677;
+            this.button1.Text = "Date";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // FROM_PH_TALLYSHEET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1914, 1080);
-            this.Controls.Add(this.pn2);
-            this.Controls.Add(this.pn1);
-            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.dtpYMDT);
+            this.Controls.Add(this.dtpYMDF);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_Act);
             this.Controls.Add(this.lbl_Rplan);
             this.Controls.Add(this.lbl_Plan);
+            this.Controls.Add(this.lblDRate);
             this.Controls.Add(this.lbl_Rate);
-            this.Controls.Add(this.btnMold);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dtpYMD);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pn2);
+            this.Controls.Add(this.pn1);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.btnMold);
             this.Controls.Add(this.btnModel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.grdBase);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.lbl_header);
-            this.Controls.Add(this.label5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FROM_PH_TALLYSHEET";
@@ -1826,12 +1862,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn COL_10;
         private System.Windows.Forms.Button btnMold;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbl_Plan;
-        private System.Windows.Forms.Label lbl_Rate;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn STATION_CD;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn MOLD_CD;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ACTUAL;
@@ -1852,10 +1882,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn SHIFT_3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn OSD2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn OSD3;
-        private System.Windows.Forms.DateTimePicker dtpYMD;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lbl_Rplan;
-        private System.Windows.Forms.Label lbl_Act;
         protected A1Panel pn1;
         protected System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Button btnModel;
@@ -1927,5 +1953,18 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand12;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand58;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private System.Windows.Forms.Label lbl_Act;
+        private System.Windows.Forms.Label lbl_Rplan;
+        private System.Windows.Forms.Label lbl_Plan;
+        private System.Windows.Forms.Label lblDRate;
+        private System.Windows.Forms.Label lbl_Rate;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpYMDT;
+        private System.Windows.Forms.DateTimePicker dtpYMDF;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
     }
 }

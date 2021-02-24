@@ -12,6 +12,11 @@ using System.Data.OracleClient;
 using System.Data.SqlClient;
 //using ChartDirector;
 using System.Threading;
+using DevExpress.XtraGrid.Views.BandedGrid;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Columns;
+using System.Reflection;
 
 namespace Smart_FTY
 {
@@ -43,8 +48,9 @@ namespace Smart_FTY
         bool Model = true;
         string strCOL = "";
         string strLine_CD;
+        int _start_column = 0;
         #region Init
-        
+
 
         #endregion Init
         #region Function
@@ -137,53 +143,438 @@ namespace Smart_FTY
             gvwBase.EndUpdate();
         }
 
+        private DataTable LINQResultToDataTable<T>(IEnumerable<T> Linqlist)
+        {
+            DataTable dt = new DataTable();
+            PropertyInfo[] columns = null;
+            if (Linqlist == null) return dt;
+            foreach (T Record in Linqlist)
+            {
+                if (columns == null)
+                {
+                    columns = ((Type)Record.GetType()).GetProperties();
+                    foreach (PropertyInfo GetProperty in columns)
+                    {
+                        Type colType = GetProperty.PropertyType;
+
+                        if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition()
+                        == typeof(Nullable<>)))
+                        {
+                            colType = colType.GetGenericArguments()[0];
+                        }
+
+                        dt.Columns.Add(new DataColumn(GetProperty.Name, colType));
+                    }
+                }
+                DataRow dr = dt.NewRow();
+                foreach (PropertyInfo pinfo in columns)
+                {
+                    dr[pinfo.Name] = pinfo.GetValue(Record, null) == null ? DBNull.Value : pinfo.GetValue
+                    (Record, null);
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
+        }
+
+        private void FormatBand(GridBand root)
+        {
+            root.AppearanceHeader.Options.UseTextOptions = true;
+            root.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            root.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            //root.AppearanceHeader.Font = new Font("Calibri", 14, FontStyle.Bold);
+            root.OptionsBand.FixedWidth = true;
+            if (root.Children.Count > 0)
+            {
+                foreach (GridBand child in root.Children)
+                {
+                    FormatBand(child);
+                    child.Width = 55;
+                }
+            }
+        }
+
+        private bool CreateGrid(DataTable dt, GridControl gridControl, BandedGridView gridView)
+        {
+            try
+            {
+                gridControl.BeginUpdate();
+                gridView.OptionsView.ShowGroupPanel = false;
+                gridView.OptionsView.AllowCellMerge = true;
+                //gridView.BandPanelRowHeight = 35;
+                gridView.Bands.Clear();
+                gridView.Columns.Clear();
+                gridControl.DataSource = null;
+                gridView.OptionsView.ShowColumnHeaders = false;
+                GridBand band = null;
+                GridBand bandchlid1 = null;
+                GridBand bandchlid2 = null;
+                string distinct_row = "", sCol = "";
+                _start_column = int.Parse(dt.Rows[0]["START_COLUMN"].ToString());
+
+                var distinctValues = dt.AsEnumerable()
+                                   .Select(row => new
+                                   {
+                                       YMD = row.Field<string>("YMD"),
+                                       YMD_CAPTION = row.Field<string>("YMD_CAPTION"),
+                                       SHIFT = row.Field<string>("SHIFT"),
+                                       RN = row.Field<string>("RN"),
+                                       HH = row.Field<string>("HH"),
+                                       HH_CAPTION = row.Field<string>("HH_CAPTION")
+                                   })
+                                   .Distinct().OrderBy(r => r.YMD + r.SHIFT + r.RN + r.HH);
+                DataTable dttmp = LINQResultToDataTable(distinctValues);
+                string CAPTION = "";
+                for (int i = 0; i < _start_column; i++)
+                {
+                    if (dt.Columns[i].ColumnName != "IE" && dt.Columns[i].ColumnName != "WS" && !dt.Columns[i].ColumnName.Contains("OSD"))
+                    {
+                        if (dt.Columns[i].ColumnName == "MC_NAME")
+                        {
+                            CAPTION = "Machine";
+                        }
+                        else if (dt.Columns[i].ColumnName == "STATION_CD")
+                        {
+                            CAPTION = "Station";
+                        }
+                        else if (dt.Columns[i].ColumnName == "MOLD_SIZE")
+                        {
+                            CAPTION = Model ? "Model" : "Mold";
+                        }
+                        else if (dt.Columns[i].ColumnName == "T_PLAN")
+                        {
+                            CAPTION = "S.Plan";
+                        }
+                        else if (dt.Columns[i].ColumnName == "T_RPLAN")
+                        {
+                            CAPTION = "R.Plan";
+                        }
+                        else if (dt.Columns[i].ColumnName == "T_ACT")
+                        {
+                            CAPTION = "Actual";
+                        }
+                        else if (dt.Columns[i].ColumnName == "RATE")
+                        {
+                            CAPTION = "Rate";
+                        }
+                        else if (dt.Columns[i].ColumnName == "QR")
+                        {
+                            CAPTION = "Def.";
+                        }
+                        else
+                        {
+                            CAPTION = dt.Columns[i].ColumnName;
+                        }
+                        band = new GridBand() { Caption = CAPTION };
+                        gridView.Bands.Add(band);
+                        band.RowCount = 2;
+                        bandchlid2 = new GridBand() { Caption = "" };
+                        band.Children.Add(bandchlid2);
+
+                        BandedGridColumn col = new BandedGridColumn() { FieldName = dt.Columns[i].ColumnName, Visible = true, Caption = dt.Columns[i].ColumnName };
+                        bandchlid2.Columns.Add(col);
+                    }
+                    else if (dt.Columns[i].ColumnName == "IE")
+                    {
+                        band = new GridBand() { Caption = "Cycle" };
+                        gridView.Bands.Add(band);
+                        bandchlid1 = new GridBand() { Caption = dt.Columns[i].ColumnName };
+                        band.Children.Add(bandchlid1);
+                        bandchlid2 = new GridBand() { Caption = "" };
+                        bandchlid1.Children.Add(bandchlid2);
+                        BandedGridColumn col = new BandedGridColumn() { FieldName = dt.Columns[i].ColumnName, Visible = true, Caption = dt.Columns[i].ColumnName };
+                        bandchlid2.Columns.Add(col);
+                        bandchlid2.Width = 45;
+                    }
+                    else if (dt.Columns[i].ColumnName == "OSD1")
+                    {
+                        band = new GridBand() { Caption = "OS&D (Left/Right)(Pcs)" };
+                        gridView.Bands.Add(band);
+                        bandchlid1 = new GridBand() { Caption = "Shift 1" };
+                        band.Children.Add(bandchlid1);
+                        bandchlid2 = new GridBand() { Caption = "" };
+                        bandchlid1.Children.Add(bandchlid2);
+                        BandedGridColumn col = new BandedGridColumn() { FieldName = dt.Columns[i].ColumnName, Visible = true, Caption = dt.Columns[i].ColumnName };
+                        bandchlid2.Columns.Add(col);
+                    }
+                    else //if (dt.Columns[i].ColumnName == "WS" || dt.Columns[i].ColumnName.Contains("OSD1"))
+                    {
+                        if (dt.Columns[i].ColumnName == "WS")
+                            bandchlid1 = new GridBand() { Caption = "W/S" };
+                        else if (dt.Columns[i].ColumnName == "OSD2")
+                            bandchlid1 = new GridBand() { Caption = "Shift 2" };
+                        else if (dt.Columns[i].ColumnName == "OSD3")
+                            bandchlid1 = new GridBand() { Caption = "Shift 3" };
+                        band.Children.Add(bandchlid1);
+                        bandchlid2 = new GridBand() { Caption = "" };
+                        bandchlid1.Children.Add(bandchlid2);
+                        BandedGridColumn col = new BandedGridColumn() { FieldName = dt.Columns[i].ColumnName, Visible = true, Caption = dt.Columns[i].ColumnName };
+                        bandchlid2.Columns.Add(col);
+                    }
+                    band.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                    if (i <= 2)
+                        band.Visible = false;
+                }
+                int cnt = 0;
+                string shift = "";
+                for (int i = 0; i < dttmp.Rows.Count; i++)
+                {
+                    if (!distinct_row.Equals(dttmp.Rows[i]["YMD"].ToString()))
+                    {
+
+                        distinct_row = dttmp.Rows[i]["YMD"].ToString();
+                        band = new GridBand() { Caption = dttmp.Rows[i]["YMD_CAPTION"].ToString() };
+                        gridView.Bands.Add(band);
+                        //if (cnt == 0)
+                        //{
+                        //    band.AppearanceHeader.ForeColor = Color.Blue;
+                        //    cnt = 1;
+                        //}
+                        //else
+                        //{
+                        //    band.AppearanceHeader.ForeColor = Color.DarkOrange;
+                        //    cnt = 0;
+                        //}
+                    }
+
+                    if (!shift.Equals(dttmp.Rows[i]["SHIFT"].ToString()))
+                    {
+                        shift = dttmp.Rows[i]["SHIFT"].ToString();
+                    }
+
+                    bandchlid1 = new GridBand() { Caption = dttmp.Rows[i]["HH_CAPTION"].ToString() };
+                    band.Children.Add(bandchlid1);
+                    bandchlid2 = new GridBand() { Caption = "", Name = string.Concat(dttmp.Rows[i]["YMD"].ToString(), dttmp.Rows[i]["HH"].ToString()) };
+                    bandchlid1.Children.Add(bandchlid2);
+                    BandedGridColumn col = new BandedGridColumn() { FieldName = string.Concat(dttmp.Rows[i]["YMD"].ToString(), dttmp.Rows[i]["HH"].ToString()), Visible = true, Caption = dttmp.Rows[i]["HH_CAPTION"].ToString() };
+                    bandchlid2.Columns.Add(col);
+
+                    //if (shift == "S001")
+                    //{
+                    //    bandchlid1.AppearanceHeader.ForeColor = Color.DodgerBlue;
+                    //}
+                    //else if (shift == "S002")
+                    //{
+                    //    bandchlid1.AppearanceHeader.ForeColor = Color.FromArgb(192, 0, 192);
+                    //}
+                    //else if (shift == "S003")
+                    //{
+                    //    bandchlid1.AppearanceHeader.ForeColor = Color.LightSeaGreen;
+                    //}
+
+                    if (dttmp.Rows[i]["HH"].ToString().Contains("S"))
+                    {
+                        bandchlid1 = new GridBand() { Caption = "Rate" };
+                        band.Children.Add(bandchlid1);
+                        bandchlid2 = new GridBand() { Caption = "", Name = string.Concat(dttmp.Rows[i]["YMD"].ToString(), dttmp.Rows[i]["HH"].ToString(), "RATE") };
+                        bandchlid1.Children.Add(bandchlid2);
+                        BandedGridColumn col1 = new BandedGridColumn() { FieldName = string.Concat(dttmp.Rows[i]["YMD"].ToString(), dttmp.Rows[i]["HH"].ToString(), "RATE"), Visible = true, Caption = "RATE" };
+                        bandchlid2.Columns.Add(col1);
+                    }
+
+                    //if (shift == "S001")
+                    //{
+                    //    bandchlid1.AppearanceHeader.ForeColor = Color.DodgerBlue;
+                    //}
+                    //else if (shift == "S002")
+                    //{
+                    //    bandchlid1.AppearanceHeader.ForeColor = Color.FromArgb(192, 0, 192);
+                    //}
+                    //else if (shift == "S003")
+                    //{
+                    //    bandchlid1.AppearanceHeader.ForeColor = Color.LightSeaGreen;
+                    //}
+                }
+                foreach (GridBand gb in gridView.Bands)
+                {
+                    FormatBand(gb);
+                }
+                gridControl.EndUpdate();
+                return true;
+            }
+            catch (Exception EX) { return false; }
+        }
+
+        DataTable GetDataTable(GridView view)
+        {
+            DataTable dt = new DataTable();
+            foreach (GridColumn c in view.Columns)
+                dt.Columns.Add(c.FieldName, c.ColumnType);
+            for (int r = 0; r < view.RowCount; r++)
+            {
+                object[] rowValues = new object[dt.Columns.Count];
+                for (int c = 0; c < dt.Columns.Count; c++)
+                    rowValues[c] = view.GetRowCellValue(r, dt.Columns[c].ColumnName);
+                dt.Rows.Add(rowValues);
+            }
+            return dt;
+        }
+
+        private bool bindingData_Detail(DataTable dtSource, DataTable dt, int startcolumn)
+        {
+            try
+            {
+                int[] rowtotal = new int[dtSource.Columns.Count];
+                string distinct_row = "";
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    if (!distinct_row.Equals(dt.Rows[i]["DISTINCTROW"].ToString()))
+                    {
+                        dtSource.Rows.Add();
+                    }
+                    distinct_row = dt.Rows[i]["DISTINCTROW"].ToString();
+                    for (int col = 0; col < startcolumn; col++)
+                    {
+                        if (col >= 9 && col <= 13)
+                        {
+                            if (col >= 12)
+                                dtSource.Rows[dtSource.Rows.Count - 1][dt.Columns[col].ColumnName] = dt.Rows[i][dt.Columns[col].ColumnName].ToString() == "" ? null : double.Parse(dt.Rows[i][dt.Columns[col].ColumnName].ToString()).ToString("#,0.#") + "%";
+                            else
+                                dtSource.Rows[dtSource.Rows.Count - 1][dt.Columns[col].ColumnName] = dt.Rows[i][dt.Columns[col].ColumnName] == null ? null : double.Parse(dt.Rows[i][dt.Columns[col].ColumnName].ToString()).ToString("#,0.#");
+                        }
+                        else
+                        {
+                            dtSource.Rows[dtSource.Rows.Count - 1][dt.Columns[col].ColumnName] = dt.Rows[i][dt.Columns[col].ColumnName].ToString();
+                        }
+
+                    }
+
+                    dtSource.Rows[dtSource.Rows.Count - 1][string.Concat(dt.Rows[i]["YMD"].ToString(), dt.Rows[i]["HH"].ToString())] = dt.Rows[i]["QTY"];
+                    if (dt.Rows[i]["HH"].ToString().Contains("S"))
+                    {
+                        double act = 0, plan = 0, rplan = 0;
+                        if (dt.Rows[i]["QTY"] != null)
+                        {
+                            if (dt.Rows[i]["QTY"].ToString() != "" && dt.Rows[i]["QTY"].ToString().IndexOf('/') > 0)
+                            {
+                                act = double.Parse(dt.Rows[i]["QTY"].ToString().Split('/')[0]);
+                                plan = double.Parse(dt.Rows[i]["QTY"].ToString().Split('/')[1]);
+                                rplan = double.Parse(dt.Rows[i]["RPLAN"].ToString());
+                            }
+                        }
+                        dtSource.Rows[dtSource.Rows.Count - 1][string.Concat(dt.Rows[i]["YMD"].ToString(), dt.Rows[i]["HH"].ToString(), "RATE")] = rplan == 0 ? "0%" : Math.Round(act / rplan * 100, 1).ToString() + "%";
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        private void formatgrid()
+        {
+            try
+            {
+                gvwBase.BeginUpdate();
+                for (int i = 0; i < gvwBase.Columns.Count; i++)
+                {
+                    gvwBase.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                    gvwBase.Columns[i].AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                    gvwBase.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                    gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+                    gvwBase.Columns[i].OptionsColumn.ReadOnly = true;
+                    gvwBase.Columns[i].OptionsColumn.AllowEdit = false;
+                    gvwBase.Columns[i].OwnerBand.Width = 100;
+                    gvwBase.Columns[i].AppearanceCell.Font = new Font("Calibri", 10, FontStyle.Regular);
+                    gvwBase.Columns[i].OwnerBand.AppearanceHeader.Font = new Font("Calibri", 10, FontStyle.Regular);
+                    if (i < _start_column)
+                    {
+                        if (i == 5)
+                        {
+                            gvwBase.Columns[i].OwnerBand.Width = 110;
+                            gvwBase.Columns[i].Width = 110;
+                        }
+                        else if (i == 4)
+                        {
+                            gvwBase.Columns[i].OwnerBand.Width = 90;
+                            gvwBase.Columns[i].Width = 90;
+                        }
+                        else
+                        {
+                            gvwBase.Columns[i].OwnerBand.Width = 55;
+                            gvwBase.Columns[i].Width = 55;
+                        }
+
+                        if (i == 3 || i == 4)
+                        {
+                            gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
+                            gvwBase.Columns[i].OwnerBand.Width = 65;
+                            gvwBase.Columns[i].Width = 65;
+                        }
+                        //if (i >= 8 && i <= 10)
+                        //{
+                        //    gvwBase.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
+                        //    gvwBase.Columns[i].DisplayFormat.FormatString = "#,0.#";
+                        //}
+                        if ((i >= 12 && i <= 13) || i == _start_column - 1)
+                        {
+                            gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                            gvwBase.Columns[i].OwnerBand.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                        }
+                        else
+                            gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+
+                    }
+                    else
+                    {
+                        //gvwBase.Columns[i].OwnerBand.Width = 30;
+                        gvwBase.Columns[i].Width = 55;
+                        gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                    }
+                }
+                gvwBase.EndUpdate();
+                gvwBase.FocusedColumn = gvwBase.Columns[gvwBase.Columns.Count - 1];
+            }
+            catch { }
+        }
+
         private void loadData(string line)
         {
             try
             {
-                DataTable dt = new DataTable();
+                DataTable dt_main = new DataTable();
+                DataTable dtSource = new DataTable();
+                DataTable dtf = new DataTable();
                 //return;
-                dt = SEL_DATA_TALLY_SHEET("Q", dtpYMD.Value.ToString("yyyyMMdd"), _SOPCD,"MODEL",_SMCF,_SMCT);
-                DataTable dt_tmp = null;
-                dt_tmp = dt.Select().CopyToDataTable();
-                if (dt.Rows.Count > 1)
+                dt_main = SEL_DATA_TALLY_SHEET("Q", dtpYMDF.Value.ToString("yyyyMMdd"), dtpYMDT.Value.ToString("yyyyMMdd"), _SOPCD,"MODEL",_SMCF,_SMCT);
+               
+                grdBase.DataSource = null;
+
+                if (dt_main != null && dt_main.Rows.Count > 1)
                 {
-
-                    //
-                    dt.Rows.RemoveAt(0);
-                    grdBase.DataSource = dt;
-                    Set_Format_Grid();
-
-                    strCOL = dt.Rows[0]["COL"].ToString();
-                    band_Day1.Caption = dt.Rows[0]["D1"].ToString();
-                    band_Day2.Caption = dt.Rows[0]["D2"].ToString();
-
-                    lbl_Plan.Text = "S.Plan : " + dt_tmp.Rows[0]["PLAN"].ToString();
-                    lbl_Rplan.Text = "R.Plan : " + dt_tmp.Rows[0]["RPLAN"].ToString();
-                    lbl_Act.Text = "Actual : " + dt_tmp.Rows[0]["ACTUAL"].ToString();
-                    lbl_Rate.Text = "Rate : " + dt_tmp.Rows[0]["RATE"].ToString();
-
-                    ////line_cd = cbo_line.EditValue.ToString();
-                    ////SetData(grdBase, dtf);
-                    ////Set_Format_Grid();
-                    //lbl_Total.Text = "Total: " + gvwBase.GetRowCellValue(gvwBase.RowCount - 1, "ACTUAL_PLAN").ToString().ToString();
-                    //lbl_rate.Text = "Rate: " + gvwBase.GetRowCellValue(gvwBase.RowCount - 1, "RATE").ToString();
-                    ////BAND_YMD.Caption = dtf.Rows[0]["D_1"].ToString();
-                    ////BAND_YMD1.Caption = dtf.Rows[0]["D_3"].ToString();
-
-                    //gridBand2_model_mold.Caption = "MOLD";
-                    //if (Model)
-                    //    gridBand2_model_mold.Caption = "MODEL";
-                    //lbl_header.Text = "Outsole Tallysheet - Line " + dt.Rows[0][1].ToString().Substring(0, dt.Rows[0][1].ToString().IndexOf("-"));
-
-                    for (int i = 0; i < gvwBase.Columns.Count; i++)
+                    if (CreateGrid(dt_main, grdBase, gvwBase))
                     {
-                        gvwBase.Columns[i].OwnerBand.Caption = dt_tmp.Rows[0][gvwBase.Columns[i].FieldName].ToString();
-                        gvwBase.Columns[i].OwnerBand.AppearanceHeader.BackColor = Color.FromArgb(255, 255, 255, 215);
-                        gvwBase.Columns[i].OwnerBand.AppearanceHeader.Font = new Font(gvwBase.Columns[i].OwnerBand.AppearanceHeader.Font.FontFamily, 10, FontStyle.Bold);
+                        dtSource = GetDataTable(gvwBase);
+                        if (bindingData_Detail(dtSource, dt_main, _start_column))
+                        {
+                            dtf = dtSource.Copy();
+                            dtf.Rows.RemoveAt(0);
+                            grdBase.DataSource = dtf;
+
+
+                            lbl_Plan.Text = "A. Shift Plan: " + (dtSource.Rows[0]["T_PLAN"] == null ? "0" : double.Parse(dt_main.Rows[0]["T_PLAN"].ToString()).ToString("#,0.#"));
+                            lbl_Rplan.Text = "A. R.Plan: " + (dtSource.Rows[0]["T_RPLAN"] == null ? "0" : double.Parse(dt_main.Rows[0]["T_RPLAN"].ToString()).ToString("#,0.#"));
+                            lbl_Act.Text = "A. Actual: " + (dtSource.Rows[0]["T_ACT"] == null ? "0" : double.Parse(dt_main.Rows[0]["T_ACT"].ToString()).ToString("#,0.#"));
+                            lbl_Rate.Text = "A. P.Rate: " + dtSource.Rows[0]["RATE"].ToString();// (dt_main.Rows[0]["RATE"] == null ? "0%" : double.Parse(dt_main.Rows[0]["RATE"].ToString()).ToString("#,0.#") + "%"); 
+                            lblDRate.Text = "A. D.Rate: " + dtSource.Rows[0]["QR"].ToString();
+                            strCOL = dt_main.Rows[0]["COL"].ToString();
+
+                            for (int i = 0; i < dtSource.Columns.Count; i++)
+                            {
+                                if (i >= 8 && i <= 12)
+                                    gvwBase.Columns[i].OwnerBand.Caption = dtSource.Rows[0][dtSource.Columns[i]] == null ? null : dtSource.Rows[0][dtSource.Columns[i]].ToString();
+                                else
+                                    gvwBase.Columns[i].OwnerBand.Caption = dtSource.Rows[0][dtSource.Columns[i]].ToString();
+                                gvwBase.Columns[i].OwnerBand.AppearanceHeader.BackColor = Color.FromArgb(255, 250, 179);
+                            }
+                            formatgrid();
+                        }
                     }
-                    gvwBase.OptionsView.ColumnAutoWidth = false;
-                   
+                    lbl_header.Text = "Phylon Tally Sheet - Line " + int.Parse(_SMCF) + "-" + int.Parse(_SMCT);
                 }
             }
             catch { }
@@ -222,7 +613,8 @@ namespace Smart_FTY
                 date1 = DateTime.Now.AddDays(-1).ToString("yyyyMMdd");
             }
 
-
+            dtpYMDF.Value = DateTime.Now;
+            dtpYMDT.Value = DateTime.Now;
 
 
             loadData(strLine_CD);
@@ -231,13 +623,13 @@ namespace Smart_FTY
            // dt = SEL_DATA_OS_PRO();
             panel1.Visible = true;
         }
-        private DataTable SEL_DATA_TALLY_SHEET(string QTYPE, string ymd, string OP_CD, string MOLD, string MC_F, string MC_T)
+        private DataTable SEL_DATA_TALLY_SHEET(string QTYPE, string ymd1, string ymd2, string OP_CD, string MOLD, string MC_F, string MC_T)
         {
             System.Data.DataSet retDS;
             COM.OraDB MyOraDB = new COM.OraDB();
 
-            MyOraDB.ReDim_Parameter(7);
-            MyOraDB.Process_Name = "MES.PKG_SMT_B1.SP_PH_TALLY_SHEET_V2";
+            MyOraDB.ReDim_Parameter(8);
+            MyOraDB.Process_Name = "MES.PKG_SMT_B1.SP_PH_TALLY_SHEET_V3";
             //  for (int i = 0; i < intParm; i++)
             MyOraDB.Parameter_Type[0] = (char)OracleType.VarChar;
             MyOraDB.Parameter_Type[1] = (char)OracleType.VarChar;
@@ -245,26 +637,29 @@ namespace Smart_FTY
             MyOraDB.Parameter_Type[3] = (char)OracleType.VarChar;
             MyOraDB.Parameter_Type[4] = (char)OracleType.VarChar;
             MyOraDB.Parameter_Type[5] = (char)OracleType.VarChar;
-            MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
+            MyOraDB.Parameter_Type[6] = (char)OracleType.VarChar;
+            MyOraDB.Parameter_Type[7] = (int)OracleType.Cursor;
 
 
          
             MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-            MyOraDB.Parameter_Name[1] = "V_P_YMD";
-            MyOraDB.Parameter_Name[2] = "V_P_OP";
-            MyOraDB.Parameter_Name[3] = "V_P_MOLD";
-            MyOraDB.Parameter_Name[4] = "V_P_MC_F";
-            MyOraDB.Parameter_Name[5] = "V_P_MC_T";
-            MyOraDB.Parameter_Name[6] = "OUT_CURSOR";
+            MyOraDB.Parameter_Name[1] = "V_P_YMDF";
+            MyOraDB.Parameter_Name[2] = "V_P_YMDT";
+            MyOraDB.Parameter_Name[3] = "V_P_OP";
+            MyOraDB.Parameter_Name[4] = "V_P_MOLD";
+            MyOraDB.Parameter_Name[5] = "V_P_MC_F";
+            MyOraDB.Parameter_Name[6] = "V_P_MC_T";
+            MyOraDB.Parameter_Name[7] = "OUT_CURSOR";
 
 
             MyOraDB.Parameter_Values[0] = QTYPE;
-            MyOraDB.Parameter_Values[1] = ymd;
-            MyOraDB.Parameter_Values[2] = OP_CD;
-            MyOraDB.Parameter_Values[3] = MOLD;
-            MyOraDB.Parameter_Values[4] = MC_F;
-            MyOraDB.Parameter_Values[5] = MC_T;
-            MyOraDB.Parameter_Values[6] = "";
+            MyOraDB.Parameter_Values[1] = ymd1;
+            MyOraDB.Parameter_Values[2] = ymd2;
+            MyOraDB.Parameter_Values[3] = OP_CD;
+            MyOraDB.Parameter_Values[4] = Model == true ? "MODEL" : "MOLD"; 
+            MyOraDB.Parameter_Values[5] = MC_F;
+            MyOraDB.Parameter_Values[6] = MC_T;
+            MyOraDB.Parameter_Values[7] = "";
 
             MyOraDB.Add_Select_Parameter(true);
             retDS = MyOraDB.Exe_Select_Procedure();
@@ -354,70 +749,93 @@ namespace Smart_FTY
         {
             try
             {
-
-                if (e.RowHandle < 0)
-                    return;
-                if (gvwBase.GetRowCellValue(e.RowHandle, "MACHINE_CD").ToString().Contains("TOTAL"))
+                if (e.CellValue == null) return;
+                if (e.CellValue.ToString().Contains("RED"))
                 {
-                    e.Appearance.ForeColor = Color.Black;
-                    e.Appearance.BackColor = Color.FromArgb(255, 255, 192);
-                    e.Appearance.Font = new Font(e.Appearance.Font.FontFamily, 12, FontStyle.Bold);
-
+                    e.Appearance.BackColor = Color.Red;
+                    e.Appearance.ForeColor = Color.White;
                 }
-                else
+                else if (e.CellValue.ToString().Contains("GREEN"))
                 {
-                    if (e.CellValue.ToString().Contains("GREEN"))
+                    e.Appearance.BackColor = Color.Green;
+                    e.Appearance.ForeColor = Color.Yellow;
+                }
+                else if (e.CellValue.ToString().Contains("YELLOW"))
+                {
+                    e.Appearance.BackColor = Color.Yellow;
+                    e.Appearance.ForeColor = Color.Black;
+                }
+                else if (e.CellValue.ToString().Contains("GREY"))
+                {
+                    e.Appearance.BackColor = Color.Gray;
+                    e.Appearance.ForeColor = Color.Black;
+                }
+                else if (e.CellValue.ToString().Contains("NONE"))
+                {
+                    e.Appearance.BackColor = Color.Transparent;
+                    e.Appearance.ForeColor = Color.Black;
+                }
+
+
+                if (e.Column.FieldName.Contains("OSD"))
+                {
+                    if (e.CellValue.ToString().Contains("RED"))
                     {
-                        e.Appearance.ForeColor = Color.Black;
-                        e.Appearance.BackColor = Color.Green;
-                    }
-                    else if (e.CellValue.ToString().Contains("RED"))
-                    {
-                        e.Appearance.ForeColor = Color.White;
                         e.Appearance.BackColor = Color.Red;
-                    }
-                    else if (e.CellValue.ToString().Contains("GREY"))
-                    {
                         e.Appearance.ForeColor = Color.White;
-                        e.Appearance.BackColor = Color.Gray;
+                    }
+                    else if (e.CellValue.ToString().Contains("GREEN"))
+                    {
+                        e.Appearance.BackColor = Color.Green;
+                        e.Appearance.ForeColor = Color.Yellow;
                     }
                     else if (e.CellValue.ToString().Contains("YELLOW"))
                     {
-                        e.Appearance.ForeColor = Color.Black;
                         e.Appearance.BackColor = Color.Yellow;
-                    }
-                    else if (e.CellValue.ToString().Contains("TOTCOLOR"))
-                    {
                         e.Appearance.ForeColor = Color.Black;
-                        e.Appearance.BackColor = Color.FromArgb(255, 255, 192);
-                        e.Appearance.Font = new Font(e.Appearance.Font.FontFamily, 12, FontStyle.Bold);
                     }
+                    else if (e.CellValue.ToString().Contains("GREY"))
+                    {
+                        e.Appearance.BackColor = Color.Gray;
+                        e.Appearance.ForeColor = Color.Black;
+                    }
+                    else if (e.CellValue.ToString().Contains("NONE"))
+                    {
+                        e.Appearance.BackColor = Color.Transparent;
+                        e.Appearance.ForeColor = Color.Black;
+                    }
+
                 }
-                
-                //if (e.Column.AbsoluteIndex > 10)
+
+                //string tomau_row = gvwBase.GetRowCellDisplayText(e.RowHandle, "MA");
+
+                //if (e.Column.FieldName.Contains("S1") || e.Column.FieldName.Contains("S2") || e.Column.FieldName.Contains("S3"))
                 //{
-                //    if (e.CellValue.ToString().Contains("GREEN"))
-                //    {
-                //        e.Appearance.BackColor = Color.LimeGreen;
-                //    }
-                //    if (e.CellValue.ToString().Contains("RED"))
-                //    {
-                //        e.Appearance.BackColor = Color.Red;
-                //    }
-                //    if (e.CellValue.ToString().Contains("YELLOW"))
-                //    {
-                //        e.Appearance.BackColor = Color.Yellow;
-                //    }
-                //    if (e.CellValue.ToString().Contains("GRAY"))
-                //    {
-                //        e.Appearance.BackColor = Color.SlateGray;
-                //    }
-                //}                
+                //    e.Appearance.BackColor = Color.FromArgb(182, 217, 252);
+                //}
+                if (e.Column.FieldName.Contains("S1") || e.Column.FieldName.Contains("S2") || e.Column.FieldName.Contains("S3"))
+                {
+                    //if (gvwBase.Columns[e.Column.FieldName].OwnerBand.Caption.ToUpper().Equals("TOTAL"))
+                    e.Appearance.BackColor = Color.FromArgb(255, 250, 179);
+                    //else
+                    //    e.Appearance.BackColor = Color.FromArgb(182, 217, 252);
+                }
+
+                if (e.Column.FieldName.Contains("S1RATE") || e.Column.FieldName.Contains("S2RATE") || e.Column.FieldName.Contains("S3RATE"))
+                {
+                    e.Appearance.BackColor = Color.FromArgb(250, 235, 210);
+                }
+
+                if (gvwBase.GetRowCellValue(e.RowHandle, "STATION_CD").ToString().Contains("TOTAL") && e.Column.ColumnHandle >= 4)
+                {
+                    e.Appearance.BackColor = Color.FromArgb(255, 250, 179);
+                    if (e.Column.FieldName.Contains("OSD"))
+                        e.Appearance.ForeColor = Color.FromArgb(255, 250, 179);
+                    //e.Appearance.Font = new System.Drawing.Font("Calibri", 12f, FontStyle.Regular);
+                }
             }
-            catch (Exception ex)
-            {
-               
-            }
+            catch 
+            { }
         }
 
         private void btnMold_Click(object sender, EventArgs e)
@@ -457,7 +875,6 @@ namespace Smart_FTY
         {
             try
             {
-                //return;
                 Rectangle rect = e.Bounds;
                 rect.Inflate(new Size(1, 1));
 
@@ -466,7 +883,7 @@ namespace Smart_FTY
                 Pen pen_horizental = new Pen(Color.Blue, 3F);
                 Pen pen_vertical = new Pen(Color.Blue, 4F);
 
-                if (e.Column.FieldName.Contains("COL"))
+                if (e.Column.ColumnHandle >= _start_column)
                 {
                     if (e.Column.FieldName == strCOL)
                     {
@@ -481,50 +898,24 @@ namespace Smart_FTY
                         }
                         else if (e.RowHandle == gvwBase.RowCount - 1)
                         {
-                            e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
+                            e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 2, rect.X + rect.Width, rect.Y + rect.Height - 2);
                         }
                         // draw right
-                        e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width, rect.Y, rect.X + rect.Width, rect.Y + rect.Height);
+                        e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width - 1, rect.Y, rect.X + rect.Width - 1, rect.Y + rect.Height);
 
 
                         // draw left
-                        e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X, rect.Y + rect.Height);
+                        e.Graphics.DrawLine(pen_horizental, rect.X + 1, rect.Y, rect.X + 1, rect.Y + rect.Height);
 
-
+                        string[] ls = e.DisplayText.Split('\n');
+                        e.Graphics.DrawString(ls[0], new System.Drawing.Font("Calibri", 10, FontStyle.Regular), new SolidBrush(e.Appearance.GetForeColor()), rect, e.Appearance.GetStringFormat());
+                        e.Handled = true;
                     }
 
-                    string[] ls = e.DisplayText.Split('\n');
-                    //if (e.RowHandle < gvwBase.RowCount - 1)
-                    //{
-                    //    e.Graphics.DrawString(ls[0], new Font("Calibri", 12), new SolidBrush(Color.Black), rect, e.Appearance.GetStringFormat());
-                    //}
-                    //else
-                    //{
-                    //    e.Graphics.DrawString(ls[0], new Font("Calibri", 12), new SolidBrush(Color.Black), rect, e.Appearance.GetStringFormat());
-                    //}
-
-                    if (e.RowHandle < gvwBase.RowCount - 1)
-                    {
-                        if (e.Appearance.BackColor == Color.Red || e.Appearance.BackColor == Color.Green)
-                        {
-                            e.Graphics.DrawString(ls[0], new System.Drawing.Font("Calibri", 12, FontStyle.Regular), new SolidBrush(e.Appearance.ForeColor), rect, e.Appearance.GetStringFormat());
-                        }
-                        else
-                        {
-                            e.Graphics.DrawString(ls[0], new System.Drawing.Font("Calibri", 12, FontStyle.Regular), new SolidBrush(Color.Black), rect, e.Appearance.GetStringFormat());
-                        }
-                    }
-                    else
-                    {
-                        e.Graphics.DrawString(ls[0], new System.Drawing.Font("Calibri", 12, FontStyle.Bold), new SolidBrush(Color.Black), rect, e.Appearance.GetStringFormat());
-                    }
-
-                    e.Handled = true;
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-
             }
         }
 
@@ -555,7 +946,8 @@ namespace Smart_FTY
         {
             try
             {
-                //return;
+                if (e.Band == null)
+                    return;
                 Rectangle rect = e.Bounds;
                 rect.Inflate(new Size(1, 1));
 
@@ -563,14 +955,14 @@ namespace Smart_FTY
                 e.Graphics.FillRectangle(brush, rect);
                 Pen pen_horizental = new Pen(Color.Blue, 3F);
                 Pen pen_vertical = new Pen(Color.Blue, 4F);
-                Pen line = new Pen(Color.White, 3F);
+                Pen line = new Pen(Color.White, 2F);
                 bool boBorder = false;
                 string[] ls = e.Band.Caption.Split('\n');
 
                 if (e.Band.HasChildren)
                 {
                     if (e.Band.Children[0].Columns.Count > 0)
-                        if (e.Band.Children[0].Columns[0].Caption == strCOL)
+                        if (e.Band.Children[0].Columns[0].Name.ToUpper().Replace("COL", "") == strCOL)
                         {
                             boBorder = true;
                         }
@@ -578,7 +970,7 @@ namespace Smart_FTY
                 else
                 {
                     if (e.Band.Columns.Count > 0)
-                        if (e.Band.Columns[0].Caption == strCOL)
+                        if (e.Band.Columns[0].Name.ToUpper().Replace("COL", "") == strCOL)
                         {
                             boBorder = true;
                         }
@@ -587,20 +979,20 @@ namespace Smart_FTY
                 if (boBorder)
                 {
                     if (e.Band.HasChildren)
-                        e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+                        e.Graphics.DrawLine(pen_horizental, rect.X + 1, rect.Y, rect.X + rect.Width - 2, rect.Y);
                     else
                     {
                         //e.Graphics.DrawLine(line, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
                     }
                     // draw right
-                    e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width - 2, rect.Y, rect.X + rect.Width - 2, rect.Y + rect.Height);
+                    e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width - 3, rect.Y, rect.X + rect.Width - 3, rect.Y + rect.Height);
 
 
                     // draw left
-                    e.Graphics.DrawLine(pen_horizental, rect.X + 1, rect.Y, rect.X + 1, rect.Y + rect.Height);
+                    e.Graphics.DrawLine(pen_horizental, rect.X + 2, rect.Y, rect.X + 2, rect.Y + rect.Height);
 
-
-                    e.Graphics.DrawString(ls[0], e.Appearance.GetFont(), new SolidBrush(e.Appearance.GetForeColor()), rect, e.Appearance.GetStringFormat());
+                    e.Graphics.DrawString(ls[0], new System.Drawing.Font("Calibri", 11, FontStyle.Regular), new SolidBrush(e.Appearance.GetForeColor()), rect, e.Appearance.GetStringFormat());
+                    //e.Graphics.DrawString(ls[0], new System.Drawing.Font("Tahoma", 10.5F, FontStyle.Regular), new SolidBrush(e.Appearance.GetForeColor()), rect, e.Appearance.GetStringFormat());
                     e.Handled = true;
                 }
             }
@@ -611,6 +1003,16 @@ namespace Smart_FTY
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            loadData(strLine_CD);
+        }
+
+        private void dtpYMDF_ValueChanged(object sender, EventArgs e)
+        {
+            loadData(strLine_CD);
+        }
+
+        private void dtpYMDT_ValueChanged(object sender, EventArgs e)
         {
             loadData(strLine_CD);
         }
