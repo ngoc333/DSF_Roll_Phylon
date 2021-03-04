@@ -1719,7 +1719,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 31);
             this.label3.TabIndex = 672;
-            this.label3.Text = "Lack of 2 or 3 pair";
+            this.label3.Text = "Lack of 2 or 3 cycle";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -1732,7 +1732,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 31);
             this.label4.TabIndex = 673;
-            this.label4.Text = "Lack of over 3 pair";
+            this.label4.Text = "Lack of over 3 cycle";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -1745,7 +1745,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 31);
             this.label5.TabIndex = 674;
-            this.label5.Text = "Lack of 1 pair";
+            this.label5.Text = "Lack of 1 cycle";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtpYMDT
