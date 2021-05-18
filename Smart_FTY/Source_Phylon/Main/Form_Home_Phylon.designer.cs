@@ -30,38 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Home_Phylon));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraCharts.SimpleDiagram simpleDiagram1 = new DevExpress.XtraCharts.SimpleDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel1 = new DevExpress.XtraCharts.PieSeriesLabel();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView1 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.PieFlyInAnimation pieFlyInAnimation1 = new DevExpress.XtraCharts.PieFlyInAnimation();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.SimpleDiagram simpleDiagram2 = new DevExpress.XtraCharts.SimpleDiagram();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel2 = new DevExpress.XtraCharts.PieSeriesLabel();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView2 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.PieFlyInAnimation pieFlyInAnimation2 = new DevExpress.XtraCharts.PieFlyInAnimation();
-            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange1 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
-            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange2 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
-            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange3 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
-            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange4 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
-            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange5 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
-            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange6 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
-            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange7 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
-            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange8 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
-            DevExpress.XtraCharts.SimpleDiagram simpleDiagram3 = new DevExpress.XtraCharts.SimpleDiagram();
-            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel3 = new DevExpress.XtraCharts.PieSeriesLabel();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView3 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.PieBurstAnimation pieBurstAnimation1 = new DevExpress.XtraCharts.PieBurstAnimation();
-            DevExpress.XtraCharts.SimpleDiagram simpleDiagram4 = new DevExpress.XtraCharts.SimpleDiagram();
-            DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel4 = new DevExpress.XtraCharts.PieSeriesLabel();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView4 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.PieBurstAnimation pieBurstAnimation2 = new DevExpress.XtraCharts.PieBurstAnimation();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraCharts.SimpleDiagram simpleDiagram5 = new DevExpress.XtraCharts.SimpleDiagram();
+            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel5 = new DevExpress.XtraCharts.PieSeriesLabel();
+            DevExpress.XtraCharts.PieSeriesView pieSeriesView5 = new DevExpress.XtraCharts.PieSeriesView();
+            DevExpress.XtraCharts.PieFlyInAnimation pieFlyInAnimation3 = new DevExpress.XtraCharts.PieFlyInAnimation();
+            DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.SimpleDiagram simpleDiagram6 = new DevExpress.XtraCharts.SimpleDiagram();
+            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel6 = new DevExpress.XtraCharts.PieSeriesLabel();
+            DevExpress.XtraCharts.PieSeriesView pieSeriesView6 = new DevExpress.XtraCharts.PieSeriesView();
+            DevExpress.XtraCharts.PieFlyInAnimation pieFlyInAnimation4 = new DevExpress.XtraCharts.PieFlyInAnimation();
+            DevExpress.XtraCharts.ChartTitle chartTitle4 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange9 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
+            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange10 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
+            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange11 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
+            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange12 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
+            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange13 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
+            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange14 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
+            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange15 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
+            DevExpress.XtraGauges.Core.Model.ArcScaleRange arcScaleRange16 = new DevExpress.XtraGauges.Core.Model.ArcScaleRange();
+            DevExpress.XtraCharts.SimpleDiagram simpleDiagram7 = new DevExpress.XtraCharts.SimpleDiagram();
+            DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel7 = new DevExpress.XtraCharts.PieSeriesLabel();
+            DevExpress.XtraCharts.PieSeriesView pieSeriesView7 = new DevExpress.XtraCharts.PieSeriesView();
+            DevExpress.XtraCharts.PieBurstAnimation pieBurstAnimation3 = new DevExpress.XtraCharts.PieBurstAnimation();
+            DevExpress.XtraCharts.SimpleDiagram simpleDiagram8 = new DevExpress.XtraCharts.SimpleDiagram();
+            DevExpress.XtraCharts.Series series8 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel8 = new DevExpress.XtraCharts.PieSeriesLabel();
+            DevExpress.XtraCharts.PieSeriesView pieSeriesView8 = new DevExpress.XtraCharts.PieSeriesView();
+            DevExpress.XtraCharts.PieBurstAnimation pieBurstAnimation4 = new DevExpress.XtraCharts.PieBurstAnimation();
             this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
             this.backstageViewClientControl3 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
             this.cmdQuality1 = new DevExpress.XtraEditors.SimpleButton();
@@ -242,6 +242,7 @@
             this.cmdPH3 = new System.Windows.Forms.Button();
             this.cmdCMP = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmdUV = new System.Windows.Forms.Button();
             this.pnHeader.SuspendLayout();
             this.pnButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).BeginInit();
@@ -280,15 +281,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.arcProdRub)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartOsdPhy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartOsdCmp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView6)).BeginInit();
             this.groupBoxEx7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.circularGauge10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleBackgroundLayerComponent4)).BeginInit();
@@ -321,16 +322,16 @@
             this.panel2.SuspendLayout();
             this.groupBoxEx8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartHrPhy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView7)).BeginInit();
             this.groupBoxEx9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartHrCmp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView8)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labelGauges)).BeginInit();
@@ -346,6 +347,7 @@
             // 
             this.pnHeader.BackColor = System.Drawing.Color.Turquoise;
             this.pnHeader.Controls.Add(this.cmdCMP);
+            this.pnHeader.Controls.Add(this.cmdUV);
             this.pnHeader.Controls.Add(this.cmdPH3);
             this.pnHeader.Controls.Add(this.cmdPH2);
             this.pnHeader.Controls.Add(this.cmdPH1);
@@ -362,6 +364,7 @@
             this.pnHeader.Controls.SetChildIndex(this.cmdPH1, 0);
             this.pnHeader.Controls.SetChildIndex(this.cmdPH2, 0);
             this.pnHeader.Controls.SetChildIndex(this.cmdPH3, 0);
+            this.pnHeader.Controls.SetChildIndex(this.cmdUV, 0);
             this.pnHeader.Controls.SetChildIndex(this.cmdCMP, 0);
             // 
             // lblDate
@@ -369,7 +372,7 @@
             this.lblDate.BackColor = System.Drawing.Color.Turquoise;
             this.lblDate.Location = new System.Drawing.Point(1655, 0);
             this.lblDate.Size = new System.Drawing.Size(260, 106);
-            this.lblDate.Text = "2020-09-01\n16:07:46";
+            this.lblDate.Text = "2021-05-17\n15:17:16";
             this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
             // 
             // cmdYear
@@ -948,11 +951,11 @@
             this.bstLine1_Prod.ContentControl = this.backstageViewClientControl2;
             this.bstLine1_Prod.Glyph = ((System.Drawing.Image)(resources.GetObject("bstLine1_Prod.Glyph")));
             this.bstLine1_Prod.Name = "bstLine1_Prod";
-            superToolTip1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            superToolTip1.DistanceBetweenItems = 1;
-            toolTipTitleItem1.Text = "Sản Xuất";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            this.bstLine1_Prod.SuperTip = superToolTip1;
+            superToolTip2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            superToolTip2.DistanceBetweenItems = 1;
+            toolTipTitleItem2.Text = "Sản Xuất";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            this.bstLine1_Prod.SuperTip = superToolTip2;
             // 
             // bstLine1_Equip
             // 
@@ -1949,8 +1952,8 @@
             this.chartOsdPhy.BackColor = System.Drawing.Color.Transparent;
             this.chartOsdPhy.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartOsdPhy.DataBindings = null;
-            simpleDiagram1.LabelsResolveOverlappingMinIndent = -7;
-            this.chartOsdPhy.Diagram = simpleDiagram1;
+            simpleDiagram5.LabelsResolveOverlappingMinIndent = -7;
+            this.chartOsdPhy.Diagram = simpleDiagram5;
             this.chartOsdPhy.IndicatorsPaletteName = "Palette 1";
             this.chartOsdPhy.IndicatorsPaletteRepository.Add("Palette 1", new DevExpress.XtraCharts.Palette("Palette 1", DevExpress.XtraCharts.PaletteScaleMode.Repeat, new DevExpress.XtraCharts.PaletteEntry[] {
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Red, System.Drawing.Color.Red),
@@ -1966,30 +1969,30 @@
             this.chartOsdPhy.PaletteRepository.Add("Palette 1", new DevExpress.XtraCharts.Palette("Palette 1", DevExpress.XtraCharts.PaletteScaleMode.Repeat, new DevExpress.XtraCharts.PaletteEntry[] {
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Red, System.Drawing.Color.Red),
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Green, System.Drawing.Color.Green)}));
-            pieSeriesLabel1.BackColor = System.Drawing.Color.Transparent;
-            pieSeriesLabel1.Border.Color = System.Drawing.Color.Transparent;
-            pieSeriesLabel1.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            pieSeriesLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            pieSeriesLabel1.LineVisibility = DevExpress.Utils.DefaultBoolean.True;
-            pieSeriesLabel1.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Inside;
-            pieSeriesLabel1.TextColor = System.Drawing.Color.White;
-            pieSeriesLabel1.TextPattern = "{A}\n{V:#,0.0} Prs\n{VP:0.0%}\n";
-            series1.Label = pieSeriesLabel1;
-            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.Name = "Series 1";
-            pieSeriesView1.Animation = pieFlyInAnimation1;
-            pieSeriesView1.MinAllowedSizePercentage = 80D;
-            pieSeriesView1.Rotation = 90;
-            series1.View = pieSeriesView1;
+            pieSeriesLabel5.BackColor = System.Drawing.Color.Transparent;
+            pieSeriesLabel5.Border.Color = System.Drawing.Color.Transparent;
+            pieSeriesLabel5.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            pieSeriesLabel5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            pieSeriesLabel5.LineVisibility = DevExpress.Utils.DefaultBoolean.True;
+            pieSeriesLabel5.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Inside;
+            pieSeriesLabel5.TextColor = System.Drawing.Color.White;
+            pieSeriesLabel5.TextPattern = "{A}\n{V:#,0.0} Prs\n{VP:0.0%}\n";
+            series5.Label = pieSeriesLabel5;
+            series5.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series5.Name = "Series 1";
+            pieSeriesView5.Animation = pieFlyInAnimation3;
+            pieSeriesView5.MinAllowedSizePercentage = 80D;
+            pieSeriesView5.Rotation = 90;
+            series5.View = pieSeriesView5;
             this.chartOsdPhy.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
+        series5};
             this.chartOsdPhy.Size = new System.Drawing.Size(53, 57);
             this.chartOsdPhy.TabIndex = 7;
-            chartTitle1.Font = new System.Drawing.Font("Tahoma", 20F);
-            chartTitle1.Text = "Rubber";
-            chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            chartTitle3.Font = new System.Drawing.Font("Tahoma", 20F);
+            chartTitle3.Text = "Rubber";
+            chartTitle3.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartOsdPhy.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
+            chartTitle3});
             this.chartOsdPhy.Visible = false;
             // 
             // chartOsdCmp
@@ -1999,8 +2002,8 @@
             this.chartOsdCmp.BackColor = System.Drawing.Color.Transparent;
             this.chartOsdCmp.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartOsdCmp.DataBindings = null;
-            simpleDiagram2.LabelsResolveOverlappingMinIndent = -7;
-            this.chartOsdCmp.Diagram = simpleDiagram2;
+            simpleDiagram6.LabelsResolveOverlappingMinIndent = -7;
+            this.chartOsdCmp.Diagram = simpleDiagram6;
             this.chartOsdCmp.IndicatorsPaletteName = "Palette 1";
             this.chartOsdCmp.IndicatorsPaletteRepository.Add("Palette 1", new DevExpress.XtraCharts.Palette("Palette 1", DevExpress.XtraCharts.PaletteScaleMode.Repeat, new DevExpress.XtraCharts.PaletteEntry[] {
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Red, System.Drawing.Color.Red),
@@ -2016,30 +2019,30 @@
             this.chartOsdCmp.PaletteRepository.Add("Palette 1", new DevExpress.XtraCharts.Palette("Palette 1", DevExpress.XtraCharts.PaletteScaleMode.Repeat, new DevExpress.XtraCharts.PaletteEntry[] {
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Red, System.Drawing.Color.Red),
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Green, System.Drawing.Color.Green)}));
-            pieSeriesLabel2.BackColor = System.Drawing.Color.Transparent;
-            pieSeriesLabel2.Border.Color = System.Drawing.Color.Transparent;
-            pieSeriesLabel2.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            pieSeriesLabel2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            pieSeriesLabel2.LineVisibility = DevExpress.Utils.DefaultBoolean.True;
-            pieSeriesLabel2.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Inside;
-            pieSeriesLabel2.TextColor = System.Drawing.Color.White;
-            pieSeriesLabel2.TextPattern = "{A}\n{V:#,0.0} Prs\n{VP:0.0%}\n";
-            series2.Label = pieSeriesLabel2;
-            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series2.Name = "Series 1";
-            pieSeriesView2.Animation = pieFlyInAnimation2;
-            pieSeriesView2.MinAllowedSizePercentage = 80D;
-            pieSeriesView2.Rotation = 90;
-            series2.View = pieSeriesView2;
+            pieSeriesLabel6.BackColor = System.Drawing.Color.Transparent;
+            pieSeriesLabel6.Border.Color = System.Drawing.Color.Transparent;
+            pieSeriesLabel6.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            pieSeriesLabel6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            pieSeriesLabel6.LineVisibility = DevExpress.Utils.DefaultBoolean.True;
+            pieSeriesLabel6.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Inside;
+            pieSeriesLabel6.TextColor = System.Drawing.Color.White;
+            pieSeriesLabel6.TextPattern = "{A}\n{V:#,0.0} Prs\n{VP:0.0%}\n";
+            series6.Label = pieSeriesLabel6;
+            series6.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series6.Name = "Series 1";
+            pieSeriesView6.Animation = pieFlyInAnimation4;
+            pieSeriesView6.MinAllowedSizePercentage = 80D;
+            pieSeriesView6.Rotation = 90;
+            series6.View = pieSeriesView6;
             this.chartOsdCmp.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
+        series6};
             this.chartOsdCmp.Size = new System.Drawing.Size(78, 65);
             this.chartOsdCmp.TabIndex = 8;
-            chartTitle2.Font = new System.Drawing.Font("Tahoma", 20F);
-            chartTitle2.Text = "Rubber";
-            chartTitle2.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            chartTitle4.Font = new System.Drawing.Font("Tahoma", 20F);
+            chartTitle4.Text = "Rubber";
+            chartTitle4.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartOsdCmp.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle2});
+            chartTitle4});
             this.chartOsdCmp.Visible = false;
             // 
             // groupBoxEx7
@@ -2170,11 +2173,11 @@
             this.arcScale_ValPh.Name = "scale1";
             this.arcScale_ValPh.RadiusX = 75F;
             this.arcScale_ValPh.RadiusY = 75F;
-            arcScaleRange1.EndValue = 4F;
-            arcScaleRange1.Name = "Range0";
-            arcScaleRange1.ShapeOffset = 29F;
+            arcScaleRange9.EndValue = 4F;
+            arcScaleRange9.Name = "Range0";
+            arcScaleRange9.ShapeOffset = 29F;
             this.arcScale_ValPh.Ranges.AddRange(new DevExpress.XtraGauges.Core.Model.IRange[] {
-            arcScaleRange1});
+            arcScaleRange9});
             this.arcScale_ValPh.StartAngle = -225F;
             // 
             // lbl_ScalePh
@@ -2331,11 +2334,11 @@
             this.arcScale_ValCmp.Name = "scale1";
             this.arcScale_ValCmp.RadiusX = 75F;
             this.arcScale_ValCmp.RadiusY = 75F;
-            arcScaleRange2.EndValue = 4F;
-            arcScaleRange2.Name = "Range0";
-            arcScaleRange2.ShapeOffset = 29F;
+            arcScaleRange10.EndValue = 4F;
+            arcScaleRange10.Name = "Range0";
+            arcScaleRange10.ShapeOffset = 29F;
             this.arcScale_ValCmp.Ranges.AddRange(new DevExpress.XtraGauges.Core.Model.IRange[] {
-            arcScaleRange2});
+            arcScaleRange10});
             this.arcScale_ValCmp.StartAngle = -225F;
             // 
             // lbl_ScaleCmp
@@ -2546,27 +2549,27 @@
             this.arcScaleCompPhy.Name = "scale1";
             this.arcScaleCompPhy.RadiusX = 123.5F;
             this.arcScaleCompPhy.RadiusY = 123.5F;
-            arcScaleRange3.EndThickness = 12F;
-            arcScaleRange3.EndValue = 4F;
-            arcScaleRange3.Name = "Range0";
-            arcScaleRange3.ShapeOffset = -3F;
-            arcScaleRange3.StartThickness = 12F;
-            arcScaleRange4.EndThickness = 12F;
-            arcScaleRange4.EndValue = 7F;
-            arcScaleRange4.Name = "Range1";
-            arcScaleRange4.ShapeOffset = -3F;
-            arcScaleRange4.StartThickness = 12F;
-            arcScaleRange4.StartValue = 4F;
-            arcScaleRange5.EndThickness = 12F;
-            arcScaleRange5.EndValue = 10F;
-            arcScaleRange5.Name = "Range2";
-            arcScaleRange5.ShapeOffset = -4F;
-            arcScaleRange5.StartThickness = 12F;
-            arcScaleRange5.StartValue = 7F;
+            arcScaleRange11.EndThickness = 12F;
+            arcScaleRange11.EndValue = 4F;
+            arcScaleRange11.Name = "Range0";
+            arcScaleRange11.ShapeOffset = -3F;
+            arcScaleRange11.StartThickness = 12F;
+            arcScaleRange12.EndThickness = 12F;
+            arcScaleRange12.EndValue = 7F;
+            arcScaleRange12.Name = "Range1";
+            arcScaleRange12.ShapeOffset = -3F;
+            arcScaleRange12.StartThickness = 12F;
+            arcScaleRange12.StartValue = 4F;
+            arcScaleRange13.EndThickness = 12F;
+            arcScaleRange13.EndValue = 10F;
+            arcScaleRange13.Name = "Range2";
+            arcScaleRange13.ShapeOffset = -4F;
+            arcScaleRange13.StartThickness = 12F;
+            arcScaleRange13.StartValue = 7F;
             this.arcScaleCompPhy.Ranges.AddRange(new DevExpress.XtraGauges.Core.Model.IRange[] {
-            arcScaleRange3,
-            arcScaleRange4,
-            arcScaleRange5});
+            arcScaleRange11,
+            arcScaleRange12,
+            arcScaleRange13});
             this.arcScaleCompPhy.StartAngle = -210F;
             this.arcScaleCompPhy.Value = 6F;
             // 
@@ -2679,27 +2682,27 @@
             this.arcScaleCompCmp.Name = "scale1";
             this.arcScaleCompCmp.RadiusX = 123.5F;
             this.arcScaleCompCmp.RadiusY = 123.5F;
-            arcScaleRange6.EndThickness = 12F;
-            arcScaleRange6.EndValue = 4F;
-            arcScaleRange6.Name = "Range0";
-            arcScaleRange6.ShapeOffset = -3F;
-            arcScaleRange6.StartThickness = 12F;
-            arcScaleRange7.EndThickness = 12F;
-            arcScaleRange7.EndValue = 7F;
-            arcScaleRange7.Name = "Range1";
-            arcScaleRange7.ShapeOffset = -3F;
-            arcScaleRange7.StartThickness = 12F;
-            arcScaleRange7.StartValue = 4F;
-            arcScaleRange8.EndThickness = 12F;
-            arcScaleRange8.EndValue = 10F;
-            arcScaleRange8.Name = "Range2";
-            arcScaleRange8.ShapeOffset = -4F;
-            arcScaleRange8.StartThickness = 12F;
-            arcScaleRange8.StartValue = 7F;
+            arcScaleRange14.EndThickness = 12F;
+            arcScaleRange14.EndValue = 4F;
+            arcScaleRange14.Name = "Range0";
+            arcScaleRange14.ShapeOffset = -3F;
+            arcScaleRange14.StartThickness = 12F;
+            arcScaleRange15.EndThickness = 12F;
+            arcScaleRange15.EndValue = 7F;
+            arcScaleRange15.Name = "Range1";
+            arcScaleRange15.ShapeOffset = -3F;
+            arcScaleRange15.StartThickness = 12F;
+            arcScaleRange15.StartValue = 4F;
+            arcScaleRange16.EndThickness = 12F;
+            arcScaleRange16.EndValue = 10F;
+            arcScaleRange16.Name = "Range2";
+            arcScaleRange16.ShapeOffset = -4F;
+            arcScaleRange16.StartThickness = 12F;
+            arcScaleRange16.StartValue = 7F;
             this.arcScaleCompCmp.Ranges.AddRange(new DevExpress.XtraGauges.Core.Model.IRange[] {
-            arcScaleRange6,
-            arcScaleRange7,
-            arcScaleRange8});
+            arcScaleRange14,
+            arcScaleRange15,
+            arcScaleRange16});
             this.arcScaleCompCmp.StartAngle = -210F;
             this.arcScaleCompCmp.Value = 6F;
             // 
@@ -2847,8 +2850,8 @@
             this.chartHrPhy.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartHrPhy.CrosshairEnabled = DevExpress.Utils.DefaultBoolean.Default;
             this.chartHrPhy.DataBindings = null;
-            simpleDiagram3.LabelsResolveOverlappingMinIndent = 2;
-            this.chartHrPhy.Diagram = simpleDiagram3;
+            simpleDiagram7.LabelsResolveOverlappingMinIndent = 2;
+            this.chartHrPhy.Diagram = simpleDiagram7;
             this.chartHrPhy.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
             this.chartHrPhy.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
             this.chartHrPhy.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
@@ -2867,23 +2870,23 @@
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Yellow, System.Drawing.Color.Yellow),
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Red, System.Drawing.Color.Red),
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Green, System.Drawing.Color.Green)}));
-            pieSeriesLabel3.Border.Color = System.Drawing.Color.Black;
-            pieSeriesLabel3.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            pieSeriesLabel3.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Gradient;
-            pieSeriesLabel3.Font = new System.Drawing.Font("Calibri", 10.25F, System.Drawing.FontStyle.Bold);
-            pieSeriesLabel3.LineColor = System.Drawing.Color.Blue;
-            pieSeriesLabel3.LineStyle.Thickness = 2;
-            pieSeriesLabel3.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.TwoColumns;
-            pieSeriesLabel3.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.Default;
-            pieSeriesLabel3.TextColor = System.Drawing.Color.Black;
-            pieSeriesLabel3.TextPattern = "{V:#,0}\nPerson(s)\n{VP:0.0%}\n";
-            series3.Label = pieSeriesLabel3;
-            series3.Name = "Series 1";
-            pieSeriesView3.Animation = pieBurstAnimation1;
-            pieSeriesView3.Rotation = 90;
-            series3.View = pieSeriesView3;
+            pieSeriesLabel7.Border.Color = System.Drawing.Color.Black;
+            pieSeriesLabel7.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            pieSeriesLabel7.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Gradient;
+            pieSeriesLabel7.Font = new System.Drawing.Font("Calibri", 10.25F, System.Drawing.FontStyle.Bold);
+            pieSeriesLabel7.LineColor = System.Drawing.Color.Blue;
+            pieSeriesLabel7.LineStyle.Thickness = 2;
+            pieSeriesLabel7.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.TwoColumns;
+            pieSeriesLabel7.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.Default;
+            pieSeriesLabel7.TextColor = System.Drawing.Color.Black;
+            pieSeriesLabel7.TextPattern = "{V:#,0}\nPerson(s)\n{VP:0.0%}\n";
+            series7.Label = pieSeriesLabel7;
+            series7.Name = "Series 1";
+            pieSeriesView7.Animation = pieBurstAnimation3;
+            pieSeriesView7.Rotation = 90;
+            series7.View = pieSeriesView7;
             this.chartHrPhy.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series3};
+        series7};
             this.chartHrPhy.Size = new System.Drawing.Size(293, 330);
             this.chartHrPhy.TabIndex = 13;
             // 
@@ -2930,8 +2933,8 @@
             this.chartHrCmp.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartHrCmp.CrosshairEnabled = DevExpress.Utils.DefaultBoolean.Default;
             this.chartHrCmp.DataBindings = null;
-            simpleDiagram4.LabelsResolveOverlappingMinIndent = 2;
-            this.chartHrCmp.Diagram = simpleDiagram4;
+            simpleDiagram8.LabelsResolveOverlappingMinIndent = 2;
+            this.chartHrCmp.Diagram = simpleDiagram8;
             this.chartHrCmp.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
             this.chartHrCmp.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
             this.chartHrCmp.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
@@ -2950,23 +2953,23 @@
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Yellow, System.Drawing.Color.Yellow),
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Red, System.Drawing.Color.Red),
                 new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Green, System.Drawing.Color.Green)}));
-            pieSeriesLabel4.Border.Color = System.Drawing.Color.Black;
-            pieSeriesLabel4.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            pieSeriesLabel4.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Gradient;
-            pieSeriesLabel4.Font = new System.Drawing.Font("Calibri", 10.25F, System.Drawing.FontStyle.Bold);
-            pieSeriesLabel4.LineColor = System.Drawing.Color.Blue;
-            pieSeriesLabel4.LineStyle.Thickness = 2;
-            pieSeriesLabel4.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.TwoColumns;
-            pieSeriesLabel4.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.Default;
-            pieSeriesLabel4.TextColor = System.Drawing.Color.Black;
-            pieSeriesLabel4.TextPattern = "{V:#,0}\nPerson(s)\n{VP:0.0%}\n";
-            series4.Label = pieSeriesLabel4;
-            series4.Name = "Series 1";
-            pieSeriesView4.Animation = pieBurstAnimation2;
-            pieSeriesView4.Rotation = 90;
-            series4.View = pieSeriesView4;
+            pieSeriesLabel8.Border.Color = System.Drawing.Color.Black;
+            pieSeriesLabel8.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            pieSeriesLabel8.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Gradient;
+            pieSeriesLabel8.Font = new System.Drawing.Font("Calibri", 10.25F, System.Drawing.FontStyle.Bold);
+            pieSeriesLabel8.LineColor = System.Drawing.Color.Blue;
+            pieSeriesLabel8.LineStyle.Thickness = 2;
+            pieSeriesLabel8.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.TwoColumns;
+            pieSeriesLabel8.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.Default;
+            pieSeriesLabel8.TextColor = System.Drawing.Color.Black;
+            pieSeriesLabel8.TextPattern = "{V:#,0}\nPerson(s)\n{VP:0.0%}\n";
+            series8.Label = pieSeriesLabel8;
+            series8.Name = "Series 1";
+            pieSeriesView8.Animation = pieBurstAnimation4;
+            pieSeriesView8.Rotation = 90;
+            series8.View = pieSeriesView8;
             this.chartHrCmp.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series4};
+        series8};
             this.chartHrCmp.Size = new System.Drawing.Size(293, 330);
             this.chartHrCmp.TabIndex = 12;
             // 
@@ -3102,7 +3105,7 @@
             this.cmdPH1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdPH1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cmdPH1.ForeColor = System.Drawing.Color.Yellow;
-            this.cmdPH1.Location = new System.Drawing.Point(1021, 6);
+            this.cmdPH1.Location = new System.Drawing.Point(501, 8);
             this.cmdPH1.Name = "cmdPH1";
             this.cmdPH1.Size = new System.Drawing.Size(102, 94);
             this.cmdPH1.TabIndex = 688;
@@ -3119,7 +3122,7 @@
             this.cmdPH2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdPH2.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cmdPH2.ForeColor = System.Drawing.Color.Yellow;
-            this.cmdPH2.Location = new System.Drawing.Point(1127, 6);
+            this.cmdPH2.Location = new System.Drawing.Point(607, 8);
             this.cmdPH2.Name = "cmdPH2";
             this.cmdPH2.Size = new System.Drawing.Size(102, 94);
             this.cmdPH2.TabIndex = 689;
@@ -3169,6 +3172,22 @@
             this.pictureBox1.Size = new System.Drawing.Size(465, 379);
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
+            // 
+            // cmdUV
+            // 
+            this.cmdUV.BackgroundImage = global::Smart_FTY.Properties.Resources.BtnMainG;
+            this.cmdUV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdUV.FlatAppearance.BorderSize = 0;
+            this.cmdUV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdUV.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
+            this.cmdUV.ForeColor = System.Drawing.Color.Yellow;
+            this.cmdUV.Location = new System.Drawing.Point(1125, 7);
+            this.cmdUV.Name = "cmdUV";
+            this.cmdUV.Size = new System.Drawing.Size(102, 94);
+            this.cmdUV.TabIndex = 690;
+            this.cmdUV.Text = "UV";
+            this.cmdUV.UseVisualStyleBackColor = true;
+            this.cmdUV.Click += new System.EventHandler(this.cmdUV_Click);
             // 
             // Form_Home_Phylon
             // 
@@ -3227,15 +3246,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleRangeBarComponent2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcProdRub)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartOsdPhy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartOsdCmp)).EndInit();
             this.groupBoxEx7.ResumeLayout(false);
             this.groupBoxEx7.PerformLayout();
@@ -3272,17 +3291,17 @@
             this.panel2.PerformLayout();
             this.groupBoxEx8.ResumeLayout(false);
             this.groupBoxEx8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartHrPhy)).EndInit();
             this.groupBoxEx9.ResumeLayout(false);
             this.groupBoxEx9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartHrCmp)).EndInit();
             this.panel1.ResumeLayout(false);
             this.pnForm.ResumeLayout(false);
@@ -3481,5 +3500,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private DevExpress.XtraEditors.SimpleButton btnTOPO;
+        private System.Windows.Forms.Button cmdUV;
     }
 }
