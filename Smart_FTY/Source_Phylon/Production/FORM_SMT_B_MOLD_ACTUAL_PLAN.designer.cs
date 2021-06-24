@@ -52,7 +52,6 @@
             this.lblPH1 = new System.Windows.Forms.Label();
             this.lblCMP2 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.axGrid = new AxFPSpreadADO.AxfpSpread();
             this.dtpDate = new DevExpress.XtraEditors.DateEdit();
             this.pnShift = new System.Windows.Forms.Panel();
             this.lbl_dif3 = new System.Windows.Forms.Label();
@@ -61,16 +60,28 @@
             this.lbl_Shift2 = new System.Windows.Forms.Label();
             this.lbl_Shift1 = new System.Windows.Forms.Label();
             this.lbl_Shift3 = new System.Windows.Forms.Label();
+            this.lbl_Dif = new System.Windows.Forms.Label();
+            this.axGrid = new AxFPSpreadADO.AxfpSpread();
             this.pnHeader.SuspendLayout();
             this.pnButton.SuspendLayout();
             this.pnFormType.SuspendLayout();
             this.pn2.SuspendLayout();
             this.pn1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDate.Properties)).BeginInit();
             this.pnShift.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axGrid)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pnHeader
+            // 
+            this.pnHeader.Controls.Add(this.lbl_Dif);
+            this.pnHeader.Controls.SetChildIndex(this.lblDate, 0);
+            this.pnHeader.Controls.SetChildIndex(this.pnButton, 0);
+            this.pnHeader.Controls.SetChildIndex(this.cmdBack, 0);
+            this.pnHeader.Controls.SetChildIndex(this.lblShift, 0);
+            this.pnHeader.Controls.SetChildIndex(this.lblTitle, 0);
+            this.pnHeader.Controls.SetChildIndex(this.lbl_Dif, 0);
             // 
             // lblDate
             // 
@@ -100,6 +111,10 @@
             // 
             this.cmdBack.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.cmdBack.FlatAppearance.BorderSize = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Size = new System.Drawing.Size(668, 106);
             // 
             // pnFormType
             // 
@@ -257,18 +272,6 @@
             this.label2.Text = "PHYLON";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // axGrid
-            // 
-            this.axGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.axGrid.DataSource = null;
-            this.axGrid.Location = new System.Drawing.Point(5, 216);
-            this.axGrid.Name = "axGrid";
-            this.axGrid.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axGrid.OcxState")));
-            this.axGrid.Size = new System.Drawing.Size(1910, 851);
-            this.axGrid.TabIndex = 660;
-            this.axGrid.BeforeEditMode += new AxFPSpreadADO._DSpreadEvents_BeforeEditModeEventHandler(this.axGrid_BeforeEditMode);
-            // 
             // dtpDate
             // 
             this.dtpDate.Cursor = System.Windows.Forms.Cursors.Default;
@@ -361,7 +364,6 @@
             this.lbl_dif3.Name = "lbl_dif3";
             this.lbl_dif3.Size = new System.Drawing.Size(203, 31);
             this.lbl_dif3.TabIndex = 713;
-            this.lbl_dif3.Text = "Difference Plan";
             this.lbl_dif3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbl_dif2
@@ -373,7 +375,6 @@
             this.lbl_dif2.Name = "lbl_dif2";
             this.lbl_dif2.Size = new System.Drawing.Size(203, 31);
             this.lbl_dif2.TabIndex = 712;
-            this.lbl_dif2.Text = "Difference Plan";
             this.lbl_dif2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbl_dif1
@@ -385,7 +386,6 @@
             this.lbl_dif1.Name = "lbl_dif1";
             this.lbl_dif1.Size = new System.Drawing.Size(203, 31);
             this.lbl_dif1.TabIndex = 711;
-            this.lbl_dif1.Text = "Difference Plan";
             this.lbl_dif1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbl_Shift2
@@ -430,6 +430,30 @@
             this.lbl_Shift3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_Shift3.Click += new System.EventHandler(this.lbl_Shift_Click);
             // 
+            // lbl_Dif
+            // 
+            this.lbl_Dif.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Dif.Font = new System.Drawing.Font("Calibri", 24.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_Dif.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_Dif.Location = new System.Drawing.Point(620, 30);
+            this.lbl_Dif.Name = "lbl_Dif";
+            this.lbl_Dif.Size = new System.Drawing.Size(525, 74);
+            this.lbl_Dif.TabIndex = 712;
+            this.lbl_Dif.Text = "Shift 1 (Area A, B, C): 25%";
+            this.lbl_Dif.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // axGrid
+            // 
+            this.axGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.axGrid.DataSource = null;
+            this.axGrid.Location = new System.Drawing.Point(5, 216);
+            this.axGrid.Name = "axGrid";
+            this.axGrid.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axGrid.OcxState")));
+            this.axGrid.Size = new System.Drawing.Size(1910, 851);
+            this.axGrid.TabIndex = 660;
+            this.axGrid.BeforeEditMode += new AxFPSpreadADO._DSpreadEvents_BeforeEditModeEventHandler(this.axGrid_BeforeEditMode);
+            // 
             // FORM_SMT_B_MOLD_ACTUAL_PLAN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,10 +497,10 @@
             this.pnFormType.ResumeLayout(false);
             this.pn2.ResumeLayout(false);
             this.pn1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDate.Properties)).EndInit();
             this.pnShift.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -504,5 +528,6 @@
         private System.Windows.Forms.Label lbl_dif3;
         private System.Windows.Forms.Label lbl_dif2;
         private System.Windows.Forms.Label lbl_dif1;
+        private System.Windows.Forms.Label lbl_Dif;
     }
 }

@@ -41,6 +41,7 @@ namespace Smart_FTY
         DataTable _dt_layout_PH1 = null;
         DataTable _dt_layout_PH2 = null;
         DataTable _dt_layout_PH3 = null;
+        DataTable _dtData = null;
         int iQtyDiff = 0;
 
         bool _loadDif = false;
@@ -118,6 +119,8 @@ namespace Smart_FTY
                 //    iColWidth = 9.8;
                 //    iFontSize = 15;
                 //}
+                axGrid.MaxRows = 1;
+                axGrid.MaxRows = 200;
 
                 axGrid.Reset();
                 axGrid.DisplayColHeaders = false;
@@ -145,8 +148,8 @@ namespace Smart_FTY
 
 
                 //  axGrid.SetCellBorder((int)G.S1_M1_L_Tar, 1, (int)G.S3_M2_R_Cur, axGrid.MaxRows, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexOutline, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleBlank);
-
-                for (int irow = 2; irow <= 50; irow++)
+                
+                for (int irow = 2; irow <= 70; irow++)
                     axGrid.set_RowHeight(irow, iRowHeight);
 
                 for (int icol = 2; icol <= 150; icol++)
@@ -580,14 +583,17 @@ namespace Smart_FTY
                 int icol = col_s;
                 int iColMax = icol;
                 int irow1 = 3 + Convert.ToInt32(arg_dt2.Rows[0]["MOLD_CD"].ToString());
-                int irow2 = 3 + irow1 + Convert.ToInt32(arg_dt2.Rows[1]["MOLD_CD"].ToString());
+                int irow2 = 3 + irow1 + Convert.ToInt32(arg_dt2.Rows[1]["MOLD_CD"].ToString()) + 1;
                 int irow3 = 3 + Convert.ToInt32(arg_dt2.Rows[2]["MOLD_CD"].ToString());
                 int irow4 = 3 + Convert.ToInt32(arg_dt2.Rows[3]["MOLD_CD"].ToString());
                 int irow5 = 3 + irow4 + Convert.ToInt32(arg_dt2.Rows[4]["MOLD_CD"].ToString());
                 int irow6 = 3 + irow5 + Convert.ToInt32(arg_dt2.Rows[5]["MOLD_CD"].ToString());
 
+                
                 if (_status == "PH3")
                     arg_grid.MaxRows = irow6 + 3;
+                else if (_status == "PH1")
+                    arg_grid.MaxRows = irow2 + 3;
                 else
                     arg_grid.MaxRows = irow5 + 3;
                 MachineHeadPH1(icol, irow, 0, arg_dt, arg_grid);
@@ -906,7 +912,7 @@ namespace Smart_FTY
             } 
         }
 
-        private void SetTextDifPH(DataTable dtShift, Label lbl_dif)
+        private void SetTextDifPH(DataTable dtShift, Label lbl_dif, string text = "")
         {
             try
             {
@@ -918,7 +924,7 @@ namespace Smart_FTY
                 double iPlan, iDiff;
                 double.TryParse(dtShift.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
                 double.TryParse(dtShift.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
-                lbl_dif.Text = Math.Round(iDiff / iPlan * 100, 1) + "%";
+                lbl_dif.Text = text + Math.Round(iDiff / iPlan * 100, 1) + "%";
             }
             catch (Exception ex)
             {
@@ -1142,27 +1148,35 @@ namespace Smart_FTY
                 this.axGrid.Hide();
                 DataTable dt = null;
                 DataTable dt2 = null;
-                // System.Data.DataSet ds = SEL_APS_PLAN_ACTUAL_ROW();
+                // System.Da.DataSet ds = SEL_APS_PLAN_ACTUAL_ROW();
                 //  DataTable _dt_row = ds.Tables[0];
-                dt2 = SEL_APS_PLAN_ACTUAL_ROW("70_1");
+               // dt2 = SEL_APS_PLAN_ACTUAL_ROW("70_1");
+                if (_status != "CMP")
+                {
+                    _dtData = SEL_APS_PLAN_ACTUAL("70", _shift);
+                    dt2 = GetDataRow(_dtData);
+                    SetTextDifPH(_dtData, lbl_Dif, "Shift " + _shift + "( Area A, B, C): ");
+                }
+                    
 
 
                 if (_status == "PH1")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_1", _shift);
+                    dt = _dtData.Select("PLANT_NAME = 'PLANT A'", "ZONE_CD, LINE_SEQ, ORD1, ORD2").CopyToDataTable();
+                    
+                   // dt = SEL_APS_PLAN_ACTUAL("70_1", _shift);
                     //_dt_row = SEL_APS_PLAN_ACTUAL_ROW("70_1");
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH1 = dt;
                     _dt_row = dt2;
-
-
 
                     this.axGrid.Hide();
                     DisplayGridPH1(_dt_layout_PH1, _dt_row, axGrid);
                 }
                 else if (_status == "PH2")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_2",_shift);
+                    //dt = SEL_APS_PLAN_ACTUAL("70_2",_shift);
+                    dt = _dtData.Select("PLANT_NAME = 'PLANT B'", "ZONE_CD, LINE_SEQ, ORD1, ORD2").CopyToDataTable();
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH2 = dt;
 
@@ -1170,7 +1184,8 @@ namespace Smart_FTY
                 }
                 else if (_status == "PH3")
                 {
-                    dt = SEL_APS_PLAN_ACTUAL("70_3", _shift);
+                    //dt = SEL_APS_PLAN_ACTUAL("70_3", _shift);
+                    dt = _dtData.Select("PLANT_NAME = 'PLANT C'", "ZONE_CD, LINE_SEQ, ORD1, ORD2").CopyToDataTable();
                     if (dt != null && dt.Rows.Count > 0)
                         _dt_layout_PH3 = dt;
 
@@ -1203,6 +1218,57 @@ namespace Smart_FTY
             {
                 this.Cursor = Cursors.Default;
                 this.axGrid.Show();
+            }
+        }
+
+        private DataTable GetDataRow(DataTable argDt)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt.Clear();
+                dt.Columns.Add("ZONE_CD");
+                dt.Columns.Add("MOLD_CD");
+                Dictionary<string, int>[] dtnData = new Dictionary<string, int>[6];
+                dtnData[0] = new Dictionary<string, int>();
+                dtnData[1] = new Dictionary<string, int>();
+                dtnData[2] = new Dictionary<string, int>();
+                dtnData[3] = new Dictionary<string, int>();
+                dtnData[4] = new Dictionary<string, int>();
+                dtnData[5] = new Dictionary<string, int>();
+                int zone = 0;
+
+                foreach (DataRow row in argDt.Rows)
+                {
+                    string key = row["MACHINE_NAME"].ToString();
+                    int.TryParse(row["ZONE_CD"].ToString(), out zone);
+
+                    zone -= 1;
+                    
+                    if (dtnData[zone].ContainsKey(key))
+                    {
+                        dtnData[zone][key] += 1;
+                    }
+                    else
+                    {
+                        dtnData[zone][key] = 1;
+                    }
+                }
+                for (int i= 0; i < 6;i ++)
+                {
+                    DataRow rowDt = dt.NewRow();
+                    rowDt["ZONE_CD"] = (i+1).ToString("000");
+                    rowDt["MOLD_CD"] = dtnData[i].Values.Max();
+                    dt.Rows.Add(rowDt);
+                }
+              
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
 
@@ -1326,6 +1392,7 @@ namespace Smart_FTY
                 if (_time >= 60)
                 {
                     _loadDif = false;
+                   // _dtData = SEL_APS_PLAN_ACTUAL("70", _shift);
                     loaddata(true);
 
                     _time = 0;
@@ -1378,7 +1445,7 @@ namespace Smart_FTY
                     dtpDate.EditValue = DateTime.Now;
 
                     _time = 0;
-
+                    
                     if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
                     {
                         lbl_Shift_Click(lbl_Shift2, null);

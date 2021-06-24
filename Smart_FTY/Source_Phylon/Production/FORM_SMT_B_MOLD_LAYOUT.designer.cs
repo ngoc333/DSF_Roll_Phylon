@@ -478,7 +478,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.panel6.Location = new System.Drawing.Point(602, 59);
+            this.panel6.Location = new System.Drawing.Point(602, 75);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(54, 23);
             this.panel6.TabIndex = 707;
@@ -489,7 +489,7 @@
             this.lblNoUse.BackColor = System.Drawing.Color.Turquoise;
             this.lblNoUse.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.lblNoUse.ForeColor = System.Drawing.Color.White;
-            this.lblNoUse.Location = new System.Drawing.Point(663, 56);
+            this.lblNoUse.Location = new System.Drawing.Point(663, 72);
             this.lblNoUse.Name = "lblNoUse";
             this.lblNoUse.Size = new System.Drawing.Size(70, 23);
             this.lblNoUse.TabIndex = 706;
@@ -498,7 +498,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Yellow;
-            this.panel5.Location = new System.Drawing.Point(602, 83);
+            this.panel5.Location = new System.Drawing.Point(870, 39);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(54, 23);
             this.panel5.TabIndex = 705;
@@ -509,7 +509,7 @@
             this.lblMoldChange.BackColor = System.Drawing.Color.Turquoise;
             this.lblMoldChange.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.lblMoldChange.ForeColor = System.Drawing.Color.White;
-            this.lblMoldChange.Location = new System.Drawing.Point(664, 82);
+            this.lblMoldChange.Location = new System.Drawing.Point(932, 38);
             this.lblMoldChange.Name = "lblMoldChange";
             this.lblMoldChange.Size = new System.Drawing.Size(132, 23);
             this.lblMoldChange.TabIndex = 704;
@@ -518,29 +518,27 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Red;
-            this.panel2.Location = new System.Drawing.Point(941, 43);
+            this.panel2.Location = new System.Drawing.Point(872, 72);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(54, 26);
             this.panel2.TabIndex = 703;
-            this.panel2.Visible = false;
             // 
             // lblNoPlan
             // 
             this.lblNoPlan.AutoSize = true;
             this.lblNoPlan.BackColor = System.Drawing.Color.Turquoise;
-            this.lblNoPlan.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoPlan.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.lblNoPlan.ForeColor = System.Drawing.Color.White;
-            this.lblNoPlan.Location = new System.Drawing.Point(1001, 37);
+            this.lblNoPlan.Location = new System.Drawing.Point(932, 75);
             this.lblNoPlan.Name = "lblNoPlan";
-            this.lblNoPlan.Size = new System.Drawing.Size(116, 33);
+            this.lblNoPlan.Size = new System.Drawing.Size(83, 23);
             this.lblNoPlan.TabIndex = 702;
             this.lblNoPlan.Text = "NO PLAN";
-            this.lblNoPlan.Visible = false;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Lime;
-            this.panel3.Location = new System.Drawing.Point(602, 34);
+            this.panel3.Location = new System.Drawing.Point(602, 41);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(54, 23);
             this.panel3.TabIndex = 701;
@@ -551,7 +549,7 @@
             this.lblPlan.BackColor = System.Drawing.Color.Turquoise;
             this.lblPlan.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.lblPlan.ForeColor = System.Drawing.Color.White;
-            this.lblPlan.Location = new System.Drawing.Point(662, 31);
+            this.lblPlan.Location = new System.Drawing.Point(662, 38);
             this.lblPlan.Name = "lblPlan";
             this.lblPlan.Size = new System.Drawing.Size(53, 23);
             this.lblPlan.TabIndex = 700;
