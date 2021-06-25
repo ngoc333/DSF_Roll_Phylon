@@ -554,7 +554,7 @@ namespace Smart_FTY
                             dtf = dtSource.Copy();
                             dtf.Rows.RemoveAt(0);
                             grdBase.DataSource = dtf;
-
+                            
 
                             lbl_Plan.Text = "A. Shift Plan: " + (dtSource.Rows[0]["T_PLAN"] == null ? "0" : double.Parse(dt_main.Rows[0]["T_PLAN"].ToString()).ToString("#,0.#"));
                             lbl_Rplan.Text = "A. R.Plan: " + (dtSource.Rows[0]["T_RPLAN"] == null ? "0" : double.Parse(dt_main.Rows[0]["T_RPLAN"].ToString()).ToString("#,0.#"));

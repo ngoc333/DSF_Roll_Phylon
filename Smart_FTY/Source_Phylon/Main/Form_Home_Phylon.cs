@@ -27,7 +27,7 @@ namespace Smart_FTY
         static extern IntPtr FindWindow(IntPtr ZeroOnly, string lpWindowName);
         [DllImport("user32.dll")]
         public static extern void SwitchToThisWindow(IntPtr hWnd, bool turnon);
-
+        Process pPU_WS = new Process();
         public Form_Home_Phylon( )
         {
             InitializeComponent();
@@ -1080,7 +1080,9 @@ namespace Smart_FTY
         {
             try
             {
+                Application.Exit();
                 _procCMP.Kill();
+                
             }
             catch 
             {}
@@ -1153,21 +1155,27 @@ namespace Smart_FTY
             this.pictureBox1.Visible = false;
         }
 
+        private void cmdUV_Click(object sender, EventArgs e)
+        {
 
-       
-       
+            string patch = Application.StartupPath + "\\UV_WS\\Debug\\UV.exe";
+            try
+            {
+                if (!ProgramIsRunning(patch))
+                {
+                    pPU_WS = Process.Start(patch);
+                }
+                else
+                {
+                    // System.Diagnostics.Process result = System.Diagnostics.Process.GetProcessesByName("MoldPU").FirstOrDefault();
+                    //SwitchToThisWindow(pPU_WS.MainWindowHandle, false);
+                    //  ShowWindow(pPU_WS.MainWindowHandle, 3);
+                }
+            }
+            catch
+            {
 
-        
-
-        
-
-        
-
-        
-
-
-
-
-
+            }
+        }
     }
 }
