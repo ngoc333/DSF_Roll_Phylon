@@ -166,8 +166,10 @@ namespace Smart_FTY
                     pnFormType.Visible = false;
                     break;
             }
-
-            lblCMP_Click(null, null);
+            if (this.Name == "FORM_SMT_B_MOLD_LAYOUT")
+                lblPhylon_Click(null, null);
+            else
+                lblCMP_Click(null, null);
 
             if (Form_Home_Phylon.Form_Type.ContainsKey(this.Name))
             {

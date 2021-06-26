@@ -118,8 +118,8 @@
             // 
             // lblDate
             // 
-            this.lblDate.Size = new System.Drawing.Size(361, 106);
-            this.lblDate.Text = "2019-09-17\n15:05:21";
+            this.lblDate.Size = new System.Drawing.Size(255, 106);
+            this.lblDate.Text = "2021-06-26\n07:57:31";
             // 
             // cmdYear
             // 
@@ -170,7 +170,7 @@
             // lblShift
             // 
             this.lblShift.Size = new System.Drawing.Size(413, 53);
-            this.lblShift.Text = "Shift 2 (14:00 ~ 22:00)";
+            this.lblShift.Text = "Shift 1 (06:00 ~ 14:00)";
             // 
             // splMain
             // 
@@ -645,7 +645,6 @@
             // 
             // tmrLoad
             // 
-            this.tmrLoad.Enabled = true;
             this.tmrLoad.Interval = 1000;
             this.tmrLoad.Tick += new System.EventHandler(this.tmrLoad_Tick);
             // 

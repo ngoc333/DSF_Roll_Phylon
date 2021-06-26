@@ -28,7 +28,7 @@ namespace Smart_FTY
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
 
-            initForm(argType);
+           // initForm(argType);
         }
 
         public FORM_SMT_B_MOLD_LAYOUT()
@@ -36,6 +36,7 @@ namespace Smart_FTY
             // TODO: Complete member initialization
         }
         int _iPlan = 0, _iNoPlan = 0, _iNoUse = 0, _iMoldChange = 0;
+        string _shift = "1";
 
         #region Init
         DataTable _dt_layout = null;
@@ -82,7 +83,7 @@ namespace Smart_FTY
                 pnFormType.Visible = false;
                 this.Text = "Mold2";
                 _load_form = false;
-                lblPH1_Click(null, null);
+                lblCMP_Click(null, null);
                 pnHeader.BackColor = Color.RoyalBlue;
             }
             
@@ -666,26 +667,29 @@ namespace Smart_FTY
 
             try
             {
-                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_PRODUCTION_LAYOUT_PH";
+                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_PROD_LAYOUT_PH";
 
-                MyOraDB.ReDim_Parameter(4);
+                MyOraDB.ReDim_Parameter(5);
                 MyOraDB.Process_Name = process_name;
 
 
                 MyOraDB.Parameter_Name[0] = "ARG_WH";
                 MyOraDB.Parameter_Name[1] = "ARG_TYPE";
-                MyOraDB.Parameter_Name[2] = "ARG_NO";
-                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[2] = "ARG_DATE";
+                MyOraDB.Parameter_Name[3] = "ARG_SHIFT";
+                MyOraDB.Parameter_Name[4] = "OUT_CURSOR";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
 
                 MyOraDB.Parameter_Values[0] = WH;
                 MyOraDB.Parameter_Values[1] = TYPE;
-                MyOraDB.Parameter_Values[2] = NO;
-                MyOraDB.Parameter_Values[3] = "";
+                MyOraDB.Parameter_Values[2] = dtpDate.DateTime.ToString("yyyyMMdd");
+                MyOraDB.Parameter_Values[3] = _shift;
+                MyOraDB.Parameter_Values[4] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
                 ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -969,7 +973,7 @@ namespace Smart_FTY
 
 
                     
-                    DisplayGridPH1(_dt_layout_PH1, axGrid);
+                    DisplayGridPH1(dt, axGrid);
                     lblPlan.Text = "Plan: " + _iPlan.ToString() + " Set";
                     lblNoPlan.Text = "No Plan: " +  _iNoPlan.ToString() + " Set";
                     lblNoUse.Text = "No Use: " + _iNoUse.ToString() + " Set";
@@ -1246,20 +1250,26 @@ namespace Smart_FTY
 
             try
             {
-                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_PRODUCTION_LAYOUT";
+                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_PROD_LAYOUT_SHIFT";
 
-                MyOraDB.ReDim_Parameter(2);
+                MyOraDB.ReDim_Parameter(4);
                 MyOraDB.Process_Name = process_name;
 
  
                 MyOraDB.Parameter_Name[0] = "ARG_WH_CD";
-                MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[1] = "ARG_DATE";
+                MyOraDB.Parameter_Name[2] = "ARG_SHIFT";
+                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[1] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
 
                 MyOraDB.Parameter_Values[0] = arg_wh;
-                MyOraDB.Parameter_Values[1] = "";
+                MyOraDB.Parameter_Values[1] = dtpDate.DateTime.ToString("yyyyMMdd");
+                MyOraDB.Parameter_Values[2] = _shift;
+                MyOraDB.Parameter_Values[3] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
                 ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -1317,7 +1327,7 @@ namespace Smart_FTY
 
                 if (_time >= _time_load)
                 {
-                    //loaddata(true);
+                    loaddata(true);
                     _time = 0;
                 }
 
@@ -1357,13 +1367,16 @@ namespace Smart_FTY
             {
                 if (this.Visible)
                 {
+                    dtpDate.EditValue = DateTime.Now;
                     tmrTime.Start();
                     _time_auto = 10;
+                    
                     if (_load_form)
                     {
                         timer1.Start();
-
+                        LoadShift();
                         lblCMP_Click(null, null);
+                       // 
                         _load_form = false;
                     }                 
                 }
@@ -1997,7 +2010,60 @@ namespace Smart_FTY
             _time = 0;
         }
 
-    
+        private void LoadShift()
+        {
+            if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
+            {
+                lbl_Shift_Click(lbl_Shift2, null);
+            }
+            else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
+            {
+                lbl_Shift_Click(lbl_Shift1, null);
+            }
+            else
+            {
+                lbl_Shift_Click(lbl_Shift3, null);
+            }
+        }
+
+        private void lbl_Shift_Click(object sender, EventArgs e)
+        {
+            Control cmd = (Control)sender;
+            foreach (Control ctr in pnShift.Controls)
+            {
+                if (!ctr.Name.Contains("lbl_Shift")) continue;
+                if (ctr.Name == cmd.Name)
+                {
+                    cmd.BackColor = Color.DodgerBlue;
+                    cmd.ForeColor = Color.White;
+                    _shift = cmd.Tag.ToString();
+                    
+                    if (!_load_form)
+                    {
+          
+                        loaddata(true);
+                    }
+
+                    _time = 0;
+                }
+                else
+                {
+                    ctr.BackColor = Color.Gray;
+                    ctr.ForeColor = Color.White;
+                }
+            }
+
+
+
+
+        }
+
+        private void dtpDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (_load_form) return;
+            loaddata(true);
+            _time = 0;
+        }
 
 
 

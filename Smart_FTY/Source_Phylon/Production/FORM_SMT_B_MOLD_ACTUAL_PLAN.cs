@@ -865,9 +865,10 @@ namespace Smart_FTY
         private void SetTextPH(DataTable arg_dt)
         {
             double iPlan, iDiff;
-            double.TryParse(arg_dt.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
-            double.TryParse(arg_dt.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
-            lbl_Plan.Text = "Total Plan: " + iPlan.ToString("###,###");
+            double.TryParse(_dtData.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
+            double.TryParse(_dtData.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
+
+            lbl_Plan.Text = "Total Plan: " + Convert.ToInt32(arg_dt.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'")).ToString("###,###");
             lbl_Actual.Text = "Total Actual: " + Convert.ToInt32(arg_dt.Compute("Sum(QTY_ACT)", "MOLD_CD <> 'TOTAL'")).ToString("###,###");
 
             if (_shift == "1")
@@ -888,26 +889,26 @@ namespace Smart_FTY
 
             if (_shift == "1")
             {
-                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "2");
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("70", "2");
                 SetTextDifPH(dtShif2, lbl_dif2);
 
-                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "3");
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("70", "3");
                 SetTextDifPH(dtShif3, lbl_dif3);
             }
             else if (_shift == "2")
             {
-                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "1");
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("70", "1");
                 SetTextDifPH(dtShif1, lbl_dif1);
 
-                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "3");
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("70" + _status.Substring(2, 1), "3");
                 SetTextDifPH(dtShif3, lbl_dif3);
             }
             else
             {
-                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2,1), "2");
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("70", "2");
                 SetTextDifPH(dtShif2, lbl_dif2);
 
-                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("70_" + _status.Substring(2, 1), "1");
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("70", "1");
                 SetTextDifPH(dtShif1, lbl_dif1);
             } 
         }
@@ -925,6 +926,27 @@ namespace Smart_FTY
                 double.TryParse(dtShift.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
                 double.TryParse(dtShift.Compute("Sum(ABS)", "MOLD_CD <> 'TOTAL'").ToString(), out iDiff);
                 lbl_dif.Text = text + Math.Round(iDiff / iPlan * 100, 1) + "%";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        private void SetTextPlanActualQty(DataTable dtShift, Label lbl_dif)
+        {
+            try
+            {
+                if (dtShift == null || dtShift.Rows.Count == 0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                double iPlan, iActual;
+                double.TryParse(dtShift.Compute("Sum(QTY_TAR)", "MOLD_CD <> 'TOTAL'").ToString(), out iPlan);
+                double.TryParse(dtShift.Compute("Sum(QTY_ACT)", "MOLD_CD <> 'TOTAL'").ToString(), out iActual);
+                lbl_dif.Text = "Total Plan     : " + iPlan.ToString("#,#") + "\nTotal Actual : " + iActual.ToString("#,#");
+                              
             }
             catch (Exception ex)
             {
@@ -1155,7 +1177,8 @@ namespace Smart_FTY
                 {
                     _dtData = SEL_APS_PLAN_ACTUAL("70", _shift);
                     dt2 = GetDataRow(_dtData);
-                    SetTextDifPH(_dtData, lbl_Dif, "Shift " + _shift + "( Area A, B, C): ");
+                    SetTextPlanActualQty(_dtData, lbl_Dif);
+                    
                 }
                     
 
@@ -1537,6 +1560,7 @@ namespace Smart_FTY
             Form_Home_Phylon._type = "PH";
             _status = "PH1";
             _loadDif = true;
+            
             loaddata(true);
             lblTitle.Text = "Phylon APS Plan && Actual ";
 
@@ -1547,6 +1571,7 @@ namespace Smart_FTY
             lblPH1.Visible = false;
             lblPH3.Visible = false;
             lblPH2.Visible = false;
+            lbl_Dif.Visible = false;
             Form_Home_Phylon._type = "CMP";
             _status = "CMP";
             _loadDif = true;

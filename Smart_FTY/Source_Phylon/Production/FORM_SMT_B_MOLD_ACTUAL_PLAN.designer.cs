@@ -435,12 +435,10 @@
             this.lbl_Dif.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Dif.Font = new System.Drawing.Font("Calibri", 24.75F, System.Drawing.FontStyle.Bold);
             this.lbl_Dif.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_Dif.Location = new System.Drawing.Point(620, 30);
+            this.lbl_Dif.Location = new System.Drawing.Point(652, 9);
             this.lbl_Dif.Name = "lbl_Dif";
-            this.lbl_Dif.Size = new System.Drawing.Size(525, 74);
+            this.lbl_Dif.Size = new System.Drawing.Size(485, 90);
             this.lbl_Dif.TabIndex = 712;
-            this.lbl_Dif.Text = "Shift 1 (Area A, B, C): 25%";
-            this.lbl_Dif.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // axGrid
             // 
